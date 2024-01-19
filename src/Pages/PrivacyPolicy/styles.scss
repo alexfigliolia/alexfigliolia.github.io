@@ -1,0 +1,9 @@
+@import "Styles/variables.scss";
+
+.page.privacy {
+	@include center;
+	&>div {
+		@include center;
+		flex-direction: column;
+	}
+}

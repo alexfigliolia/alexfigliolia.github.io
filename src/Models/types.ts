@@ -17,6 +17,10 @@ export interface IWork {
   index: number;
 }
 
+export interface IPrivacy {
+  open: boolean;
+}
+
 export interface IMenu {
   menuOpen: boolean;
   buttonDelay: number;

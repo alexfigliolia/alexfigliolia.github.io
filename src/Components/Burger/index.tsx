@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import type { IMenu } from "Models/types";
-import { Menu, connectMenu } from "State/Menu";
+import type { ReactiveStates } from "@figliolia/react-galena";
+import { Menu } from "State/Menu";
+import { connectMenuAndPrivacy } from "State/Connections";
+import { Privacy } from "State/Privacy";
 import "./styles.scss";
 
 class BurgerButton extends Component<Props> {
@@ -9,19 +11,26 @@ class BurgerButton extends Component<Props> {
     this.toggle = this.toggle.bind(this);
   }
 
-  public override shouldComponentUpdate({ menuOpen }: Props) {
-    return menuOpen !== this.props.menuOpen;
+  public override shouldComponentUpdate({ menuOpen, policyOpen }: Props) {
+    if (menuOpen !== this.props.menuOpen) return true;
+    if (policyOpen !== this.props.policyOpen) return true;
+    return false;
   }
 
   private toggle() {
+    if (this.props.policyOpen) {
+      return Privacy.toggle();
+    }
     Menu.toggle();
   }
 
   override render() {
-    const { menuOpen } = this.props;
+    const { menuOpen, policyOpen } = this.props;
     return (
       <button
-        className={`burger ${menuOpen ? " open" : ""}`}
+        className={`burger ${menuOpen ? " open" : ""} ${
+          policyOpen ? "policy" : ""
+        }`}
         onClick={this.toggle}>
         <div>
           <span className="top" />
@@ -35,10 +44,13 @@ class BurgerButton extends Component<Props> {
 
 interface Props {
   menuOpen: boolean;
+  policyOpen: boolean;
 }
 
-const mSTP = ({ menuOpen }: IMenu) => {
-  return { menuOpen };
+const mSTP = ([{ menuOpen }, { open: policyOpen }]: ReactiveStates<
+  typeof connectMenuAndPrivacy
+>) => {
+  return { menuOpen: menuOpen || policyOpen, policyOpen };
 };
 
-export const Burger = connectMenu(mSTP)(BurgerButton);
+export const Burger = connectMenuAndPrivacy(mSTP)(BurgerButton);
