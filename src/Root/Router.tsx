@@ -1,9 +1,9 @@
 import type { ComponentType } from "react";
 import React, { Component } from "react";
+import type { TimedPromiseResolution } from "@figliolia/promises";
+import { TimedPromise } from "@figliolia/promises";
 import { Routing } from "State/Routing";
 import { TaskQueue } from "Tools/TaskQueue";
-import type { TimedPromiseResolution } from "Tools/TimedPromise";
-import { TimedPromise } from "Tools/TimedPromise";
 import type { ComponentModule } from "./types";
 
 export class Router<T extends ComponentModule> extends Component<
@@ -16,7 +16,7 @@ export class Router<T extends ComponentModule> extends Component<
   constructor(props: Props<T>) {
     super(props);
     this.initialRoute = this.currentRoute;
-    this.initialLoad = this.createLoader(this.initialRoute).race();
+    this.initialLoad = this.createLoader(this.initialRoute).run();
     this.hashChange = this.hashChange.bind(this);
   }
 
@@ -34,7 +34,7 @@ export class Router<T extends ComponentModule> extends Component<
     void Routing.flipScreen().then(async () => {
       try {
         const Task = this.createLoader(hash, 1000);
-        this.onRouteLoaded(hash, await Task.race());
+        this.onRouteLoaded(hash, await Task.run());
       } catch (error) {
         // silence
       }

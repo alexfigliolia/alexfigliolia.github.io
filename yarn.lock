@@ -514,6 +514,11 @@
   dependencies:
     "@figliolia/event-emitter" "^1.0.8"
 
+"@figliolia/promises@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@figliolia/promises/-/promises-1.0.0.tgz#8e682cc358abcb1c2c7ef3f068b650a132a8fa74"
+  integrity sha512-F5hV175M+jZI7aXKmHV3dP70iXvVn8ySWVOjUfPF4ROCqiAWVQi5/bPGxsytIOCdAvir7jEA27CQSR/5+H27Bg==
+
 "@figliolia/react-galena@^3.1.8":
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/@figliolia/react-galena/-/react-galena-3.1.8.tgz#bb29a6b653711729230adfb5e2e8e7220caa1758"
