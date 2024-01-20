@@ -1,4 +1,4 @@
-@import "Styles/variables.scss";
+@import "Styles/variables";
 
 .menu {
 	position: absolute;
@@ -6,7 +6,9 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
+
 	@include center;
+
 	z-index: 2;
 	flex-direction: column;
 	text-align: center;
@@ -14,6 +16,7 @@
 	visibility: hidden;
 	user-select: none;
 	transition: visibility 0s 4s;
+
 	&.open {
 		pointer-events: all;
 		visibility: visible;

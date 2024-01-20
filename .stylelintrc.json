@@ -1,0 +1,9 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "no-descending-specificity": null,
+    "selector-id-pattern": null,
+    "scss/dollar-variable-pattern": null,
+    "scss/at-mixin-pattern": null
+  }
+}

@@ -4,9 +4,11 @@
 	height: 150px;
 	width: 150px;
 	will-change: transform;
+
 	@media #{$mq-670} {
 		transform: scale(1.5);
 	}
+
 	@media (pointer:none), (pointer:coarse) {
 		margin-top: -20%;
 	}
@@ -17,10 +19,13 @@
 	position: relative;
 	width: 150px;
 	height: 150px;
+
 	@include center;
+
 	transform-style: preserve-3d;
 	transform: perspective(500px) rotateX(45deg) scale(0.8);
 }
+
 .loader span
 {
 	position: absolute;
@@ -28,21 +33,25 @@
 	border: 15px solid #fff;
 	box-sizing: border-box;
 	border-radius: 50%;
-	box-shadow: 0 10px 0 #e0e0e0, inset 0 10px 0 #e0e0e0, 0px 2.5px 15px rgba(#000, 0.8);
+	box-shadow: 0 10px 0 #e0e0e0, inset 0 10px 0 #e0e0e0, 0 2.5px 15px rgba(#000, 0.8);
 	animation: animate 4.5s ease-in-out infinite;
 }
+
 .loader span:nth-child(1)
 {
 	animation-delay: 0s;
 }
+
 .loader span:nth-child(2)
 {
 	animation-delay: -1.5s;
 }
+
 .loader span:nth-child(3)
 {
 	animation-delay: -3.0s;
 }
+
 @keyframes animate
 {
 	0%
@@ -51,24 +60,28 @@
 		width: 100%;
 		height: 100%;
 	}
+
 	25%
 	{
 		transform: translate3d(0,0,65px);
 		width: 100%;
 		height: 100%;
 	}
+
 	50%
 	{
 		transform: translate3d(0,0,65px);
 		width: 35%;
 		height: 35%;
 	}
+
 	75%
 	{
 		transform: translate3d(0,0,-65px);
 		width: 35%;
 		height: 35%;
 	}
+
 	100%
 	{
 		transform: translate3d(0,0,-65px);

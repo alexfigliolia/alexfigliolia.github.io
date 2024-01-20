@@ -1,16 +1,20 @@
-@import "Styles/variables.scss";
+@import "Styles/variables";
 
 .page.contact {
 	@include center;
+
 	&>div {
 		@include center;
+
 		flex-direction: column;
+
 		&>.buttons {
 			width: 90%;
 			margin-top: 10px;
+
 			@include center;
-			flex-wrap: wrap;
-			flex-direction: row;
+
+			flex-flow: row wrap;
 		}
 	}
 }

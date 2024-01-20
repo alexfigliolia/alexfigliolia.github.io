@@ -1,16 +1,19 @@
 
-@import "Styles/variables.scss";
+@import "Styles/variables";
 
 .burger {
 	height: 60px;
 	width: 60px;
+
 	@include center;
+
 	outline: none;
 	border: none;
 	margin: 0;
 	border-radius: 50%;
 	background-color: rgba(#fff, 0.15);
-	box-shadow: 0px 2.5px 5px rgba(#000, 0.5), 0px 0px 10px rgba(#000, 0.15);
+	box-shadow: 0 2.5px 5px rgba(#000, 0.5), 0 0 10px rgba(#000, 0.15);
+
 	&>div {
 		height: 20px;
 		width: 32.5px;
@@ -19,16 +22,20 @@
 		flex-direction: column;
 		justify-content: space-between;
 		transition: transform 0.3s 0s, background-color 0.3s 0s;
+
 		&>span {
 			height: 2px;
 			width: 100%;
 			background-color: #fff;
+
 			&.top {
 				transition: transform 0.3s 0s, background-color 0.3s 0s;
 			}
+
 			&.middle {
 				transition: transform 0.7s 0s, background-color 0.3s 0s;
 			}
+
 			&.bottom {
 				width: 50%;
 				transform-origin: 0% 50%;
@@ -36,6 +43,7 @@
 			}
 		}
 	}
+
 	&.policy > div > span {
 		background-color: #0078bd;
 	}
@@ -44,15 +52,18 @@
 .burger.open > div {
 	transform: scale(0.95);
 	transition: transform 0.3s 0.3s;
+
 	&> span {
 		&.top {
 			transform: translateY(9px) rotate(-45deg);
 			transition: transform 0.5s 0.3s, background-color 0.3s 0s;
 		}
+
 		&.middle {
 			transform: rotate(-135deg);
 			transition: transform 0.9s 0.3s, background-color 0.3s 0s;
 		}
+
 		&.bottom {
 			transform: scaleX(0);
 			transition: transform 0.3s 0s, background-color 0.3s 0s;

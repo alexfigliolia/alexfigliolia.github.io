@@ -1,36 +1,44 @@
-@import "Styles/variables.scss";
+@import "Styles/variables";
 
 .open-button {
 	margin-top: 40px;
+
 	&>.outline-button {
 		pointer-events: none;
 		color: transparent;
 		text-shadow: none;
 		font-size: 1.2em;
 		transition: transform 0.5s 0s, box-shadow 0.5s 0s, color 0.3s 3s, text-shadow 0.3s 3s;
-		&:after,
-		&:before {
+
+		&::after,
+		&::before {
 			transform: scaleX(0);
 			transform-origin: 0% 50%;
 			transition: height 0.4s, transform 0.4s;
 		}
-		&:before {
+
+		&::before {
 			transform-origin: 100% 50%;
 		}
+
 		&>div {
 			padding: 20px 50px;
-			&:after,
-			&:before {
+
+			&::after,
+			&::before {
 				transform-origin: 50% 0%;
 				transform: scaleY(0);
 				transition: transform 0.4s 0.4s;
 			}
+
 			&::after {
 				transform-origin: 50% 100%;
 			}
 		}
+
 		@media #{$mq-670} {
 			font-size: 1.75em;
+
 			&>div {
 				padding: 25px 70px;
 			}
@@ -40,19 +48,22 @@
 
 .open-button.active > .outline-button {
 	color: #fff;
-	text-shadow: 0px 2.5px 5px rgba(#000, 0.8), 0px 0px 7.5px rgba(#000, 0.5);
-	&:after,
-	&:before {
+	text-shadow: 0 2.5px 5px rgba(#000, 0.8), 0 0 7.5px rgba(#000, 0.5);
+
+	&::after,
+	&::before {
 		transform: scaleX(1);
 		transition: height 0.4s, transform 0.4s 2.3s;
 	}
+
 	&>div {
-		&:after,
-		&:before {
+		&::after,
+		&::before {
 			transform: scaleY(1);
 			transition: transform 0.4s 2.7s;
 		}
 	}
+
 	&:hover {
 		color: #000;
 		text-shadow: none;
@@ -64,18 +75,21 @@
 	color: #fff;
 	pointer-events: auto;
 	transition: transform 0.5s 0s, box-shadow 0.5s 0s, color 0.3s 0.1s, text-shadow 0.3s 0.1s;
-	&:after,
-	&:before {
+
+	&::after,
+	&::before {
 		transform: scaleX(1);
 		transition: height 0.4s;
 	}
+
 	&>div {
-		&:after,
-		&:before {
+		&::after,
+		&::before {
 			transform: scaleY(1);
 			transition: transform 0.4s 2.7s;
 		}
 	}
+
 	&:hover {
 		color: #000;
 		text-shadow: none;

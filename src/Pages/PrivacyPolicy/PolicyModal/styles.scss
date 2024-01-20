@@ -1,4 +1,4 @@
-@import "Styles/variables.scss";
+@import "Styles/variables";
 
 .policy-modal {
 	position: fixed;
@@ -7,7 +7,9 @@
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
+
 	@include center;
+
 	opacity: 0;
 	transform: scale(0);
 	border-top-left-radius: 50%;
@@ -16,18 +18,20 @@
 	visibility: hidden;
 	transform-origin: 100% 0%;
 	transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s, visibility 0s 0.5s, border-bottom-left-radius 0.4s 0s, border-bottom-right-radius 0.4s 0s, border-top-left-radius 0.4s 0s, border-top-right-radius 0.4s 0s;
+
 	@media #{$mq-670} {
 		transform-origin: 50% 60%;
 		border-radius: 5px;
 	}
+
 	&>div {
 		width: 100%;
 		height: 100%;
-		overflow-y: scroll;
-		overflow-x: hidden;
+		overflow: hidden scroll;
 		-webkit-overflow-scrolling: touch;
 		background-color: #fff;
-		box-shadow: 0px 2.5px 5px rgba(#000, 0.25), 0px 5px 25px rgba(#000, 0.35);
+		box-shadow: 0 2.5px 5px rgba(#000, 0.25), 0 5px 25px rgba(#000, 0.35);
+
 		@media #{$mq-670} {
 			width: 80%;
 			height: 80%;
@@ -35,25 +39,30 @@
 			max-width: 800px;
 			border-radius: 10px;
 		}
+
 		&>div {
 			width: 90%;
 			padding: 20px 0;
 			margin: 0 auto;
+
 			&>h2 {
 				font-weight: 700;
 				font-size: 2em;
 				color: #0078bd;
 			}
+
 			&>.contents {
 				& p {
 					color: #4a4949;
 					line-height: 1.75;
 					font-size: 1.1em;
 					font-weight: 400;
+
 					& a {
 						font-weight: 700;
 						color: #0078bd;
 						text-decoration: none;
+
 						&:visited {
 							color: #0078bd;
 						}
@@ -62,15 +71,14 @@
 			}
 		}
 	}
+
 	&.visible {
 		opacity: 1;
 		transform: scale(1);
 		visibility: visible;
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
+		border-radius: 0;
 		transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s, visibility 0s 0s, border-bottom-left-radius 0.4s 0.25s, border-bottom-right-radius 0.4s 0.25s, border-top-left-radius 0.4s 0.25s, border-top-right-radius 0.4s 0.25s;
+
 		@media #{$mq-670} {
 			transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s 0.2s, visibility 0s 0s;
 		}

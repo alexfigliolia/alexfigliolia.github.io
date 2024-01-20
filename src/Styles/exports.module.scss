@@ -1,4 +1,6 @@
-@import "Styles/variables.scss";
+/* stylelint-disable selector-pseudo-class-no-unknown */
+/* stylelint-disable property-no-unknown */
+@import "Styles/variables";
 
 :export {
   smallScreenTransition: $smallScreenTransition;
