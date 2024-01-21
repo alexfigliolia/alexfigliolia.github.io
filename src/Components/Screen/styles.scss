@@ -69,14 +69,14 @@
 
 /* Animation Controller */
 .screen > .inner > .front {
-	&> .page > div {
+	&> .page > .content {
 		transition: transform 0.5s 1.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s 1.5s cubic-bezier(0.65, 0, 0.35, 1), visibility 0s 0s;
 	}
 
 	&.menu-open >.page {
 		pointer-events: none;
 
-		&>div {
+		&>.content {
 			opacity: 0;
 			visibility: hidden;
 			transform: scale(0.5);

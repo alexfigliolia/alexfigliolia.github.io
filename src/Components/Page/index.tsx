@@ -42,7 +42,9 @@ class PageRenderer extends Component<Props> {
         ref={this.cacheInstance}
         style={{ height, width }}
         className={`page ${name} ${active ? "active" : ""}`}>
-        {children}
+        <div className="content" style={{ height, width }}>
+          {children}
+        </div>
       </main>
     );
   }

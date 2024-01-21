@@ -1,14 +1,6 @@
 @import "Styles/variables";
 
-.page.home {
-	@include center;
-
-	text-align: center;
-	perspective: 1000px;
-	user-select: none;
-	height: 100%;
-	width: 100%;
-
+.page.home > .content {
 	&>div {
 		@include center;
 

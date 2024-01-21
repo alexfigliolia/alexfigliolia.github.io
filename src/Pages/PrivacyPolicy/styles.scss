@@ -1,8 +1,6 @@
 @import "Styles/variables";
 
-.page.privacy {
-	@include center;
-
+.page.privacy > .content {
 	&>div {
 		@include center;
 

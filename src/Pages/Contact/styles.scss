@@ -1,8 +1,6 @@
 @import "Styles/variables";
 
-.page.contact {
-	@include center;
-
+.page.contact > .content {
 	&>div {
 		@include center;
 

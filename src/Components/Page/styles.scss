@@ -8,4 +8,11 @@
 		background: url("Images/background-large.webp") no-repeat center;
 		background-size: cover;
 	}
+
+	&>.content {
+		@include center;
+
+		text-align: center;
+		user-select: none;
+	}
 }
