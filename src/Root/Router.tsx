@@ -33,7 +33,7 @@ export class Router<T extends ComponentModule> extends Component<
     const hash = this.currentRoute;
     void Routing.flipScreen().then(async () => {
       try {
-        const Task = this.createLoader(hash, 1000);
+        const Task = this.createLoader(hash);
         this.onRouteLoaded(hash, await Task.run());
       } catch (error) {
         // silence
@@ -50,12 +50,12 @@ export class Router<T extends ComponentModule> extends Component<
         Routing.initialize(remainingMS, () => {
           Routing.setRouteName(hash);
         });
-      }, remainingMS || 300);
+      }, remainingMS);
     });
   }
 
-  private createLoader(hash: keyof Props<T>["routes"], threshold = 2000) {
-    return new TimedPromise(() => this.props.routes[hash](), threshold);
+  private createLoader(hash: keyof Props<T>["routes"]) {
+    return new TimedPromise(() => this.props.routes[hash](), 1000);
   }
 
   private get currentRoute() {
