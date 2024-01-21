@@ -45,6 +45,5 @@ export default defineConfig({
   ],
   optimizeDeps: {
     include: ["@figliolia/ripples"],
-    force: process.env.NODE_ENV === "development",
   },
 });
