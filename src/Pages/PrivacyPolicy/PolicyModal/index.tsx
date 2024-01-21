@@ -56,8 +56,8 @@ class Policy extends Component<IPrivacy> {
                 data of any kind. Period.
               </p>
               <p>
-                User privacy has become of a primary concern over the last
-                decade in effort to support transparency and minimal tracking. I
+                User privacy has become a primary concern over the last decade
+                in an effort to support transparency and minimal tracking. I
                 believe this effort to be prudent in creating a truly open and
                 democratized internet. As a result, my products will only store
                 the minimum amount of information required to ensure that your
@@ -66,9 +66,9 @@ class Policy extends Component<IPrivacy> {
               <p>
                 To ensure your privacy, my products will typically require the
                 usage of an email address specific to you, in order to log you
-                in or maintain your progress in one of my games. The email that
-                you provide is the sole data point that I will store relating to
-                you as an individual.
+                in or maintain your progress. The email that you provide is the
+                sole data point that I will store relating to you as an
+                individual.
               </p>
               <p>
                 If you happen to be a player of{" "}
