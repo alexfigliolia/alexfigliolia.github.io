@@ -514,10 +514,10 @@
   dependencies:
     "@figliolia/event-emitter" "^1.0.8"
 
-"@figliolia/page-switch@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@figliolia/page-switch/-/page-switch-1.0.1.tgz#ed4e12e565c1a1749f0dacab07835cf6376c9ed2"
-  integrity sha512-Ys6wTixiureEDL0MmLJ++w5voPJDpBiAaOscoHlPSprySSyC+XTnhL0PklConBIMKDQSE/hFmeHTlgWu6YbsLA==
+"@figliolia/page-switch@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@figliolia/page-switch/-/page-switch-1.0.2.tgz#688ca01c532ece37955008fba5e5531f43a45d29"
+  integrity sha512-rdbyhKSMTiyRoEpf2rmpdESXjD4sh1HhBl5L54W68iy/SUZo4wlvrdSO99CkWyYTtMessYvekq94QgDZcaUDyQ==
 
 "@figliolia/promises@^1.0.0":
   version "1.0.0"
