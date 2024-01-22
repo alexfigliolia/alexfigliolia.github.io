@@ -61,7 +61,7 @@ class Policy extends Component<IPrivacy> {
                 believe this effort to be prudent in creating a truly open and
                 democratized internet. As a result, my products will only store
                 the minimum amount of information required to ensure that your
-                identify is protected.
+                identity is protected.
               </p>
               <p>
                 To ensure your privacy, my products will typically require the
