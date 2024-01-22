@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@figliolia/galena": "^2.2.6",
-    "@figliolia/page-switch": "file:../page-switch",
+    "@figliolia/page-switch": "^1.0.1",
     "@figliolia/promises": "^1.0.0",
     "@figliolia/react-galena": "^3.1.8",
     "@figliolia/ripples": "^1.0.2",
