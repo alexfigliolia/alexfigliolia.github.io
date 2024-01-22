@@ -30,6 +30,7 @@ export default defineConfig({
     open: true,
   },
   build: {
+    sourcemap: process.env.NODE_ENV !== "development",
     minify: "terser",
     target: "es2015",
     outDir: "build",
