@@ -59,13 +59,23 @@
 
 		&.expanded {
 			& > p:first-of-type {
-				transform: translateY(100%);
 				opacity: 0;
+				transform: translateY(100%);
+
+				@media #{$mq-800} {
+					opacity: 1;
+					transform: translateY(0%);
+				}
 			}
 
 			& > p:last-of-type {
 				opacity: 1;
 				transform: translateY(0%);
+
+				@media #{$mq-800} {
+					opacity: 1;
+					transform: translateY(0%);
+				}
 			}
 		}
 	}

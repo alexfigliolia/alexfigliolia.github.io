@@ -17,6 +17,8 @@ import EatSmall from "Images/republic-small.jpg";
 import EatLarge from "Images/republic-large.jpg";
 import BackgroundSmall from "Images/background-small.webp";
 import BackgroundLarge from "Images/background-large.webp";
+import OpenSourceSmall from "Images/openSource-small.webp";
+import OpenSourceLarge from "Images/openSource-large.webp";
 
 export class Preloader {
   public static initialize() {
@@ -60,6 +62,7 @@ export class Preloader {
     SVSmall,
     CommerceSmall,
     EatSmall,
+    OpenSourceSmall,
   ];
 
   private static readonly largeImages = [
@@ -71,5 +74,6 @@ export class Preloader {
     SVLarge,
     CommerceLarge,
     EatLarge,
+    OpenSourceLarge,
   ];
 }

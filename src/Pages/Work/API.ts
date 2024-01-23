@@ -14,6 +14,8 @@ import CommerceSmall from "Images/gnocchi-small.jpg";
 import CommerceLarge from "Images/gnocchi.jpg";
 import EatSmall from "Images/republic-small.jpg";
 import EatLarge from "Images/republic-large.jpg";
+import OpenSourceSmall from "Images/openSource-small.webp";
+import OpenSourceLarge from "Images/openSource-large.webp";
 
 export default [
   {
@@ -55,24 +57,35 @@ export default [
     imgLarge: ReactLarge,
   },
   {
+    name: "Open Source",
+    p1: "Throughout a decade of building products for the web, there have been numerous opportunities to package up my work and donate it to the community",
+    p2: "I've open sourced animation libraries, state management utilities, build-tools, performance analyzers, and more",
+    imgSmall: OpenSourceSmall,
+    imgLarge: OpenSourceLarge,
+    url: "https://www.npmjs.com/~alexfigliolia",
+  },
+  {
     name: "Piper Chat",
     p1: "Piper Chat is a parody application based on the popular HBO television show Silicon Valley. It is a fully functional text, voice and video chat that is built for iOS, Android, and all modern browsers",
     p2: "Under the hood is JavaScript front to back. Core technologies include web sockets, WebRTC, MongoDB and views built with React/React Native.",
     imgSmall: SVSmall,
     imgLarge: SVLarge,
+    url: "https://github.com/alexfigliolia/piperchat",
   },
   {
-    name: "E-Commerce",
-    p1: "After seeing some e-commerce interactions on Dribble, I tried to recreate some with a simple e-commerce site of my own.",
-    p2: "On mobile, the app is performant and fun to use. It has a React front end and a backend using Node.js, Meteor, and Moltin.",
+    name: "Republic 50",
+    p1: "Republic 50 was a neighborhood restaurant in Queens, NY. Bootstrapping a on a budget, I spun up a quick website for them to use back in 2014",
+    p2: "While the restaurant is no longer in business, I do still have an original prototype for the design of their website. Feel free to check it out!",
     imgSmall: CommerceSmall,
     imgLarge: CommerceLarge,
+    url: "https://alexfigliolia.github.io/republic50",
   },
   {
-    name: "Eat Better",
-    p1: "For as long as I can remember Yelp has been a reliable tool for deciding where I'll go for a meal. 'Eat Better' utilizes their api in conjunction with a fun to use UI to help you find a place to eat.",
-    p2: "I created this app to up my game when designing in the browser. All animations are done with CSS3 and vanilla javascript. It has a React front end with an Express backend.",
+    name: "Food Steez",
+    p1: "A couple college friends opened a food-focused advertising network. When I saw what was their less-than responsive website, I spun them up a quick design",
+    p2: "Today, their production website is far superior. It utilizes a bunch of new features that simply weren't around 8-10 years ago.",
     imgSmall: EatSmall,
     imgLarge: EatLarge,
+    url: "https://alexfigliolia.github.io/fs",
   },
 ] as const;
