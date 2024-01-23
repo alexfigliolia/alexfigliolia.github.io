@@ -82,7 +82,7 @@ export default [
   },
   {
     name: "Food Steez",
-    p1: "A couple college friends opened a food-focused advertising network. When I saw what was their less-than responsive website, I spun them up a quick design",
+    p1: "A couple college friends opened a food-focused advertising agency. When I saw that their website was less-than responsive, I spun them up a quick design for them.",
     p2: "Today, their production website is far superior. It utilizes a bunch of new features that simply weren't around 8-10 years ago.",
     imgSmall: EatSmall,
     imgLarge: EatLarge,
