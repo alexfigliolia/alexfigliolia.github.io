@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { Page } from "Components/Page";
 import { AlexText } from "Components/AlexText";
 import { Menu } from "State/Menu";
+import type { PropLess } from "Tools/Types";
 import { WorkButton } from "./WorkButton";
 import "./styles.scss";
 
-export default class Home extends Component<Props> {
-  constructor(props: Props) {
+export default class Home extends Component<PropLess> {
+  constructor(props: PropLess) {
     super(props);
     Menu.setButtonDelay(3500);
   }
@@ -26,5 +27,3 @@ export default class Home extends Component<Props> {
     );
   }
 }
-
-type Props = Record<string, never>;

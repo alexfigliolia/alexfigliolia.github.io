@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Menu } from "State/Menu";
 import { Page } from "Components/Page";
 import { PrivacyText } from "Components/PrivacyText";
+import type { PropLess } from "Tools/Types";
 import { OpenButton } from "./OpenButton";
 import { PolicyModal } from "./PolicyModal";
 import "./styles.scss";
 
-export default class Privacy extends Component<Props> {
-  constructor(props: Props) {
+export default class Privacy extends Component<PropLess> {
+  constructor(props: PropLess) {
     super(props);
     Menu.setButtonDelay(3500);
   }
@@ -28,5 +29,3 @@ export default class Privacy extends Component<Props> {
     );
   }
 }
-
-type Props = Record<string, never>;

@@ -3,12 +3,13 @@ import { Page } from "Components/Page";
 import { ContactText } from "Components/ContactText";
 import { ContactButton } from "./ContactButton";
 import { Menu } from "State/Menu";
+import type { PropLess } from "Tools/Types";
 import "./styles.scss";
 
-export default class Contact extends Component<Props> {
+export default class Contact extends Component<PropLess> {
   toNPM: () => void;
   toGithub: () => void;
-  constructor(props: Props) {
+  constructor(props: PropLess) {
     super(props);
     Menu.setButtonDelay(3500);
     this.emailMe = this.emailMe.bind(this);
@@ -46,5 +47,3 @@ export default class Contact extends Component<Props> {
     );
   }
 }
-
-type Props = Record<string, never>;

@@ -4,17 +4,18 @@ import { Routing } from "State/Routing";
 import { RoutingAndMenu } from "State/States";
 import type { IRoutingAndMenu } from "Models/types";
 import { TaskQueue } from "Tools/TaskQueue";
+import type { PropLess } from "Tools/Types";
 
-export class MenuButton extends Component<Props, State> {
+export class MenuButton extends Component<PropLess, State> {
   listener?: string;
   state: State = { active: false };
-  constructor(props: Props) {
+  constructor(props: PropLess) {
     super(props);
     this.subscription = this.subscription.bind(this);
     this.listener = RoutingAndMenu.subscribeAll(this.subscription);
   }
 
-  override shouldComponentUpdate(_: Props, { active }: State) {
+  override shouldComponentUpdate(_: PropLess, { active }: State) {
     return active !== this.state.active;
   }
 
@@ -47,8 +48,6 @@ export class MenuButton extends Component<Props, State> {
     );
   }
 }
-
-type Props = Record<string, never>;
 
 interface State {
   active: boolean;

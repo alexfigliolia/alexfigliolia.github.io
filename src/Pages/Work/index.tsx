@@ -3,10 +3,11 @@ import { PageSwitch } from "@figliolia/page-switch";
 import { Page } from "Components/Page";
 import { Poster } from "Components/Poster";
 import { Work as WorkState } from "State/Work";
+import type { PropLess } from "Tools/Types";
 import API from "./API";
 import "./styles.scss";
 
-export default class Work extends Component<Record<string, never>> {
+export default class Work extends Component<PropLess> {
   private PW?: PageSwitch;
 
   override componentDidMount() {
