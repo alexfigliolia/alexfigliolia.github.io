@@ -23,14 +23,11 @@ import OpenSourceLarge from "Images/openSource-large.webp";
 export class Preloader {
   public static initialize() {
     const loadFNs: Promise<any>[] = [];
-    const loaded: HTMLImageElement[] = [];
-    const imgs =
-      Screen.getState().width >= 670 ? this.largeImages : this.smallImages;
+    const imgs = this.imageScope();
     for (let i = 0; i < imgs.length; i++) {
       const img = new Image();
       loadFNs[i] = this.promisify(img);
       img.src = imgs[i];
-      loaded[i] = img;
     }
     return Promise.all(loadFNs);
   }
@@ -38,8 +35,23 @@ export class Preloader {
   public static loadBackground() {
     const img = new Image();
     const loader = this.promisify(img);
-    img.src = this.background;
+    img.src = this.backgroundScope();
     return loader;
+  }
+
+  public static screenScope() {
+    const { width } = Screen.getState();
+    if (width >= 670) {
+      return "large";
+    }
+    return "small";
+  }
+
+  public static imageScope() {
+    if (this.screenScope() === "large") {
+      return this.largeImages;
+    }
+    return this.smallImages;
   }
 
   private static promisify(image: HTMLImageElement) {
@@ -49,8 +61,11 @@ export class Preloader {
     });
   }
 
-  private static get background() {
-    return window.innerWidth >= 670 ? BackgroundLarge : BackgroundSmall;
+  private static backgroundScope() {
+    if (this.screenScope() === "large") {
+      return BackgroundLarge;
+    }
+    return BackgroundSmall;
   }
 
   private static readonly smallImages = [

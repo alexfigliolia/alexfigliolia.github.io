@@ -5,21 +5,24 @@ import { Screen } from "Components/Screen";
 import { ScreenLoader } from "Components/ScreenLoader";
 import { Preloader } from "Tools/Preloader";
 import { TaskQueue } from "Tools/TaskQueue";
+import type { PropLess } from "Tools/Types";
 import { Router } from "./Router";
 import { Routes } from "./Routes";
 
 // @ts-ignore
 void window?.screen?.orientation?.lock?.("portrait").catch(() => {});
 
-export class App extends Component<Record<string, never>> {
+export class App extends Component<PropLess, State> {
   private preloader = Preloader.loadBackground();
+  constructor(props: PropLess) {
+    super(props);
+    Routes.registerForegroundTask(this.preloader);
+  }
 
   public override componentDidMount() {
     ScreenState.initialize();
     void this.preloader.then(() => {
-      TaskQueue.deferTask(() => {
-        Routing.show();
-      }, 500);
+      Routing.show();
     });
   }
 
@@ -40,4 +43,8 @@ export class App extends Component<Record<string, never>> {
       />
     );
   }
+}
+
+interface State {
+  preloaded: boolean;
 }

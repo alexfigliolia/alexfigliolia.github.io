@@ -6,3 +6,8 @@ export type WrappedLoader = [
   component: Promise<ComponentModule>,
   preloader?: Promise<any>,
 ];
+
+export interface ImagesPreloaded {
+  large: boolean;
+  small: boolean;
+}

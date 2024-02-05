@@ -16,7 +16,7 @@ export class Router<T extends ComponentModule> extends Component<
   constructor(props: Props<T>) {
     super(props);
     this.initialRoute = this.currentRoute;
-    this.initialLoad = this.createLoader(this.initialRoute).run();
+    this.initialLoad = this.createLoader(this.initialRoute, 1750).run();
     this.hashChange = this.hashChange.bind(this);
   }
 
@@ -54,8 +54,8 @@ export class Router<T extends ComponentModule> extends Component<
     });
   }
 
-  private createLoader(hash: keyof Props<T>["routes"]) {
-    return new TimedPromise(() => this.props.routes[hash](), 1000);
+  private createLoader(hash: keyof Props<T>["routes"], threshold = 1000) {
+    return new TimedPromise(() => this.props.routes[hash](), threshold);
   }
 
   private get currentRoute() {
