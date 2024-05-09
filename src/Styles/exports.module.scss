@@ -3,7 +3,7 @@
 @import "Styles/variables";
 
 :export {
-  smallScreenTransition: $smallScreenTransition;
-  largeScreenTransition: $largeScreenTransition;
+  smallScreenScale: $smallScreenScale;
+  largeScreenScale: $largeScreenScale;
   screenInnerTransition: $screenInnerTransition;
 }

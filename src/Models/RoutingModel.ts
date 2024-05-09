@@ -8,12 +8,8 @@ export class RoutingModel extends BaseModel<IRouting> {
   static screenInnerTransition = this.sliceUnits(
     variables.screenInnerTransition,
   );
-  static smallScreenTransition = this.sliceUnits(
-    variables.smallScreenTransition,
-  );
-  static largeScreenTransition = this.sliceUnits(
-    variables.largeScreenTransition,
-  );
+  static smallScreenScale = this.sliceUnits(variables.smallScreenScale);
+  static largeScreenScale = this.sliceUnits(variables.largeScreenScale);
 
   public show() {
     this.update(state => {
@@ -98,9 +94,9 @@ export class RoutingModel extends BaseModel<IRouting> {
 
   private static get shrinkDuration() {
     if (window.innerWidth < 957) {
-      return this.smallScreenTransition;
+      return this.smallScreenScale;
     }
-    return this.largeScreenTransition;
+    return this.largeScreenScale;
   }
 
   private static sliceUnits(duration: string) {

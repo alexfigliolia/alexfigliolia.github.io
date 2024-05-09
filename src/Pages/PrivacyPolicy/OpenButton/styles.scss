@@ -53,14 +53,14 @@
 	&::after,
 	&::before {
 		transform: scaleX(1);
-		transition: height 0.4s, transform 0.4s 2.3s;
+		transition: height 0.4s, transform 0.4s 2s;
 	}
 
 	&>div {
 		&::after,
 		&::before {
 			transform: scaleY(1);
-			transition: transform 0.4s 2.7s;
+			transition: transform 0.4s 2.4s;
 		}
 	}
 

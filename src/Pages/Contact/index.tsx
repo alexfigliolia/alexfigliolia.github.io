@@ -11,7 +11,7 @@ export default class Contact extends Component<PropLess> {
   toGithub: () => void;
   constructor(props: PropLess) {
     super(props);
-    Menu.setButtonDelay(3500);
+    Menu.setButtonDelay(3300);
     this.emailMe = this.emailMe.bind(this);
     this.toGithub = this.openLink("https://github.com/alexfigliolia");
     this.toNPM = this.openLink("https://www.npmjs.com/~alexfigliolia");

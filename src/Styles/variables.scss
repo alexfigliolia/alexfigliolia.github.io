@@ -1,6 +1,8 @@
 /* ======================= VARIABLES ==================== */
-$smallScreenTransition: 1000ms;
-$largeScreenTransition: 1200ms;
+$smallScreenFlip: 1000ms;
+$smallScreenScale: 1000ms;
+$largeScreenFlip: 750ms;
+$largeScreenScale: 1000ms;
 $screenInnerTransition: 1500ms;
 
 /* ======MEDIA QUERIES====== */

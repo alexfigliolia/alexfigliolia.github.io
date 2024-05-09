@@ -41,7 +41,6 @@ export default defineConfig({
       minify: true,
       entry: path.join(SRC, "Root/index.tsx"),
       template: "public/index.html",
-      viteNext: true,
     }),
   ],
   optimizeDeps: {

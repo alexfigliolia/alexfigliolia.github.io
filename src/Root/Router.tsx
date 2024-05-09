@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import type { TimedPromiseResolution } from "@figliolia/promises";
 import { TimedPromise } from "@figliolia/promises";
 import { Routing } from "State/Routing";
-import { TaskQueue } from "Tools/TaskQueue";
 import type { ComponentModule } from "./types";
 
 export class Router<T extends ComponentModule> extends Component<
@@ -46,11 +45,9 @@ export class Router<T extends ComponentModule> extends Component<
     { result, remainingMS }: TimedPromiseResolution<T>,
   ) {
     this.setState({ Page: result.default }, () => {
-      TaskQueue.deferTask(() => {
-        Routing.initialize(remainingMS, () => {
-          Routing.setRouteName(hash);
-        });
-      }, remainingMS);
+      Routing.initialize(remainingMS, () => {
+        Routing.setRouteName(hash);
+      });
     });
   }
 

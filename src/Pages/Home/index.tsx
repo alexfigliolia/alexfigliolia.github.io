@@ -9,7 +9,7 @@ import "./styles.scss";
 export default class Home extends Component<PropLess> {
   constructor(props: PropLess) {
     super(props);
-    Menu.setButtonDelay(3500);
+    Menu.setButtonDelay(3300);
   }
 
   override shouldComponentUpdate() {
