@@ -21,7 +21,8 @@ import OpenSourceSmall from "Images/openSource-small.webp";
 import OpenSourceLarge from "Images/openSource-large.webp";
 
 export class Preloader {
-  public static initialize() {
+  public static async initialize() {
+    performance.mark("preload-start");
     const loadFNs: Promise<any>[] = [];
     const imgs = this.imageScope();
     for (let i = 0; i < imgs.length; i++) {
@@ -29,7 +30,8 @@ export class Preloader {
       loadFNs[i] = this.promisify(img);
       img.src = imgs[i];
     }
-    return Promise.all(loadFNs);
+    await Promise.all(loadFNs);
+    performance.measure("preload-end");
   }
 
   public static loadBackground() {
