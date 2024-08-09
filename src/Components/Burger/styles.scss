@@ -1,11 +1,11 @@
 
-@import "Styles/variables";
+@use "Styles/variables";
 
 .burger {
 	height: 60px;
 	width: 60px;
 
-	@include center;
+	@include variables.center;
 
 	outline: none;
 	border: none;

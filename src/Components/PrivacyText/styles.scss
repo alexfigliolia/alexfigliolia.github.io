@@ -1,16 +1,16 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .privacy-text {
-	@include center;
+	@include variables.center;
 
 	flex-direction: column;
 
-	@media #{$mq-957} {
+	@media #{variables.$mq-957} {
 		margin-top: -6%;
 	}
 
 	&>h1 {
-		@include center;
+		@include variables.center;
 
 		font-weight: 900;
 		color: #fff;
@@ -21,35 +21,35 @@
 		transform: rotateX(-30deg) rotateY(30deg) rotateZ(10deg);
 		text-shadow: 0 5px 10px rgba(#000, 0.5), 0 0 30px rgba(#000, 0.4);
 
-		@media #{$mq-670} {
+		@media #{variables.$mq-670} {
 			margin: -3.5vw 0;
 			letter-spacing: -2vw;
 			font-size: 22vw;
 			text-shadow: 0 7.5px 15px rgba(#000, 0.5), 0 0 40px rgba(#000, 0.4);
 		}
 
-		@media #{$mq-890} {
+		@media #{variables.$mq-890} {
 			margin: -3vw 0;
 			letter-spacing: -3vw;
 			font-size: 22.5vw;
 			text-shadow: 0 7.5px 15px rgba(#000, 0.5), 0 0 40px rgba(#000, 0.4);
 		}
 
-		@media #{$mq-957} {
+		@media #{variables.$mq-957} {
 			margin: -3vw 0;
 			letter-spacing: -2vw;
 			font-size: 17.5vw;
 			text-shadow: 0 10px 20px rgba(#000, 0.5), 0 0 50px rgba(#000, 0.4);
 		}
 
-		@media #{$mq-1150} {
+		@media #{variables.$mq-1150} {
 			margin: -2.8vw 0;
 			letter-spacing: -1.5vw;
 			font-size: min(16vw, 230px);
 			text-shadow: 0 12.5px 25px rgba(#000, 0.5), 0 0 60px rgba(#000, 0.4);
 		}
 
-		@media #{$mq-1350} {
+		@media #{variables.$mq-1350} {
 			text-shadow: 0 15px 30px rgba(#000, 0.5), 0 0 70px rgba(#000, 0.4);
 		}
 

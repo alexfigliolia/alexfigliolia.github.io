@@ -1,16 +1,16 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .page {
 	background: url("Images/background-small.webp") no-repeat center;
 	background-size: cover;
 
-	@media #{$mq-670} {
+	@media #{variables.$mq-670} {
 		background: url("Images/background-large.webp") no-repeat center;
 		background-size: cover;
 	}
 
 	&>.content {
-		@include center;
+		@include variables.center;
 
 		text-align: center;
 		user-select: none;

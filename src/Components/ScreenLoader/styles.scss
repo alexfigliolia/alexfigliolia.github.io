@@ -1,16 +1,16 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .screen-loader {
 	height: 100vh;
 	width: 100%;
 
-	@include center;
+	@include variables.center;
 
 	background: url("Images/background-small.webp") no-repeat center;
 	background-size: cover;
 	transform: scaleX(-1);
 
-	@media #{$mq-670} {
+	@media #{variables.$mq-670} {
 		background: url("Images/background-large.webp") no-repeat center;
 		background-size: cover;
 	}

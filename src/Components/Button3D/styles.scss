@@ -1,4 +1,4 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .outline-button {
 	outline: none;
@@ -14,7 +14,7 @@
 	font-size: 1.75em;
 	letter-spacing: -1px;
 
-	@include center;
+	@include variables.center;
 
 	box-shadow: none;
 	transform-style: preserve-3d;

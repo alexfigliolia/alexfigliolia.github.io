@@ -1,8 +1,8 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .page.privacy > .content {
 	&>div {
-		@include center;
+		@include variables.center;
 
 		flex-direction: column;
 	}

@@ -1,8 +1,8 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .page.contact > .content {
 	&>div {
-		@include center;
+		@include variables.center;
 
 		flex-direction: column;
 
@@ -10,7 +10,7 @@
 			width: 90%;
 			margin-top: 10px;
 
-			@include center;
+			@include variables.center;
 
 			flex-flow: row wrap;
 		}

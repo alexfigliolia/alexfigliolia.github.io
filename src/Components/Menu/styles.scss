@@ -1,4 +1,4 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .menu {
 	position: absolute;
@@ -7,7 +7,7 @@
 	height: 100%;
 	width: 100%;
 
-	@include center;
+	@include variables.center;
 
 	z-index: 2;
 	flex-direction: column;

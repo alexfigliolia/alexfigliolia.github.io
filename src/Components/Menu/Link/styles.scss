@@ -1,11 +1,11 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .link {
 	outline: none;
 	border: none;
 	margin: 10px 0;
 
-	@include center;
+	@include variables.center;
 
 	color: #fff;
 	font-weight: 900;
@@ -17,7 +17,7 @@
 	transform: rotateX(-30deg) rotateY(30deg) rotateZ(10deg);
 	text-shadow: 0 5px 10px rgba(#000, 0.5), 0 0 30px rgba(#000, 0.4);
 
-	@media #{$mq-800} {
+	@media #{variables.$mq-800} {
 		margin: 0;
 		letter-spacing: -12.5px;
 	}
@@ -35,7 +35,7 @@
 		transition-duration: 0.5s;
 		box-shadow: 0 2.5px 5px rgba(#000, 0.25), 0 0 10px rgba(#000, 0.2);
 
-		@media #{$mq-800} {
+		@media #{variables.$mq-800} {
 			height: 6px;
 		}
 	}

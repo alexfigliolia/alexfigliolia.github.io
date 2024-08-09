@@ -1,7 +1,7 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .poster > article > .poster-title {
-	@include center;
+	@include variables.center;
 
 	color: #fff;
 	font-size: min(12.5vw, 70px);

@@ -1,4 +1,4 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 :root {
 	--background-small: "";
@@ -15,19 +15,19 @@
 	background: linear-gradient(to bottom, rgba(#000, 0), rgba(#000, 0.5)), var(--background-small) no-repeat center;
 	background-size: cover;
 
-	@include center;
+	@include variables.center;
 
 	flex-direction: column;
 	justify-content: flex-end;
 	box-shadow: 0 2.5px 15px rgba(#000, 0.25);
 
-	@media #{$mq-670} {
+	@media #{variables.$mq-670} {
 		background: linear-gradient(to bottom, rgba(#000, 0), rgba(#000, 0.5)), var(--background-large) no-repeat center;
 		background-size: cover;
 	}
 
 	&>article {
-		@include center;
+		@include variables.center;
 
 		height: 100%;
 		width: 100%;

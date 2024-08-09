@@ -1,4 +1,4 @@
-@import "Styles/variables";
+@use "Styles/variables";
 
 .work-button {
 	margin-top: 40px;
@@ -36,7 +36,7 @@
 			}
 		}
 
-		@media #{$mq-670} {
+		@media #{variables.$mq-670} {
 			font-size: 1.75em;
 
 			&>div {
