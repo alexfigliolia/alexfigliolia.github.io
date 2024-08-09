@@ -58,7 +58,8 @@
     "src",
     "ci",
     "cd",
-    ".eslintrc.js",
+    ".eslintrc.cjs",
+    ".prettierrc.cjs",
     "**/*.json",
     "**/*.ts",
     "**/*.js"
