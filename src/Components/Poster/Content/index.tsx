@@ -1,89 +1,78 @@
-import React, { Component, Fragment } from "react";
-import type { CancelFN } from "@figliolia/task-queue";
+import React, {
+  Fragment,
+  memo,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Button3D } from "Components/Button3D";
 import { TaskQueue } from "Tools/TaskQueue";
 import "./styles.scss";
 
-export class Content extends Component<Props, State> {
-  cancelFN?: CancelFN;
-  state: State = { expanded: false, reset: false };
-  constructor(props: Props) {
-    super(props);
-    this.visit = this.visit.bind(this);
-    this.toggle = this.toggle.bind(this);
-  }
+export const Content = memo(function Content({
+  p1,
+  p2,
+  url,
+  delay,
+  active,
+}: Props) {
+  const [reset, setReset] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const cancelFN = useRef<null | (() => void)>(null);
+  const visit = useCallback(() => {
+    window.open(url, "_blank");
+  }, [url]);
 
-  override componentDidMount() {
-    if (this.props.active) {
-      this.deferReset();
-    }
-  }
+  const toggle = useCallback(() => {
+    setExpanded(state => !state);
+  }, []);
 
-  override UNSAFE_componentWillReceiveProps({ active }: Props) {
-    if (active === this.props.active) {
-      return;
-    }
+  const cancelReset = useCallback(() => {
+    cancelFN.current?.();
+    setReset(false);
+  }, []);
+
+  const deferReset = useCallback(
+    (resetDelay = delay + 2200) => {
+      cancelFN.current = TaskQueue.deferTask(() => {
+        setReset(false);
+      }, resetDelay);
+    },
+    [delay],
+  );
+
+  useEffect(() => {
+    return () => {
+      cancelFN.current?.();
+    };
+  }, []);
+
+  useEffect(() => {
     if (active) {
-      this.deferReset();
+      deferReset();
     } else {
-      this.cancelReset();
+      cancelReset();
     }
-  }
+  }, [active, deferReset, cancelReset]);
 
-  public override shouldComponentUpdate(
-    { active }: Props,
-    { expanded, reset }: State,
-  ) {
-    if (active !== this.props.active) return true;
-    if (expanded !== this.state.expanded) return true;
-    if (reset !== this.state.reset) return true;
-    return false;
-  }
-
-  public override componentWillUnmount() {
-    this.cancelFN?.();
-  }
-
-  private deferReset(delay = this.props.delay + 2200) {
-    this.cancelFN = TaskQueue.deferTask(() => {
-      this.setState({ reset: true });
-    }, delay);
-  }
-
-  private cancelReset() {
-    this.cancelFN?.();
-    this.setState({ reset: false });
-  }
-
-  private toggle() {
-    this.setState(({ expanded }) => ({ expanded: !expanded }));
-  }
-
-  private visit() {
-    window.open(this.props.url, "_blank");
-  }
-
-  override render() {
-    const { expanded, reset } = this.state;
-    const { p1, p2, url, active, delay } = this.props;
-    return (
-      <Fragment>
-        <div
-          className={`poster-text ${expanded ? "expanded" : ""}`}
-          style={{
-            transitionDelay: `${active ? delay : 0}ms`,
-          }}>
-          <p>{p1}</p>
-          <p>{p2}</p>
-        </div>
-        <div className={`poster-links ${reset ? "reset" : ""}`}>
-          <Button3D text="More" onClick={this.toggle} />
-          {url && <Button3D text="Visit" onClick={this.visit} />}
-        </div>
-      </Fragment>
-    );
-  }
-}
+  return (
+    <Fragment>
+      <div
+        className={`poster-text ${expanded ? "expanded" : ""}`}
+        style={{
+          transitionDelay: `${active ? delay : 0}ms`,
+        }}>
+        <p>{p1}</p>
+        <p>{p2}</p>
+      </div>
+      <div className={`poster-links ${reset ? "reset" : ""}`}>
+        <Button3D text="More" onClick={toggle} />
+        {url && <Button3D text="Visit" onClick={visit} />}
+      </div>
+    </Fragment>
+  );
+});
 
 interface Props {
   p1: string;
@@ -91,9 +80,4 @@ interface Props {
   url?: string;
   delay: number;
   active: boolean;
-}
-
-interface State {
-  reset: boolean;
-  expanded: boolean;
 }

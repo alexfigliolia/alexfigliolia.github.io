@@ -1,67 +1,45 @@
 import type { ReactNode } from "react";
-import React, { Component } from "react";
+import React, { memo, useEffect, useRef } from "react";
 import { Ripples } from "@figliolia/ripples";
-import type { ReactiveStates } from "@figliolia/react-galena";
-import { connectNavigation } from "State/Connections";
+import { useRouter } from "State/Routing";
+import { selectDimensions, useScreen } from "State/Screen";
 import "./styles.scss";
 
-class PageRenderer extends Component<Props> {
-  private Ripples?: Ripples;
-  private Node?: HTMLDivElement;
-  constructor(props: Props) {
-    super(props);
-    this.cacheInstance = this.cacheInstance.bind(this);
-  }
+export const Page = memo(function Page({ name, children }: Props) {
+  const container = useRef<HTMLDivElement>(null);
+  const [width, height] = useScreen(selectDimensions);
+  const active = useRouter(state => state.screenActive);
 
-  override componentDidMount() {
-    if (!this.Node) {
+  useEffect(() => {
+    if (!container.current) {
       return;
     }
-    this.Ripples = new Ripples(this.Node, {
+    const ripples = new Ripples(container.current, {
       resolution: 512,
       dropRadius: 10,
       perturbance: 0.02,
     });
-  }
+    return () => {
+      if (ripples) {
+        ripples.destroy();
+      }
+    };
+  });
 
-  override componentWillUnmount() {
-    if (this.Ripples) {
-      this.Ripples.destroy();
-    }
-  }
-
-  private cacheInstance(node: HTMLDivElement) {
-    this.Node = node;
-  }
-
-  override render() {
-    const { name, height, width, active, children } = this.props;
-    return (
-      <main
-        id="page"
-        ref={this.cacheInstance}
-        style={{ height, width }}
-        className={`page ${name} ${active ? "active" : ""}`}>
-        <div className="content" style={{ height, width }}>
-          {children}
-        </div>
-      </main>
-    );
-  }
-}
+  return (
+    <main
+      id="page"
+      ref={container}
+      style={{ height, width }}
+      className={`page ${name} ${active ? "active" : ""}`}>
+      <div className="content" style={{ height, width }}>
+        {children}
+      </div>
+    </main>
+  );
+});
 
 interface Props {
   name: string;
-  width: number;
-  height: number;
-  active: boolean;
   children: ReactNode;
 }
-
-const mSTP = ([{ width, height }, { screenActive }]: ReactiveStates<
-  typeof connectNavigation
->) => {
-  return { width, height, active: screenActive };
-};
-
-export const Page = connectNavigation(mSTP)(PageRenderer);

@@ -1,7 +1,7 @@
 import path from "path";
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import { createHtmlPlugin } from "vite-plugin-html";
+import react from "@vitejs/plugin-react";
 import { BuildSettings } from "./devtools/build-settings";
 
 export default defineConfig({

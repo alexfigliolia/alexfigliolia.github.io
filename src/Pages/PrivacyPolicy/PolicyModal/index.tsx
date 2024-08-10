@@ -1,51 +1,44 @@
 import type { MouseEvent } from "react";
-import React, { Component } from "react";
-import type { IPrivacy } from "Models/types";
-import { Privacy, connectPrivacy } from "State/Privacy";
+import React, { memo, useCallback, useEffect } from "react";
+import { Privacy, usePrivacy } from "State/Privacy";
+import type { PropLess } from "Tools/Types";
 import "./styles.scss";
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 
-class Policy extends Component<IPrivacy> {
-  constructor(props: IPrivacy) {
-    super(props);
-    this.onKeyDown = this.onKeyDown.bind(this);
-  }
+export const PolicyModal = memo(
+  function PolicyModal(_: PropLess) {
+    const open = usePrivacy(state => state.open);
 
-  override UNSAFE_componentWillReceiveProps({ open }: IPrivacy) {
-    if (open === this.props.open) return;
-    if (open) {
-      document.addEventListener("keydown", this.onKeyDown);
-    } else {
-      document.removeEventListener("keydown", this.onKeyDown);
-    }
-  }
+    const onKeyDown = useCallback((e: KeyboardEvent) => {
+      if (e?.keyCode === 27 || e?.key === "Escape" || e?.code === "Escape") {
+        Privacy.toggle();
+      }
+    }, []);
 
-  override shouldComponentUpdate({ open }: IPrivacy) {
-    return open !== this.props.open;
-  }
+    const hide = useCallback((e: MouseEvent<HTMLElement>) => {
+      e.stopPropagation();
+      // @ts-ignore
+      if (e?.target?.tagName === "ARTICLE") {
+        Privacy.toggle();
+      }
+    }, []);
 
-  override componentWillUnmount() {
-    document.removeEventListener("keydown", this.onKeyDown);
-  }
+    useEffect(() => {
+      if (open) {
+        document.addEventListener("keydown", onKeyDown);
+      } else {
+        document.removeEventListener("keydown", onKeyDown);
+      }
+      return () => {
+        document.removeEventListener("keydown", onKeyDown);
+      };
+    }, [open, onKeyDown]);
 
-  private onKeyDown(e: KeyboardEvent) {
-    if (e?.keyCode === 27 || e?.key === "Escape" || e?.code === "Escape") {
-      Privacy.toggle();
-    }
-  }
-
-  private hide(e: MouseEvent<HTMLElement>) {
-    e.stopPropagation();
-    // @ts-ignore
-    if (e?.target?.tagName === "ARTICLE") {
-      Privacy.toggle();
-    }
-  }
-
-  override render() {
-    const { open } = this.props;
     return (
+      // @ts-ignore
       <article
-        onClick={this.hide}
+        onClick={hide}
         className={`policy-modal ${open ? "visible" : ""}`}>
         <div>
           <div>
@@ -142,11 +135,6 @@ class Policy extends Component<IPrivacy> {
         </div>
       </article>
     );
-  }
-}
-
-const mSTP = ({ open }: IPrivacy) => {
-  return { open };
-};
-
-export const PolicyModal = connectPrivacy(mSTP)(Policy);
+  },
+  () => true,
+);

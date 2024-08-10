@@ -1,59 +1,35 @@
-import React, { Component } from "react";
+import React, { memo, useCallback, useEffect, useState } from "react";
 import { Button3D } from "Components/Button3D";
-import type { IRouting } from "Models/types";
-import { connectRouter } from "State/Routing";
+import { useRouter } from "State/Routing";
 import { TaskQueue } from "Tools/TaskQueue";
+import type { PropLess } from "Tools/Types";
 import "./styles.scss";
 
-export class WorkButtonRenderer extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { reset: false };
-    this.nav = this.nav.bind(this);
-  }
+export const WorkButton = memo(
+  function WorkButton(_: PropLess) {
+    const [reset, setReset] = useState(false);
+    const active = useRouter(state => state.screenActive);
 
-  override UNSAFE_componentWillReceiveProps({ active }: Props) {
-    if (!this.props.active && active) {
-      TaskQueue.deferTask(() => {
-        this.setState({ reset: true });
-      }, 3100);
-    }
-  }
+    useEffect(() => {
+      if (active) {
+        TaskQueue.deferTask(() => {
+          setReset(true);
+        }, 3100);
+      }
+    }, [active]);
 
-  override shouldComponentUpdate({ active }: Props, { reset }: State) {
-    if (active !== this.props.active) return true;
-    if (reset !== this.state.reset) return true;
-    return false;
-  }
+    const nav = useCallback(() => {
+      window.location.hash = "#Work";
+    }, []);
 
-  private nav() {
-    window.location.hash = "#Work";
-  }
-
-  override render() {
-    const { reset } = this.state;
-    const { active } = this.props;
     return (
       <div
         className={`work-button ${active ? " active" : ""} ${
           reset ? "reset" : ""
         }`}>
-        <Button3D text="Work" onClick={this.nav} />
+        <Button3D text="Work" onClick={nav} />
       </div>
     );
-  }
-}
-
-interface Props {
-  active: boolean;
-}
-
-interface State {
-  reset: boolean;
-}
-
-const mSTP = ({ screenActive }: IRouting) => {
-  return { active: screenActive };
-};
-
-export const WorkButton = connectRouter(mSTP)(WorkButtonRenderer);
+  },
+  () => true,
+);

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Page } from "Components/Page";
 import { ContactText } from "Components/ContactText";
-import { ContactButton } from "./ContactButton";
+import { Page } from "Components/Page";
 import { Menu } from "State/Menu";
 import type { PropLess } from "Tools/Types";
+import { ContactButton } from "./ContactButton";
 import "./styles.scss";
 
 export default class Contact extends Component<PropLess> {

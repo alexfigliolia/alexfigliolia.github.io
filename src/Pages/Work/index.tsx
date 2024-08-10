@@ -19,7 +19,6 @@ export default class Work extends Component<PropLess> {
       start: index < 0 ? 0 : index,
       loop: true,
       mousewheel: true,
-      mouse: true,
       arrowKey: true,
     });
     this.PW.on("after", index => {

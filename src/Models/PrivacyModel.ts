@@ -6,9 +6,9 @@ export class PrivacyModel extends BaseModel<IPrivacy> {
     super("Privacy", { open: false });
   }
 
-  public toggle() {
+  public toggle = () => {
     this.update(state => {
       state.open = !state.open;
     });
-  }
+  };
 }

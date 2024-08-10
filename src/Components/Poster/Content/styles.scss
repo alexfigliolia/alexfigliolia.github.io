@@ -19,7 +19,8 @@
 			color: #fff;
 			width: 100%;
 			font-weight: 200;
-			transition-duration: 0.5s;
+			pointer-events: none;
+			transition: transform 0.5s 0s, visibility 0s 0.5s;
 			font-size: min(5.5vw, 30px);
 			text-shadow: 0 1.5px 2.5px rgba(#000, 0.75), 0 2.5px 7.5px rgba(#000, 0.75), 0 1px 2.5px rgba(#000, 0.75);
 
@@ -39,14 +40,18 @@
 				top: 0;
 				left: 0;
 				opacity: 0;
+				visibility: hidden;
 				transform: translateY(100%);
+				transition: opacity 0.5s 0s, transform 0.5s 0s, visibility 0s 0.5s;
 
 				@media #{variables.$mq-800} {
 					margin-left: 2%;
 					display: initial;
 					position: static;
 					opacity: 1;
+					visibility: visible;
 					transform: translateY(0%);
+					transition: opacity 0.5s 0s, transform 0.5s 0s, visibility 0s 0s;
 				}
 			}
 
@@ -60,10 +65,13 @@
 		&.expanded {
 			& > p:first-of-type {
 				opacity: 0;
+				visibility: hidden;
 				transform: translateY(100%);
+				transition: opacity 0.5s 0s, transform 0.5s 0s, visibility 0s 0.5s;
 
 				@media #{variables.$mq-800} {
 					opacity: 1;
+					visibility: visible;
 					transform: translateY(0%);
 				}
 			}
@@ -71,9 +79,12 @@
 			& > p:last-of-type {
 				opacity: 1;
 				transform: translateY(0%);
+				visibility: visible;
+				transition: opacity 0.5s 0s, transform 0.5s 0s, visibility 0s 0s;
 
 				@media #{variables.$mq-800} {
 					opacity: 1;
+					visibility: visible;
 					transform: translateY(0%);
 				}
 			}

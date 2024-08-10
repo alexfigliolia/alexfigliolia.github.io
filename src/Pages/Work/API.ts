@@ -1,21 +1,21 @@
-import ATLSmall from "Images/atl-small.jpg";
 import ATLLarge from "Images/atl-large.jpg";
+import ATLSmall from "Images/atl-small.jpg";
 import CartaLarge from "Images/carta-large.jpg";
 import CartaSmall from "Images/carta-small.jpg";
-import WordCloudsSmall from "Images/wordClouds-small.png";
-import WordCloudsLarge from "Images/wordClouds.png";
-import SkedgeSmall from "Images/skedge-small.jpg";
-import SkedgeLarge from "Images/skedge-desktop2.jpg";
-import ReactSmall from "Images/react-small.jpg";
-import ReactLarge from "Images/react-desktop2.jpg";
-import SVSmall from "Images/sv-small.jpg";
-import SVLarge from "Images/sv-large.jpg";
-import CommerceSmall from "Images/gnocchi-small.jpg";
 import CommerceLarge from "Images/gnocchi.jpg";
-import EatSmall from "Images/republic-small.jpg";
-import EatLarge from "Images/republic-large.jpg";
-import OpenSourceSmall from "Images/openSource-small.webp";
+import CommerceSmall from "Images/gnocchi-small.jpg";
 import OpenSourceLarge from "Images/openSource-large.webp";
+import OpenSourceSmall from "Images/openSource-small.webp";
+import ReactLarge from "Images/react-desktop2.jpg";
+import ReactSmall from "Images/react-small.jpg";
+import EatLarge from "Images/republic-large.jpg";
+import EatSmall from "Images/republic-small.jpg";
+import SkedgeLarge from "Images/skedge-desktop2.jpg";
+import SkedgeSmall from "Images/skedge-small.jpg";
+import SVLarge from "Images/sv-large.jpg";
+import SVSmall from "Images/sv-small.jpg";
+import WordCloudsLarge from "Images/wordClouds.png";
+import WordCloudsSmall from "Images/wordClouds-small.png";
 
 export default [
   {

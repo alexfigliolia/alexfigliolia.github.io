@@ -1,16 +1,12 @@
-import React, { Component } from "react";
-import type { IMenu } from "Models/types";
-import { connectMenu } from "State/Menu";
+import React, { memo } from "react";
+import { useMenu } from "State/Menu";
+import type { PropLess } from "Tools/Types";
 import { Link } from "./Link";
 import "./styles.scss";
 
-class MenuRenderer extends Component<Props> {
-  override shouldComponentUpdate({ open }: Props) {
-    return open !== this.props.open;
-  }
-
-  override render() {
-    const { open } = this.props;
+export const Menu = memo(
+  function Menu(_: PropLess) {
+    const open = useMenu(state => state.menuOpen);
     return (
       <nav className={`menu ${open ? "open" : ""}`}>
         <Link id="linkHome" to="Home" />
@@ -18,15 +14,6 @@ class MenuRenderer extends Component<Props> {
         <Link id="linkContact" to="Contact" />
       </nav>
     );
-  }
-}
-
-interface Props {
-  open: boolean;
-}
-
-const mSTP = ({ menuOpen }: IMenu) => {
-  return { open: menuOpen };
-};
-
-export const Menu = connectMenu(mSTP)(MenuRenderer);
+  },
+  () => true,
+);

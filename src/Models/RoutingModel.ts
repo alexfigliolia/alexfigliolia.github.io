@@ -1,6 +1,6 @@
-import { TaskQueue } from "Tools/TaskQueue";
 import { Menu } from "State/Menu";
 import variables from "Styles/exports.module.scss";
+import { TaskQueue } from "Tools/TaskQueue";
 import { BaseModel } from "./BaseModel";
 import type { IRouting } from "./types";
 
@@ -10,6 +10,14 @@ export class RoutingModel extends BaseModel<IRouting> {
   );
   static smallScreenScale = this.sliceUnits(variables.smallScreenScale);
   static largeScreenScale = this.sliceUnits(variables.largeScreenScale);
+  constructor() {
+    super("Routing", {
+      loading: true,
+      routeName: "home",
+      screenActive: false,
+      classes: "screen shrink flip hidden",
+    });
+  }
 
   public show() {
     this.update(state => {

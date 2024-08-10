@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Page } from "Components/Page";
 import { AlexText } from "Components/AlexText";
+import { Page } from "Components/Page";
 import { Menu } from "State/Menu";
 import type { PropLess } from "Tools/Types";
 import { WorkButton } from "./WorkButton";

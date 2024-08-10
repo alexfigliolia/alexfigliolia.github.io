@@ -1,45 +1,31 @@
 import type { ReactNode } from "react";
-import React, { Component } from "react";
-import type { ReactiveStates } from "@figliolia/react-galena";
-import { connectNavigationAndMenu } from "State/Connections";
+import React, { memo } from "react";
 import { Menu } from "Components/Menu";
+import { useMenu } from "State/Menu";
+import { useRouter } from "State/Routing";
+import { selectDimensions, useScreen } from "State/Screen";
 import { MenuButton } from "./MenuButton";
 import "./styles.scss";
 
-class ScreenRenderer extends Component<Props> {
-  override render() {
-    const { front, back, height, width, classes, menuOpen } = this.props;
-    return (
-      <div className={classes} style={{ height, width }}>
-        <div className="inner">
-          <div className={`front ${menuOpen ? " menu-open" : ""}`}>
-            <Menu />
-            <MenuButton />
-            {front}
-          </div>
-          <div className="back">{back}</div>
+export const Screen = memo(function Screen({ front, back }: Props) {
+  const classes = useRouter(state => state.classes);
+  const [width, height] = useScreen(selectDimensions);
+  const menuOpen = useMenu(state => state.menuOpen);
+  return (
+    <div className={classes} style={{ height, width }}>
+      <div className="inner">
+        <div className={`front ${menuOpen ? " menu-open" : ""}`}>
+          <Menu />
+          <MenuButton />
+          {front}
         </div>
+        <div className="back">{back}</div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+});
 
 interface Props {
-  width: number;
-  height: number;
-  classes: string;
   back: ReactNode;
   front: ReactNode;
-  loading: boolean;
-  menuOpen: boolean;
 }
-
-const mSTP = ([
-  { height, width },
-  { loading, classes },
-  { menuOpen },
-]: ReactiveStates<typeof connectNavigationAndMenu>) => {
-  return { height, width, loading, classes, menuOpen };
-};
-
-export const Screen = connectNavigationAndMenu(mSTP)(ScreenRenderer);

@@ -1,17 +1,5 @@
-import { connect, createUseState } from "@figliolia/react-galena";
+import { createUseState } from "@figliolia/react-galena";
 import { RoutingModel } from "Models/RoutingModel";
-import { RoutingAndMenu } from "./States";
 
-export const Routing = RoutingAndMenu.composeState(
-  "Routing",
-  {
-    loading: true,
-    routeName: "home",
-    screenActive: false,
-    classes: "screen shrink flip hidden",
-  },
-  RoutingModel,
-);
-
-export const connectRouter = connect(Routing);
+export const Routing = new RoutingModel();
 export const useRouter = createUseState(Routing);

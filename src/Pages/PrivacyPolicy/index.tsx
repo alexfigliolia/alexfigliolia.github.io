@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Menu } from "State/Menu";
 import { Page } from "Components/Page";
 import { PrivacyText } from "Components/PrivacyText";
+import { Menu } from "State/Menu";
 import type { PropLess } from "Tools/Types";
 import { OpenButton } from "./OpenButton";
 import { PolicyModal } from "./PolicyModal";

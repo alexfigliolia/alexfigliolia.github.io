@@ -1,60 +1,32 @@
-import React, { Component } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Button3D } from "Components/Button3D";
-import type { IRouting } from "Models/types";
-import { connectRouter } from "State/Routing";
-import { TaskQueue } from "Tools/TaskQueue";
-import "./styles.scss";
 import { Privacy } from "State/Privacy";
+import { useRouter } from "State/Routing";
+import { TaskQueue } from "Tools/TaskQueue";
+import type { PropLess } from "Tools/Types";
+import "./styles.scss";
 
-export class OpenButtonRenderer extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { reset: false };
-    this.toggle = this.toggle.bind(this);
-  }
+export const OpenButton = memo(
+  function OpenButton(_: PropLess) {
+    const [reset, setReset] = useState(false);
+    const active = useRouter(state => state.screenActive);
 
-  override UNSAFE_componentWillReceiveProps({ active }: Props) {
-    if (!this.props.active && active) {
-      TaskQueue.deferTask(() => {
-        this.setState({ reset: true });
-      }, 3100);
-    }
-  }
+    useEffect(() => {
+      if (active) {
+        TaskQueue.deferTask(() => {
+          setReset(true);
+        }, 3100);
+      }
+    }, [active]);
 
-  override shouldComponentUpdate({ active }: Props, { reset }: State) {
-    if (active !== this.props.active) return true;
-    if (reset !== this.state.reset) return true;
-    return false;
-  }
-
-  private toggle() {
-    Privacy.toggle();
-  }
-
-  override render() {
-    const { reset } = this.state;
-    const { active } = this.props;
     return (
       <div
         className={`open-button ${active ? " active" : ""} ${
           reset ? "reset" : ""
         }`}>
-        <Button3D text="Policy" onClick={this.toggle} />
+        <Button3D text="Policy" onClick={Privacy.toggle} />
       </div>
     );
-  }
-}
-
-interface Props {
-  active: boolean;
-}
-
-interface State {
-  reset: boolean;
-}
-
-const mSTP = ({ screenActive }: IRouting) => {
-  return { active: screenActive };
-};
-
-export const OpenButton = connectRouter(mSTP)(OpenButtonRenderer);
+  },
+  () => true,
+);
