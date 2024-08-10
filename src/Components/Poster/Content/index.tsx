@@ -6,6 +6,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { useClassNames } from "@figliolia/classnames";
 import { Button3D } from "Components/Button3D";
 import { TaskQueue } from "Tools/TaskQueue";
 import "./styles.scss";
@@ -36,7 +37,7 @@ export const Content = memo(function Content({
   const deferReset = useCallback(
     (resetDelay = delay + 2200) => {
       cancelFN.current = TaskQueue.deferTask(() => {
-        setReset(false);
+        setReset(true);
       }, resetDelay);
     },
     [delay],
@@ -56,17 +57,20 @@ export const Content = memo(function Content({
     }
   }, [active, deferReset, cancelReset]);
 
+  const classes = useClassNames("poster-text", { expanded });
+  const linkClasses = useClassNames("poster-links", { reset });
+
   return (
     <Fragment>
       <div
-        className={`poster-text ${expanded ? "expanded" : ""}`}
+        className={classes}
         style={{
           transitionDelay: `${active ? delay : 0}ms`,
         }}>
         <p>{p1}</p>
         <p>{p2}</p>
       </div>
-      <div className={`poster-links ${reset ? "reset" : ""}`}>
+      <div className={linkClasses}>
         <Button3D text="More" onClick={toggle} />
         {url && <Button3D text="Visit" onClick={visit} />}
       </div>

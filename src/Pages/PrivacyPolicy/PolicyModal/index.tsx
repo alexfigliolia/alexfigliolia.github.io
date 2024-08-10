@@ -1,5 +1,6 @@
 import type { MouseEvent } from "react";
 import React, { memo, useCallback, useEffect } from "react";
+import { useClassNames } from "@figliolia/classnames";
 import { Privacy, usePrivacy } from "State/Privacy";
 import type { PropLess } from "Tools/Types";
 import "./styles.scss";
@@ -35,11 +36,11 @@ export const PolicyModal = memo(
       };
     }, [open, onKeyDown]);
 
+    const classes = useClassNames("policy-modal", { open });
+
     return (
       // @ts-ignore
-      <article
-        onClick={hide}
-        className={`policy-modal ${open ? "visible" : ""}`}>
+      <article onClick={hide} className={classes}>
         <div>
           <div>
             <h2>Privacy Policy</h2>

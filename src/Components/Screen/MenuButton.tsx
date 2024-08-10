@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
+import { useClassNames } from "@figliolia/classnames";
 import { Burger } from "Components/Burger";
 import { useMenu } from "State/Menu";
 import { useRouter } from "State/Routing";
@@ -22,8 +23,10 @@ export const MenuButton = memo(
       }
     }, [active, delay, screenActive]);
 
+    const classes = useClassNames("menu-button", { active });
+
     return (
-      <div className={`menu-button ${active ? " active" : ""}`}>
+      <div className={classes}>
         <Burger />
       </div>
     );

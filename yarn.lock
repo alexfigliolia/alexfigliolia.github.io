@@ -602,6 +602,11 @@
   resolved "https://registry.yarnpkg.com/@figliolia/child-process/-/child-process-1.0.3.tgz#38fd4b913524f6219eea586d169b786e5e331e9e"
   integrity sha512-GZwsbqWPYxvbd3X5CPx++kmy5JsTYXp+ovtvoJZMraaY0/hBLi4ZGiVACNNfujBJCEYsyroxrY20ylYUC2snnw==
 
+"@figliolia/classnames@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@figliolia/classnames/-/classnames-1.0.1.tgz#cb3b6ead371f8c4b2550351165c9fcd256f7b817"
+  integrity sha512-C0v417+15L2yVMsrbY8UjcglbQiJBdmofKTxNKDNgTRMDVdG5NKMxPSq1FTcPkUPNH2uFpK1P1bv+3yf4EgbXw==
+
 "@figliolia/data-structures@^1.0.8":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@figliolia/data-structures/-/data-structures-1.0.9.tgz#abc8bde88e2800d277953845f689ce1d54766e08"

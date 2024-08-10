@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
+import { useClassNames } from "@figliolia/classnames";
 import { Button3D } from "Components/Button3D";
 import { Privacy } from "State/Privacy";
 import { useRouter } from "State/Routing";
@@ -19,11 +20,10 @@ export const OpenButton = memo(
       }
     }, [active]);
 
+    const classes = useClassNames("open-button", { active, reset });
+
     return (
-      <div
-        className={`open-button ${active ? " active" : ""} ${
-          reset ? "reset" : ""
-        }`}>
+      <div className={classes}>
         <Button3D text="Policy" onClick={Privacy.toggle} />
       </div>
     );

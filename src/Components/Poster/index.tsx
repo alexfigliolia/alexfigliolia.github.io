@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useMemo } from "react";
+import { useClassNames } from "@figliolia/classnames";
 import { Menu } from "State/Menu";
 import { useRouter } from "State/Routing";
 import { useWork } from "State/Work";
@@ -38,9 +39,11 @@ export const Poster = memo(function Poster({
     }
   }, [activeDelay, posterActive]);
 
+  const classes = useClassNames("poster", { active });
+
   return (
     <div
-      className={`poster ${active ? "active" : ""}`}
+      className={classes}
       style={{
         "--background-small": `url(${imgSmall})`,
         "--background-large": `url(${imgLarge})`,

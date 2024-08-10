@@ -1,4 +1,5 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { useClassNames } from "@figliolia/classnames";
 import { RoutingModel } from "Models/RoutingModel";
 import type { IRouting } from "Models/types";
 import { Menu, useMenu } from "State/Menu";
@@ -15,7 +16,7 @@ export const Link = memo(function Link({ id, to }: Props) {
   );
 
   const active = useRouter(activeCheck);
-  const [canHover, setCanHover] = useState(false);
+  const [hoverable, setCanHover] = useState(false);
   const menuOpen = useMenu(state => state.menuOpen);
   const letters = useMemo(() => to.toUpperCase().split(""), [to]);
   const delay = useMemo(() => letters.length * 50 + 2200, [letters]);
@@ -40,13 +41,10 @@ export const Link = memo(function Link({ id, to }: Props) {
     }, RoutingModel.shrinkAndFlipDuration);
   }, [to]);
 
+  const classes = useClassNames("link", { active, hoverable });
+
   return (
-    <button
-      id={id}
-      onClick={nav}
-      className={`link ${active ? "active" : ""} ${
-        canHover ? "can-hover" : ""
-      }`}>
+    <button id={id} onClick={nav} className={classes}>
       {letters.map((letter, i) => {
         return (
           <span key={`${letter}-${i}`} className="link-letter">

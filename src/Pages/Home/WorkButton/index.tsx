@@ -1,4 +1,5 @@
 import React, { memo, useCallback, useEffect, useState } from "react";
+import { useClassNames } from "@figliolia/classnames";
 import { Button3D } from "Components/Button3D";
 import { useRouter } from "State/Routing";
 import { TaskQueue } from "Tools/TaskQueue";
@@ -22,11 +23,10 @@ export const WorkButton = memo(
       window.location.hash = "#Work";
     }, []);
 
+    const classes = useClassNames("work-button", { active, reset });
+
     return (
-      <div
-        className={`work-button ${active ? " active" : ""} ${
-          reset ? "reset" : ""
-        }`}>
+      <div className={classes}>
         <Button3D text="Work" onClick={nav} />
       </div>
     );

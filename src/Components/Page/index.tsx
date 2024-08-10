@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import React, { memo, useEffect, useRef } from "react";
+import { useClassNames } from "@figliolia/classnames";
 import { Ripples } from "@figliolia/ripples";
 import { useRouter } from "State/Routing";
 import { selectDimensions, useScreen } from "State/Screen";
@@ -26,12 +27,14 @@ export const Page = memo(function Page({ name, children }: Props) {
     };
   });
 
+  const classes = useClassNames("page", name, { active });
+
   return (
     <main
       id="page"
       ref={container}
       style={{ height, width }}
-      className={`page ${name} ${active ? "active" : ""}`}>
+      className={classes}>
       <div className="content" style={{ height, width }}>
         {children}
       </div>

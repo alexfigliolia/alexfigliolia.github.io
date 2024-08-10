@@ -13,6 +13,7 @@
     "create-package": "tsx devtools/create-package/CLI.ts"
   },
   "dependencies": {
+    "@figliolia/classnames": "^1.0.1",
     "@figliolia/galena": "^2.3.5",
     "@figliolia/page-switch": "^1.0.8",
     "@figliolia/promises": "^1.0.1",

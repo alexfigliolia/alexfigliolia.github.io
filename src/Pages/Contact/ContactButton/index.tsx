@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
+import { useClassNames } from "@figliolia/classnames";
 import { Button3D } from "Components/Button3D";
 import { useRouter } from "State/Routing";
 import { TaskQueue } from "Tools/TaskQueue";
@@ -19,11 +20,10 @@ export const ContactButton = memo(function ContactButton({
     }
   }, [active]);
 
+  const classes = useClassNames("contact-button", { active, reset });
+
   return (
-    <div
-      className={`contact-button ${active ? " active" : ""} ${
-        reset ? "reset" : ""
-      }`}>
+    <div className={classes}>
       <Button3D text={text} onClick={onClick} />
     </div>
   );
