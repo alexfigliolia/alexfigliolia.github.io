@@ -619,7 +619,12 @@
   resolved "https://registry.yarnpkg.com/@figliolia/event-emitter/-/event-emitter-1.1.6.tgz#77657da153875904f959aa9efe040a5874623274"
   integrity sha512-v8wNRuqTnYAsw89dxbWKKJT0E4TWP2rP7BRTE5PC2kBleQl9urfancLTWie3QdjMBGbs/sY+5XdTYoHyG1117w==
 
-"@figliolia/galena@^2.3.2", "@figliolia/galena@^2.3.5":
+"@figliolia/galena-window@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@figliolia/galena-window/-/galena-window-1.0.0.tgz#222d8a83350265f01171ca5400e3606d74567c5b"
+  integrity sha512-9vFvaEyC7Zye9PlxttZrGmciN0d5TrcC5BKEjB0kcZbiVMpR04GlRSuuVMZqdiEkT+nGEUC1j9VuPplSLYCc9g==
+
+"@figliolia/galena@^2.3.5":
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/@figliolia/galena/-/galena-2.3.5.tgz#aabf3bce90bc1e8ebdbf7a8c4e52d95f150c85c6"
   integrity sha512-gcNqM1ouUGBrB5aTd5JiwMfyadxAw1F5CdyUSpfj0qysZA6wEugdGWU8SdG1t6kC0QbIgM45KyZ+ws0oMuO/5g==
@@ -636,12 +641,12 @@
   resolved "https://registry.yarnpkg.com/@figliolia/promises/-/promises-1.0.1.tgz#b1ee413a3e757623843696b88ca5cc67bc93e29d"
   integrity sha512-iQsXHaw/XabP2tEakuwMv6wcpMSKob7smjV2/xI+vh/jJ4/8glZwz3tMLzpyMUCFNdqnssLZVGWe02tyCO4CWg==
 
-"@figliolia/react-galena@^3.2.3":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@figliolia/react-galena/-/react-galena-3.2.3.tgz#0a49fb9c5b66334742b8b943171ba846b91a18e7"
-  integrity sha512-9FJD5JuxuoYtS+g+cTYPm+60qv0u99qKZw7BMuMTLUJ5hAS/pJFNyL+C49VDqG9dpHmPZKT7ytm/vfjJPLKnbA==
+"@figliolia/react-galena@^3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@figliolia/react-galena/-/react-galena-3.2.4.tgz#b9e23c452d842138a1072cf1cf330b598cf6b06c"
+  integrity sha512-ktA7QFWAtzoOGo04fwJWuFJOjOb1r3MxeGWNJDeAVecVQmMZR3wBZpYNSyk/j9yritHG/Hvr8WglS2b5Ea1V8Q==
   dependencies:
-    "@figliolia/galena" "^2.3.2"
+    "@figliolia/galena" "^2.3.5"
 
 "@figliolia/ripples@^1.0.6":
   version "1.0.6"
