@@ -1,5 +1,5 @@
 import type { MouseEvent } from "react";
-import React, { memo, useCallback, useEffect } from "react";
+import React, { memo, useCallback, useEffect, useRef } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { isPrivacyOpen, Privacy, usePrivacy } from "State/Privacy";
 import type { PropLess } from "Tools/Types";
@@ -10,6 +10,7 @@ import "./styles.scss";
 export const PolicyModal = memo(
   function PolicyModal(_: PropLess) {
     const open = usePrivacy(isPrivacyOpen);
+    const content = useRef<HTMLElement>(null);
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
       if (e?.keyCode === 27 || e?.key === "Escape" || e?.code === "Escape") {
@@ -19,8 +20,7 @@ export const PolicyModal = memo(
 
     const hide = useCallback((e: MouseEvent<HTMLElement>) => {
       e.stopPropagation();
-      // @ts-ignore
-      if (e?.target?.tagName === "ARTICLE") {
+      if (!content.current?.contains?.(e.target as HTMLElement)) {
         Privacy.toggle();
       }
     }, []);
@@ -39,9 +39,8 @@ export const PolicyModal = memo(
     const classes = useClassNames("policy-modal", { open });
 
     return (
-      // @ts-ignore
-      <article onClick={hide} className={classes}>
-        <div>
+      <dialog onClick={hide} className={classes}>
+        <article ref={content}>
           <div>
             <h2>Privacy Policy</h2>
             <div className="contents">
@@ -133,8 +132,8 @@ export const PolicyModal = memo(
               </p>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </dialog>
     );
   },
   () => true,
