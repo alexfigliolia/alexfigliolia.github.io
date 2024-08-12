@@ -619,10 +619,12 @@
   resolved "https://registry.yarnpkg.com/@figliolia/event-emitter/-/event-emitter-1.1.6.tgz#77657da153875904f959aa9efe040a5874623274"
   integrity sha512-v8wNRuqTnYAsw89dxbWKKJT0E4TWP2rP7BRTE5PC2kBleQl9urfancLTWie3QdjMBGbs/sY+5XdTYoHyG1117w==
 
-"@figliolia/galena-window@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@figliolia/galena-window/-/galena-window-1.0.0.tgz#222d8a83350265f01171ca5400e3606d74567c5b"
-  integrity sha512-9vFvaEyC7Zye9PlxttZrGmciN0d5TrcC5BKEjB0kcZbiVMpR04GlRSuuVMZqdiEkT+nGEUC1j9VuPplSLYCc9g==
+"@figliolia/galena-window@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@figliolia/galena-window/-/galena-window-1.0.1.tgz#1a1f4344ec530097903ffe7bceb0ae38a7776ead"
+  integrity sha512-00/vAFPZrOYRnA8ndBochQzv95ky+DCwLSMkaKky9GWzPjDaI0WoY4g0rAY99tkyGw6001ip9E8ugVEGwv8qFg==
+  dependencies:
+    "@figliolia/galena" "^2.3.5"
 
 "@figliolia/galena@^2.3.5":
   version "2.3.5"

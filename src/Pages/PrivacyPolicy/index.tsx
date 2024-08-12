@@ -1,9 +1,10 @@
 import React, { memo } from "react";
+import { CTAButton } from "Components/CTAButton";
 import { Page } from "Components/Page";
 import { PrivacyText } from "Components/PrivacyText";
 import { useMenuButtonDelay } from "Hooks/useMenuButtonDelay";
+import { Privacy as PrivacyState } from "State/Privacy";
 import type { PropLess } from "Tools/Types";
-import { OpenButton } from "./OpenButton";
 import { PolicyModal } from "./PolicyModal";
 import "./styles.scss";
 
@@ -14,7 +15,11 @@ export default memo(
       <Page name="privacy">
         <div>
           <PrivacyText />
-          <OpenButton />
+          <CTAButton
+            text="Policy"
+            className="open-policy-button"
+            onClick={PrivacyState.toggle}
+          />
         </div>
         <PolicyModal />
       </Page>

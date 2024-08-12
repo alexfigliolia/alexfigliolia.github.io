@@ -15,7 +15,7 @@
   "dependencies": {
     "@figliolia/classnames": "^1.0.1",
     "@figliolia/galena": "^2.3.5",
-    "@figliolia/galena-window": "^1.0.0",
+    "@figliolia/galena-window": "^1.0.1",
     "@figliolia/page-switch": "^1.0.8",
     "@figliolia/promises": "^1.0.1",
     "@figliolia/react-galena": "^3.2.4",

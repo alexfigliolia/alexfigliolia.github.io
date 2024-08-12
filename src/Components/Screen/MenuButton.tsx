@@ -1,16 +1,16 @@
 import React, { memo, useEffect, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { Burger } from "Components/Burger";
-import { useMenu } from "State/Menu";
-import { useRouter } from "State/Routing";
+import { getButtonDelay, useMenu } from "State/Menu";
+import { isPageActive, useRouter } from "State/Routing";
 import { TaskQueue } from "Tools/TaskQueue";
 import type { PropLess } from "Tools/Types";
 
 export const MenuButton = memo(
   function MenuButton(_: PropLess) {
     const [active, setActive] = useState(false);
-    const delay = useMenu(state => state.buttonDelay);
-    const screenActive = useRouter(state => state.screenActive);
+    const delay = useMenu(getButtonDelay);
+    const screenActive = useRouter(isPageActive);
 
     useEffect(() => {
       if (!screenActive && active) {

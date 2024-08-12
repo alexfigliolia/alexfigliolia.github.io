@@ -8,10 +8,10 @@ export const ContactText = memo(
   function ContactText(_: PropLess) {
     return (
       <div className="contact-text">
-        <h1 id="contactText">
+        <h1 id="contactText" aria-label="Contact">
           {contact.map((letter, i) => {
             return (
-              <div className="text-letter" key={`${letter}-${i}`}>
+              <div className="text-letter" key={`${letter}-${i}`} aria-hidden>
                 {letter}
               </div>
             );

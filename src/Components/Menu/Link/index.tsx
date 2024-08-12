@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { RoutingModel } from "Models/RoutingModel";
 import type { IRouting } from "Models/types";
-import { Menu, useMenu } from "State/Menu";
+import { isMenuOpen, Menu, useMenu } from "State/Menu";
 import { useRouter } from "State/Routing";
 import { TaskQueue } from "Tools/TaskQueue";
 import "./styles.scss";
@@ -17,7 +17,7 @@ export const Link = memo(function Link({ id, to }: Props) {
 
   const active = useRouter(activeCheck);
   const [hoverable, setCanHover] = useState(false);
-  const menuOpen = useMenu(state => state.menuOpen);
+  const menuOpen = useMenu(isMenuOpen);
   const letters = useMemo(() => to.toUpperCase().split(""), [to]);
   const delay = useMemo(() => letters.length * 50 + 2200, [letters]);
 

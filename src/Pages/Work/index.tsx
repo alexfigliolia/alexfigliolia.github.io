@@ -26,7 +26,7 @@ export default memo(
       return () => {
         PW.destroy();
       };
-    });
+    }, []);
 
     return (
       <Page name="work">

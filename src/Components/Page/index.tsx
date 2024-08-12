@@ -2,14 +2,14 @@ import type { ReactNode } from "react";
 import React, { memo, useEffect, useRef } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { Ripples } from "@figliolia/ripples";
-import { useRouter } from "State/Routing";
+import { isPageActive, useRouter } from "State/Routing";
 import { selectDimensions, useScreen } from "State/Screen";
 import "./styles.scss";
 
 export const Page = memo(function Page({ name, children }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const [width, height] = useScreen(selectDimensions);
-  const active = useRouter(state => state.screenActive);
+  const active = useRouter(isPageActive);
 
   useEffect(() => {
     if (!container.current) {

@@ -1,14 +1,14 @@
 import React, { memo, useCallback, useMemo } from "react";
 import { useClassNames } from "@figliolia/classnames";
-import { Menu, useMenu } from "State/Menu";
-import { Privacy, usePrivacy } from "State/Privacy";
+import { isMenuOpen, Menu, useMenu } from "State/Menu";
+import { isPrivacyOpen, Privacy, usePrivacy } from "State/Privacy";
 import type { PropLess } from "Tools/Types";
 import "./styles.scss";
 
 export const Burger = memo(
   function Burger(_: PropLess) {
-    const menuOpen = useMenu(state => state.menuOpen);
-    const policy = usePrivacy(state => state.open);
+    const menuOpen = useMenu(isMenuOpen);
+    const policy = usePrivacy(isPrivacyOpen);
     const open = useMemo(() => menuOpen || policy, [menuOpen, policy]);
 
     const toggle = useCallback(() => {

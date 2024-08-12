@@ -1,7 +1,7 @@
 import type { MouseEvent } from "react";
 import React, { memo, useCallback, useEffect } from "react";
 import { useClassNames } from "@figliolia/classnames";
-import { Privacy, usePrivacy } from "State/Privacy";
+import { isPrivacyOpen, Privacy, usePrivacy } from "State/Privacy";
 import type { PropLess } from "Tools/Types";
 import "./styles.scss";
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -9,7 +9,7 @@ import "./styles.scss";
 
 export const PolicyModal = memo(
   function PolicyModal(_: PropLess) {
-    const open = usePrivacy(state => state.open);
+    const open = usePrivacy(isPrivacyOpen);
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
       if (e?.keyCode === 27 || e?.key === "Escape" || e?.code === "Escape") {
