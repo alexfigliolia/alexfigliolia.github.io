@@ -25,7 +25,7 @@ export const Page = memo(function Page({ name, children }: Props) {
         ripples.destroy();
       }
     };
-  });
+  }, []);
 
   const classes = useClassNames("page", name, { active });
 
