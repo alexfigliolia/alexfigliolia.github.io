@@ -1,17 +1,15 @@
-import React, { Component } from "react";
+import React, { memo } from "react";
 import { Loader } from "Components/Loader";
+import type { PropLess } from "Tools/Types";
 import "./styles.scss";
 
-export class ScreenLoader extends Component {
-  override shouldComponentUpdate() {
-    return false;
-  }
-
-  override render() {
+export const ScreenLoader = memo(
+  function ScreenLoader(_: PropLess) {
     return (
       <div className="screen-loader">
         <Loader />
       </div>
     );
-  }
-}
+  },
+  () => true,
+);

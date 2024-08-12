@@ -1,12 +1,9 @@
-import React, { Component } from "react";
+import React, { memo } from "react";
+import type { PropLess } from "Tools/Types";
 import "./styles.scss";
 
-export class Loader extends Component {
-  override shouldComponentUpdate() {
-    return false;
-  }
-
-  override render() {
+export const Loader = memo(
+  function Loader(_: PropLess) {
     return (
       <div className="loader">
         <div>
@@ -16,5 +13,6 @@ export class Loader extends Component {
         </div>
       </div>
     );
-  }
-}
+  },
+  () => true,
+);

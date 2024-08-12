@@ -28,11 +28,14 @@
       "Components/*": [
         "./Components/*"
       ],
-      "Images/*": [
-        "./Images/*"
+      "Hooks/*": [
+        "./Hooks/*"
       ],
       "Icons/*": [
         "./Icons/*"
+      ],
+      "Images/*": [
+        "./Images/*"
       ],
       "Models/*": [
         "./Models/*"
@@ -42,6 +45,9 @@
       ],
       "Root/*": [
         "./Root/*"
+      ],
+      "Router/*": [
+        "./Router/*"
       ],
       "State/*": [
         "./State/*"

@@ -1,22 +1,14 @@
-import React, { Component } from "react";
+import React, { memo } from "react";
 import { AlexText } from "Components/AlexText";
 import { Page } from "Components/Page";
-import { Menu } from "State/Menu";
+import { useMenuButtonDelay } from "Hooks/useMenuButtonDelay";
 import type { PropLess } from "Tools/Types";
 import { WorkButton } from "./WorkButton";
 import "./styles.scss";
 
-export default class Home extends Component<PropLess> {
-  constructor(props: PropLess) {
-    super(props);
-    Menu.setButtonDelay(3300);
-  }
-
-  override shouldComponentUpdate() {
-    return false;
-  }
-
-  override render() {
+export default memo(
+  function Home(_: PropLess) {
+    useMenuButtonDelay();
     return (
       <Page name="home">
         <div>
@@ -25,5 +17,6 @@ export default class Home extends Component<PropLess> {
         </div>
       </Page>
     );
-  }
-}
+  },
+  () => true,
+);

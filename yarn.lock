@@ -648,6 +648,11 @@
   dependencies:
     "@figliolia/galena" "^2.3.5"
 
+"@figliolia/react-lazy@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@figliolia/react-lazy/-/react-lazy-1.0.8.tgz#b4deb4f4104365670c3f09e6e23be78a905a3094"
+  integrity sha512-TiZRKqZYNZVAd1K/lqQdrZtL6PA92xEtOQjW8dPdFOEorxaPAQ/VuM3Hc8il8Y7vx0BlzNoHEhxFc+dbGtmiVQ==
+
 "@figliolia/ripples@^1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@figliolia/ripples/-/ripples-1.0.6.tgz#08c5982e50f47f463a697b4f66f19c74460971c2"

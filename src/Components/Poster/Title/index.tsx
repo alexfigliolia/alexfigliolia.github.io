@@ -1,13 +1,8 @@
-import React, { Component } from "react";
+import React, { memo } from "react";
 import "./styles.scss";
 
-export class Title extends Component<Props> {
-  override shouldComponentUpdate() {
-    return false;
-  }
-
-  override render() {
-    const { letters, length } = this.props;
+export const Title = memo(
+  function Title({ letters, length }: Props) {
     let current = -1;
     return (
       <h2 className="poster-title">
@@ -33,8 +28,9 @@ export class Title extends Component<Props> {
         })}
       </h2>
     );
-  }
-}
+  },
+  () => true,
+);
 
 interface Props {
   length: number;

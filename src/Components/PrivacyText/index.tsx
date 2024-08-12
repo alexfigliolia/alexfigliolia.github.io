@@ -1,20 +1,17 @@
-import React, { Component } from "react";
+import React, { memo } from "react";
+import type { PropLess } from "Tools/Types";
 import "./styles.scss";
 
-export class PrivacyText extends Component {
-  static privacy = "PRIVACY".split("");
+const privacy = "PRIVACY".split("");
 
-  override shouldComponentUpdate() {
-    return false;
-  }
-
-  override render() {
+export const PrivacyText = memo(
+  function PrivacyText(_: PropLess) {
     return (
       <div className="privacy-text">
-        <h1 id="privacyText">
-          {PrivacyText.privacy.map((letter, i) => {
+        <h1 id="privacyText" aria-label="Privacy">
+          {privacy.map((letter, i) => {
             return (
-              <div className="text-letter" key={`${letter}-${i}`}>
+              <div className="text-letter" key={`${letter}-${i}`} aria-hidden>
                 {letter}
               </div>
             );
@@ -22,5 +19,6 @@ export class PrivacyText extends Component {
         </h1>
       </div>
     );
-  }
-}
+  },
+  () => true,
+);

@@ -1,23 +1,15 @@
-import React, { Component } from "react";
+import React, { memo } from "react";
 import { Page } from "Components/Page";
 import { PrivacyText } from "Components/PrivacyText";
-import { Menu } from "State/Menu";
+import { useMenuButtonDelay } from "Hooks/useMenuButtonDelay";
 import type { PropLess } from "Tools/Types";
 import { OpenButton } from "./OpenButton";
 import { PolicyModal } from "./PolicyModal";
 import "./styles.scss";
 
-export default class Privacy extends Component<PropLess> {
-  constructor(props: PropLess) {
-    super(props);
-    Menu.setButtonDelay(3300);
-  }
-
-  override shouldComponentUpdate() {
-    return false;
-  }
-
-  override render() {
+export default memo(
+  function Privacy(_: PropLess) {
+    useMenuButtonDelay();
     return (
       <Page name="privacy">
         <div>
@@ -27,5 +19,6 @@ export default class Privacy extends Component<PropLess> {
         <PolicyModal />
       </Page>
     );
-  }
-}
+  },
+  () => true,
+);

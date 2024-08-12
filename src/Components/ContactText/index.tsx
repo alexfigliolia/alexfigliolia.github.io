@@ -1,18 +1,15 @@
-import React, { Component } from "react";
+import React, { memo } from "react";
+import type { PropLess } from "Tools/Types";
 import "./styles.scss";
 
-export class ContactText extends Component {
-  static contact = "CONTACT".split("");
+const contact = "CONTACT".split("");
 
-  override shouldComponentUpdate() {
-    return false;
-  }
-
-  override render() {
+export const ContactText = memo(
+  function ContactText(_: PropLess) {
     return (
       <div className="contact-text">
         <h1 id="contactText">
-          {ContactText.contact.map((letter, i) => {
+          {contact.map((letter, i) => {
             return (
               <div className="text-letter" key={`${letter}-${i}`}>
                 {letter}
@@ -22,5 +19,6 @@ export class ContactText extends Component {
         </h1>
       </div>
     );
-  }
-}
+  },
+  () => true,
+);
