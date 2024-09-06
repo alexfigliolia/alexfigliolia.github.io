@@ -16,14 +16,10 @@ export const Page = memo(function Page({ name, children }: Props) {
       return;
     }
     const ripples = new Ripples(container.current, {
-      resolution: 512,
-      dropRadius: 10,
-      perturbance: 0.02,
+      resolution: "device",
     });
     return () => {
-      if (ripples) {
-        ripples.destroy();
-      }
+      ripples.destroy();
     };
   }, []);
 

@@ -13,12 +13,8 @@ export default memo(
       const { index } = WorkState.getState();
       const PW = new PageSwitch("workSlider", {
         duration: 750,
-        direction: 1,
         transition: "scrollCover",
         start: index < 0 ? 0 : index,
-        loop: true,
-        mousewheel: true,
-        arrowKey: true,
       });
       PW.on("after", index => {
         WorkState.setActive(index);

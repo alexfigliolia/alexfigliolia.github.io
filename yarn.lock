@@ -597,10 +597,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.56.0.tgz#ef20350fec605a7f7035a01764731b2de0f3782b"
   integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
-"@figliolia/child-process@^1.0.1":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@figliolia/child-process/-/child-process-1.0.3.tgz#38fd4b913524f6219eea586d169b786e5e331e9e"
-  integrity sha512-GZwsbqWPYxvbd3X5CPx++kmy5JsTYXp+ovtvoJZMraaY0/hBLi4ZGiVACNNfujBJCEYsyroxrY20ylYUC2snnw==
+"@figliolia/child-process@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@figliolia/child-process/-/child-process-1.0.4.tgz#5337c847f43a08ff9e1124793fa650f746515da5"
+  integrity sha512-midiGoIu0pO9q+T607iYFSsEFSg6XlWJ7REaGcX/mCuxgrr8hudGSPz4OzyXznVUlp1UwaVTjfgYHlSUxuaJXg==
 
 "@figliolia/classnames@^1.0.1":
   version "1.0.1"
@@ -611,6 +611,13 @@
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@figliolia/data-structures/-/data-structures-1.0.9.tgz#abc8bde88e2800d277953845f689ce1d54766e08"
   integrity sha512-NlGF9/ECBTVybqMcYCnB6UAjOniizMpNyN+394a6taNIPOhB0YHywlHvWt9ls4sf6hvoBSCzkeEKrYsdqW6iYg==
+  dependencies:
+    "@figliolia/event-emitter" "^1.1.4"
+
+"@figliolia/data-structures@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@figliolia/data-structures/-/data-structures-1.1.0.tgz#80a2b1e5143bb257ab446398085d554a0b4332d8"
+  integrity sha512-gqrxRbihWXH+Uz+GZhLITG6pr/ywfkzSNdgG2+CyR3bWCMKqLvoVSKIFTOm6p4CXyA75E05pg6vGS1qAeJor0g==
   dependencies:
     "@figliolia/event-emitter" "^1.1.4"
 
@@ -650,15 +657,17 @@
   dependencies:
     "@figliolia/galena" "^2.3.5"
 
-"@figliolia/react-lazy@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@figliolia/react-lazy/-/react-lazy-1.0.8.tgz#b4deb4f4104365670c3f09e6e23be78a905a3094"
-  integrity sha512-TiZRKqZYNZVAd1K/lqQdrZtL6PA92xEtOQjW8dPdFOEorxaPAQ/VuM3Hc8il8Y7vx0BlzNoHEhxFc+dbGtmiVQ==
+"@figliolia/react-lazy@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@figliolia/react-lazy/-/react-lazy-1.1.0.tgz#94468847ced6966603d62f43452f302e3dbcab66"
+  integrity sha512-3fF9FCwLm/R5Y++PQsCQhvau9Fy6B2UoK5NcEo/LHRcd1Yuj0kxRFxr+qQifHKLRmqCc/LyxaTWFmqsuZ374qw==
+  dependencies:
+    "@figliolia/data-structures" "^1.1.0"
 
-"@figliolia/ripples@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@figliolia/ripples/-/ripples-1.0.6.tgz#08c5982e50f47f463a697b4f66f19c74460971c2"
-  integrity sha512-a3VK1wgF4xdYUtn9xbsY6AU0yztIyiPYlrQ9AOzwZBy/HFxRWWtTu+XURiEhz0TC6XnuRaFN17G8/MwI0RB82A==
+"@figliolia/ripples@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@figliolia/ripples/-/ripples-1.0.7.tgz#bbb39376fff35bfeb3e5a876563f8bf5d4c6927b"
+  integrity sha512-r7WeZmWLMgVMxIHs7cwcgpG+1GV5340O7vgtB7hJWp2LGXzoIJFjY/Acu6xDKe5YMLKNLNkRDhQhSN2uSrCQHg==
   dependencies:
     "@figliolia/event-emitter" "^1.1.6"
 
@@ -1192,30 +1201,24 @@
     undici-types "~6.13.0"
 
 "@types/prop-types@*":
-  version "15.7.11"
-  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.11.tgz#2596fb352ee96a1379c657734d4b913a613ad563"
-  integrity sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==
+  version "15.7.12"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.12.tgz#12bb1e2be27293c1406acb6af1c3f3a1481d98c6"
+  integrity sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==
 
-"@types/react-dom@^18.2.18":
-  version "18.2.18"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.2.18.tgz#16946e6cd43971256d874bc3d0a72074bb8571dd"
-  integrity sha512-TJxDm6OfAX2KJWJdMEVTwWke5Sc/E/RlnPGvGfS0W7+6ocy2xhDVQVh/KvC2Uf7kACs+gDytdusDSdWfWkaNzw==
+"@types/react-dom@^18.3.0":
+  version "18.3.0"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.3.0.tgz#0cbc818755d87066ab6ca74fbedb2547d74a82b0"
+  integrity sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.2.47":
-  version "18.2.48"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.48.tgz#11df5664642d0bd879c1f58bc1d37205b064e8f1"
-  integrity sha512-qboRCl6Ie70DQQG9hhNREz81jqC1cs9EVNcjQ1AU+jH6NFfSAhVVbrrY/+nSF+Bsk4AOwm9Qa61InvMCyV+H3w==
+"@types/react@*", "@types/react@^18.3.5":
+  version "18.3.5"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.5.tgz#5f524c2ad2089c0ff372bbdabc77ca2c4dbadf8f"
+  integrity sha512-WeqMfGJLGuLCqHGYRGHxnKrXcTitc6L/nBUWfWPcTarG3t9PsquqUMuVeXZeca+mglY4Vo5GZjCi0A3Or2lnxA==
   dependencies:
     "@types/prop-types" "*"
-    "@types/scheduler" "*"
     csstype "^3.0.2"
-
-"@types/scheduler@*":
-  version "0.16.8"
-  resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.8.tgz#ce5ace04cfeabe7ef87c0091e50752e36707deff"
-  integrity sha512-WZLiwShhwLRmeV6zH+GkbOFT6Z6VklCItrDioxUnv+u4Ll+8vKeFySoFyK/0ctcRpOmwAicELfmys1sDc/Rw+A==
 
 "@types/semver@^7.3.12":
   version "7.5.6"
@@ -4764,13 +4767,13 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-react-dom@^18.2.0:
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
-  integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
+react-dom@^18.3.1:
+  version "18.3.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.3.1.tgz#c2265d79511b57d479b3dd3fdfa51536494c5cb4"
+  integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
   dependencies:
     loose-envify "^1.1.0"
-    scheduler "^0.23.0"
+    scheduler "^0.23.2"
 
 react-is@^16.13.1:
   version "16.13.1"
@@ -4787,10 +4790,10 @@ react-refresh@^0.14.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.14.0.tgz#4e02825378a5f227079554d4284889354e5f553e"
   integrity sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==
 
-react@^18.2.0:
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
-  integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
+react@^18.3.1:
+  version "18.3.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.3.1.tgz#49ab892009c53933625bd16b2533fc754cab2891"
+  integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
   dependencies:
     loose-envify "^1.1.0"
 
@@ -4980,10 +4983,10 @@ sass@^1.69.7:
     immutable "^4.0.0"
     source-map-js ">=0.6.2 <2.0.0"
 
-scheduler@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.23.0.tgz#ba8041afc3d30eb206a487b6b384002e4e61fdfe"
-  integrity sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==
+scheduler@^0.23.2:
+  version "0.23.2"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.23.2.tgz#414ba64a3b282892e944cf2108ecc078d115cdc3"
+  integrity sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==
   dependencies:
     loose-envify "^1.1.0"
 
