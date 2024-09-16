@@ -11,7 +11,7 @@ export class PageControllerModel extends BaseModel<IPageController> {
   static smallScreenScale = this.sliceUnits(variables.smallScreenScale);
   static largeScreenScale = this.sliceUnits(variables.largeScreenScale);
   constructor() {
-    super("PageController", {
+    super("Page Controller", {
       loading: true,
       routeName: "home",
       screenActive: false,
