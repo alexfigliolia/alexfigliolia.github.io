@@ -7,11 +7,6 @@ export type WrappedLoader = [
   preloader?: Promise<any>,
 ];
 
-export interface ImagesPreloaded {
-  large: boolean;
-  small: boolean;
-}
-
 export type ISetPage = (component: ComponentType | null) => void;
 
 export type RouteMap = Record<string, () => Promise<LazyComponent<PropLess>>>;

@@ -3,14 +3,14 @@ import React, { memo } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { Menu } from "Components/Menu";
 import { isMenuOpen, useMenu } from "State/Menu";
-import { screenClasses, useRouter } from "State/Routing";
+import { screenClasses, usePageController } from "State/PageController";
 import { selectDimensions, useScreen } from "State/Screen";
 import { MenuButton } from "./MenuButton";
 import "./styles.scss";
 
 export const Screen = memo(function Screen({ front, back }: Props) {
   const hide = useMenu(isMenuOpen);
-  const classes = useRouter(screenClasses);
+  const classes = usePageController(screenClasses);
   const [width, height] = useScreen(selectDimensions);
   const frontClasses = useClassNames("front", { hide });
   return (

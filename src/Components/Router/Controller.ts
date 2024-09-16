@@ -1,7 +1,7 @@
 import type { TimedPromiseResolution } from "@figliolia/promises";
 import { TimedPromise } from "@figliolia/promises";
 import type { LazyComponent } from "@figliolia/react-lazy/dist/types/types";
-import { Routing } from "State/Routing";
+import { PageController } from "State/PageController";
 import type { PropLess } from "Tools/Types";
 import type { ISetPage, RouteMap } from "./types";
 
@@ -29,7 +29,7 @@ export class Controller<T extends RouteMap> {
 
   public hashChange = () => {
     const hash = this.currentRoute;
-    void Routing.flipScreen().then(async () => {
+    void PageController.flipScreen().then(async () => {
       try {
         const Task = this.createLoader(hash);
         this.onRouteLoaded(hash, await Task.run());
@@ -48,8 +48,8 @@ export class Controller<T extends RouteMap> {
     { result, remainingMS }: TimedPromiseResolution<LazyComponent<PropLess>>,
   ) {
     this.setPage(result.default);
-    Routing.initialize(remainingMS, () => {
-      Routing.setRouteName(hash);
+    PageController.initialize(remainingMS, () => {
+      PageController.setRouteName(hash);
     });
   }
 

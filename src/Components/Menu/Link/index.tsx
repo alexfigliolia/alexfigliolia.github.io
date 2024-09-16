@@ -1,21 +1,21 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
-import { RoutingModel } from "Models/RoutingModel";
-import type { IRouting } from "Models/types";
+import { PageControllerModel } from "Models/PageControllerModel";
+import type { IPageController } from "Models/types";
 import { isMenuOpen, Menu, useMenu } from "State/Menu";
-import { useRouter } from "State/Routing";
+import { usePageController } from "State/PageController";
 import { TaskQueue } from "Tools/TaskQueue";
 import "./styles.scss";
 
 export const Link = memo(function Link({ id, to }: Props) {
   const activeCheck = useCallback(
-    (state: IRouting) => {
+    (state: IPageController) => {
       return state.routeName.toLowerCase() === to.toLowerCase();
     },
     [to],
   );
 
-  const active = useRouter(activeCheck);
+  const active = usePageController(activeCheck);
   const [hoverable, setCanHover] = useState(false);
   const menuOpen = useMenu(isMenuOpen);
   const letters = useMemo(() => to.toUpperCase().split(""), [to]);
@@ -38,7 +38,7 @@ export const Link = memo(function Link({ id, to }: Props) {
     window.location.hash = `#${to}`;
     TaskQueue.deferTask(() => {
       Menu.toggle();
-    }, RoutingModel.shrinkAndFlipDuration);
+    }, PageControllerModel.shrinkAndFlipDuration);
   }, [to]);
 
   const classes = useClassNames("link", { active, hoverable });

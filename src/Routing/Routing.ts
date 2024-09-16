@@ -1,43 +1,21 @@
-import { CreateLazyComponent } from "@figliolia/react-lazy";
+import type { CreateLazyComponent } from "@figliolia/react-lazy";
 import type { LazyComponent } from "@figliolia/react-lazy/dist/types/types";
 import { Preloader } from "Tools/Preloader";
 import type { PropLess } from "Tools/Types";
-import type { ImagesPreloaded, RouteMap } from "./types";
+import type { ImagesPreloaded } from "./types";
 
-export class Routes {
+export class Routing {
   private static preloaded: ImagesPreloaded = {
     small: false,
     large: false,
   };
   private static foregroundTasks: Promise<any>[] = [];
-  public static readonly routes: RouteMap = {
-    home: this.wrapLoader(
-      CreateLazyComponent({
-        loader: () => import("Pages/Home"),
-      }),
-    ),
-    work: this.wrapLoader(
-      CreateLazyComponent({
-        loader: () => import("Pages/Work"),
-      }),
-    ),
-    contact: this.wrapLoader(
-      CreateLazyComponent({
-        loader: () => import("Pages/Contact"),
-      }),
-    ),
-    privacypolicy: this.wrapLoader(
-      CreateLazyComponent({
-        loader: () => import("Pages/PrivacyPolicy"),
-      }),
-    ),
-  };
 
   public static registerForegroundTask(task: Promise<any>) {
     this.foregroundTasks.push(task);
   }
 
-  private static wrapLoader(
+  public static wrapLoader(
     loader: ReturnType<typeof CreateLazyComponent<PropLess>>,
   ) {
     return () => {

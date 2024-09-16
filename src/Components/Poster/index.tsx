@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useMemo } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { Menu } from "State/Menu";
-import { isPageActive, useRouter } from "State/Routing";
+import { isPageActive, usePageController } from "State/PageController";
 import { getSliderIndex, useWork } from "State/Work";
 import { Content } from "./Content";
 import { Title } from "./Title";
@@ -21,7 +21,7 @@ export const Poster = memo(function Poster({
     () => activeIndex === index,
     [activeIndex, index],
   );
-  const screenActive = useRouter(isPageActive);
+  const screenActive = usePageController(isPageActive);
   const active = useMemo(
     () => posterActive && screenActive,
     [posterActive, screenActive],

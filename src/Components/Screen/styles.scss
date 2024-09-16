@@ -41,6 +41,7 @@
 		&>.back {
 			rotate: y 180deg;
 			z-index: 2;
+			pointer-events: none;
 
 			@media #{variables.$mq-670} {
 				rotate: x 180deg;

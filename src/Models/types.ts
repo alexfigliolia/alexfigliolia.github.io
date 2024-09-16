@@ -1,7 +1,7 @@
 import type { MenuModel } from "./MenuModel";
-import type { RoutingModel } from "./RoutingModel";
+import type { PageControllerModel } from "./PageControllerModel";
 
-export interface IRouting {
+export interface IPageController {
   classes: string;
   loading: boolean;
   routeName: string;
@@ -27,7 +27,7 @@ export interface IMenu {
   linksVisible: boolean;
 }
 
-export type IRoutingAndMenu = {
+export type IPageControllerAndMenu = {
   Menu: MenuModel;
-  Routing: RoutingModel;
+  PageController: PageControllerModel;
 };

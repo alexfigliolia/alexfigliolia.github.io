@@ -2,16 +2,16 @@ import { Menu } from "State/Menu";
 import variables from "Styles/exports.module.scss";
 import { TaskQueue } from "Tools/TaskQueue";
 import { BaseModel } from "./BaseModel";
-import type { IRouting } from "./types";
+import type { IPageController } from "./types";
 
-export class RoutingModel extends BaseModel<IRouting> {
+export class PageControllerModel extends BaseModel<IPageController> {
   static screenInnerTransition = this.sliceUnits(
     variables.screenInnerTransition,
   );
   static smallScreenScale = this.sliceUnits(variables.smallScreenScale);
   static largeScreenScale = this.sliceUnits(variables.largeScreenScale);
   constructor() {
-    super("Routing", {
+    super("PageController", {
       loading: true,
       routeName: "home",
       screenActive: false,
@@ -35,8 +35,8 @@ export class RoutingModel extends BaseModel<IRouting> {
           Menu.close();
           this.activateScreen(false);
           resolve();
-        }, RoutingModel.screenInnerTransition);
-      }, RoutingModel.shrinkDuration);
+        }, PageControllerModel.screenInnerTransition);
+      }, PageControllerModel.shrinkDuration);
     });
   }
 
@@ -49,8 +49,8 @@ export class RoutingModel extends BaseModel<IRouting> {
         TaskQueue.deferTask(() => {
           this.activateScreen();
           cb?.();
-        }, RoutingModel.shrinkDuration);
-      }, RoutingModel.screenInnerTransition);
+        }, PageControllerModel.shrinkDuration);
+      }, PageControllerModel.screenInnerTransition);
     }, wait);
   }
 
