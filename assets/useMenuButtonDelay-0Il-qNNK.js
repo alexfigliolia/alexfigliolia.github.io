@@ -1,2 +1,0 @@
-import{r as s,T as e,a as t,i as a,u as o,j as c,M as n}from"./index-9o15jXsb.js";import{B as i}from"./index-NCB7qXZA.js";const r=s.memo((function({text:n,onClick:r,className:f}){const m=t(a),[u,x]=s.useState(!1);((t,a)=>{s.useEffect((()=>{t&&e.deferTask((()=>{a(!0)}),3100)}),[t,a])})(m,x);const l=o(f,{active:m,reset:u});return c.jsx("div",{className:l,children:c.jsx(i,{text:n,onClick:r})})})),f=()=>{s.useEffect((()=>{n.setButtonDelay(3300)}),[])};export{r as C,f as u};
-//# sourceMappingURL=useMenuButtonDelay-0Il-qNNK.js.map
