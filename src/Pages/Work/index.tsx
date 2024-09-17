@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useLayoutEffect } from "react";
 import { PageSwitch } from "@figliolia/page-switch";
 import { Page } from "Components/Page";
 import { Poster } from "Components/Poster";
@@ -8,8 +8,8 @@ import API from "./API";
 import "./styles.scss";
 
 export default memo(
-  function Home(_: PropLess) {
-    useEffect(() => {
+  function Work(_: PropLess) {
+    useLayoutEffect(() => {
       const { index } = WorkState.getState();
       const PW = new PageSwitch("workSlider", {
         duration: 750,
