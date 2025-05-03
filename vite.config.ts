@@ -1,3 +1,4 @@
+import autoprefixer from "autoprefixer";
 import path from "path";
 import { defineConfig } from "vite";
 import viteCompression from "vite-plugin-compression";
@@ -8,7 +9,7 @@ import { BuildSettings } from "./devtools/build-settings";
 export default defineConfig({
   css: {
     postcss: {
-      plugins: [require("autoprefixer")],
+      plugins: [autoprefixer],
     },
   },
   resolve: {
