@@ -1,11 +1,10 @@
-import React, { memo, useCallback } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { ContactText } from "Components/ContactText";
 import { CTAButton } from "Components/CTAButton";
 import { Page } from "Components/Page";
 import { useMenuButtonDelay } from "Hooks/useMenuButtonDelay";
 import type { PropLess } from "Tools/Types";
 import "./styles.scss";
-/* eslint-disable react-hooks/exhaustive-deps */
 
 export default memo(
   function Contact(_: PropLess) {
@@ -17,12 +16,13 @@ export default memo(
       };
     }, []);
 
-    const toGithub = useCallback(openLink("https://github.com/alexfigliolia"), [
-      openLink,
-    ]);
+    const toGithub = useMemo(
+      () => openLink("https://github.com/alexfigliolia"),
+      [openLink],
+    );
 
-    const toNPM = useCallback(
-      openLink("https://www.npmjs.com/~alexfigliolia"),
+    const toNPM = useMemo(
+      () => openLink("https://www.npmjs.com/~alexfigliolia"),
       [openLink],
     );
 

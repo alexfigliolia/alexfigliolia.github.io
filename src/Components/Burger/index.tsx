@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo } from "react";
+import { memo, useCallback, useMemo } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { isMenuOpen, Menu, useMenu } from "State/Menu";
 import { isPrivacyOpen, Privacy, usePrivacy } from "State/Privacy";
@@ -13,7 +13,8 @@ export const Burger = memo(
 
     const toggle = useCallback(() => {
       if (policy) {
-        return Privacy.toggle();
+        Privacy.toggle();
+        return;
       }
       Menu.toggle();
     }, [policy]);

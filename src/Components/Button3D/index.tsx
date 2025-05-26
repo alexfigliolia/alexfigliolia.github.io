@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import { memo, useState } from "react";
 import { useController } from "Hooks/useController";
 import { Controller } from "./Controller";
 import type { IAnimationFrame, Props } from "./types";

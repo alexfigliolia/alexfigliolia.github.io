@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useMemo } from "react";
+import { memo, useEffect, useMemo } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { Menu } from "State/Menu";
 import { isPageActive, usePageController } from "State/PageController";

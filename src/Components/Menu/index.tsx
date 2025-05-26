@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { isMenuOpen, useMenu } from "State/Menu";
 import type { PropLess } from "Tools/Types";

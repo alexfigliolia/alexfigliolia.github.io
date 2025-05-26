@@ -1,20 +1,19 @@
 import type { ReactNode } from "react";
-import React, { memo } from "react";
+import { memo } from "react";
 import { useClassNames } from "@figliolia/classnames";
+import { FullScreen } from "Components/FullScreen";
 import { Menu } from "Components/Menu";
 import { isMenuOpen, useMenu } from "State/Menu";
 import { screenClasses, usePageController } from "State/PageController";
-import { selectDimensions, useScreen } from "State/Screen";
 import { MenuButton } from "./MenuButton";
 import "./styles.scss";
 
 export const Screen = memo(function Screen({ front, back }: Props) {
   const hide = useMenu(isMenuOpen);
   const classes = usePageController(screenClasses);
-  const [width, height] = useScreen(selectDimensions);
   const frontClasses = useClassNames("front", { hide });
   return (
-    <div className={classes} style={{ height, width }}>
+    <FullScreen className={classes}>
       <div className="inner">
         <div className={frontClasses}>
           <Menu />
@@ -23,7 +22,7 @@ export const Screen = memo(function Screen({ front, back }: Props) {
         </div>
         <div className="back">{back}</div>
       </div>
-    </div>
+    </FullScreen>
   );
 });
 

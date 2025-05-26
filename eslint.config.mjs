@@ -1,9 +1,11 @@
 import { globalIgnores } from "eslint/config";
 import importPlugin from "eslint-plugin-import";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import reactPlugin from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
-import globals from "globals";
+import unusedImports from "eslint-plugin-unused-imports";
 import tseslint from "typescript-eslint";
 import eslint from "@eslint/js";
 import ReactThree from "@react-three/eslint-plugin";
@@ -15,45 +17,44 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.stylisticTypeChecked,
   tseslint.configs.strictTypeChecked,
-  ReactThree.configs.recommended,
+  reactPlugin.configs.flat.recommended,
+  reactPlugin.configs.flat["jsx-runtime"],
+  reactHooks.configs["recommended-latest"],
   eslintPluginPrettierRecommended,
   {
     languageOptions: {
+      ...reactPlugin.configs.flat.recommended.languageOptions,
       parserOptions: {
+        parser: tsParser,
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
     },
-  },
-  {
-    files: ["**/*.{ts,tsx}"],
     plugins: {
+      "import-plugin": importPlugin,
       "@typescript-eslint": tsPlugin,
-      import: importPlugin,
-    },
-    languageOptions: {
-      parser: tsParser,
-      parserOptions: { projectService: true },
+      "jsx-a11y": jsxA11y,
+      "simple-import-sort": simpleImportSort,
+      "@react-three": ReactThree,
+      "unused-imports": unusedImports,
     },
     settings: {
       "import/resolver": { typescript: { alwaysTryTypes: true } },
-      "import/external-module-folders": [".yarn"], // ← The magic line
+      "import/external-module-folders": [".yarn"],
+      react: { version: "19.1" },
     },
-  },
-  {
-    files: ["**/*.{ts,tsx,mts,cts}"],
     rules: {
       "no-undef": "off",
-    },
-  },
-  {
-    files: ["**/*.ts*", "**/*.js"],
-    rules: {
       "prettier/prettier": "error",
       "@typescript-eslint/ban-ts-comment": 0,
       "@typescript-eslint/no-explicit-any": 0,
       "@typescript-eslint/no-extraneous-class": 0,
       "@typescript-eslint/no-unsafe-member-access": 0,
+      "@typescript-eslint/no-unsafe-assignment": 0,
+      "@typescript-eslint/restrict-template-expressions": 0,
+      "@typescript-eslint/no-unsafe-call": 0,
+      "@typescript-eslint/no-unnecessary-condition": 0,
+      "@typescript-eslint/no-empty-function": 0,
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
@@ -63,13 +64,6 @@ export default tseslint.config(
           argsIgnorePattern: "^_",
         },
       ],
-    },
-  },
-  {
-    plugins: {
-      "simple-import-sort": simpleImportSort,
-    },
-    rules: {
       "simple-import-sort/exports": "error",
       "simple-import-sort/imports": [
         "error",
@@ -77,18 +71,8 @@ export default tseslint.config(
           groups: [["^node:", "^[a-z]", "^@?\\w", "^", "^\\.", "^\\u0000"]],
         },
       ],
+      "react/no-unknown-property": 0,
+      "unused-imports/no-unused-imports": "error",
     },
-  },
-  {
-    files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
-    ...reactPlugin.configs.flat.recommended,
-    languageOptions: {
-      ...reactPlugin.configs.flat.recommended.languageOptions,
-      globals: {
-        ...globals.serviceworker,
-        ...globals.browser,
-      },
-    },
-    settings: { react: { version: "18.3" } },
   },
 );

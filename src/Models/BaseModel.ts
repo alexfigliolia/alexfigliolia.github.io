@@ -6,7 +6,7 @@ export class BaseModel<T> extends State<T> {
     BaseModel.bindMiddleware(this);
   }
 
-  private static bindMiddleware(state: State<any>) {
+  private static bindMiddleware(state: State) {
     if (process.env.NODE_ENV === "development") {
       state.registerMiddleware(new Logger(), new Profiler());
     }

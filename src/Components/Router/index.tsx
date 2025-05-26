@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useController } from "Hooks/useController";
 import { Controller } from "./Controller";
 import type { RouteMap } from "./types";

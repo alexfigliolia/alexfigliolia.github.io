@@ -1,4 +1,4 @@
-import React, { memo, useLayoutEffect } from "react";
+import { memo, useLayoutEffect } from "react";
 import { PageSwitch } from "@figliolia/page-switch";
 import { Page } from "Components/Page";
 import { Poster } from "Components/Poster";

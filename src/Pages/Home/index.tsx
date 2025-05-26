@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import { memo, useCallback } from "react";
 import { AlexText } from "Components/AlexText";
 import { CTAButton } from "Components/CTAButton";
 import { Page } from "Components/Page";

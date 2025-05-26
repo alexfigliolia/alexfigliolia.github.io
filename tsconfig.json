@@ -5,10 +5,7 @@
   },
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
+    "lib": ["DOM", "ESNext"],
     "module": "CommonJS",
     "moduleResolution": "Node",
     "esModuleInterop": true,
@@ -22,61 +19,32 @@
     "noFallthroughCasesInSwitch": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
-      "Components/*": [
-        "./Components/*"
-      ],
-      "Hooks/*": [
-        "./Hooks/*"
-      ],
-      "Icons/*": [
-        "./Icons/*"
-      ],
-      "Images/*": [
-        "./Images/*"
-      ],
-      "Models/*": [
-        "./Models/*"
-      ],
-      "Pages/*": [
-        "./Pages/*"
-      ],
-      "Root/*": [
-        "./Root/*"
-      ],
-      "Router/*": [
-        "./Router/*"
-      ],
-      "Routing/*": [
-        "./Routing/*"
-      ],
-      "State/*": [
-        "./State/*"
-      ],
-      "Styles/*": [
-        "./Styles/*"
-      ],
-      "Tools/*": [
-        "./Tools/*"
-      ]
+      "Components/*": ["./Components/*"],
+      "Hooks/*": ["./Hooks/*"],
+      "Icons/*": ["./Icons/*"],
+      "Images/*": ["./Images/*"],
+      "Models/*": ["./Models/*"],
+      "Pages/*": ["./Pages/*"],
+      "Root/*": ["./Root/*"],
+      "Router/*": ["./Router/*"],
+      "Routing/*": ["./Routing/*"],
+      "State/*": ["./State/*"],
+      "Styles/*": ["./Styles/*"],
+      "Tools/*": ["./Tools/*"]
     }
   },
   "include": [
     "src",
     "ci",
     "cd",
-    ".eslintrc.cjs",
-    ".prettierrc.cjs",
+    "eslint.config.mjs",
+    ".prettierrc.mjs",
     "**/*.json",
-    "**/*.ts",
-    "**/*.js"
+    "**/*.ts*",
+    "**/*.js*"
   ],
-  "exclude": [
-    "__Stealth__",
-    "coverage",
-    "dist",
-    "node_modules"
-  ]
+  "exclude": ["__Stealth__", "coverage", "dist", "node_modules"]
 }

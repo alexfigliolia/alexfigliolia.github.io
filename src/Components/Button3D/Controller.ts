@@ -41,19 +41,15 @@ export class Controller {
     });
   }
 
-  private mouseEnter = <
-    T extends MouseEvent<HTMLButtonElement> | TouchEvent<HTMLButtonElement>,
-  >(
-    e: T,
+  private mouseEnter = (
+    e: MouseEvent<HTMLButtonElement> | TouchEvent<HTMLButtonElement>,
   ) => {
     this.cacheTargetData(e.currentTarget);
     this.setFrame(this.getRotations(...this.getCoordinates(e)), 0.5);
   };
 
-  private mouseMove = <
-    T extends MouseEvent<HTMLButtonElement> | TouchEvent<HTMLButtonElement>,
-  >(
-    e: T,
+  private mouseMove = (
+    e: MouseEvent<HTMLButtonElement> | TouchEvent<HTMLButtonElement>,
   ) => {
     this.setFrame(this.getRotations(...this.getCoordinates(e)), 0);
   };
@@ -68,9 +64,9 @@ export class Controller {
     });
   };
 
-  private getCoordinates<
-    T extends MouseEvent<HTMLButtonElement> | TouchEvent<HTMLButtonElement>,
-  >(e: T): [clientX: number, clientY: number] {
+  private getCoordinates(
+    e: MouseEvent<HTMLButtonElement> | TouchEvent<HTMLButtonElement>,
+  ): [clientX: number, clientY: number] {
     if ("touches" in e) {
       return [e.touches[0].clientX, e.touches[0].clientY];
     }

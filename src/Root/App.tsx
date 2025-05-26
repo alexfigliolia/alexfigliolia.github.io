@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import { memo, useEffect } from "react";
 import { useSetup } from "@figliolia/galena-window";
 import { Router } from "Components/Router";
 import { Screen } from "Components/Screen";
@@ -11,7 +11,7 @@ import { TaskQueue } from "Tools/TaskQueue";
 import type { PropLess } from "Tools/Types";
 
 // @ts-ignore
-void window?.screen?.orientation?.lock?.("portrait").catch(() => {});
+void window?.screen?.orientation?.lock?.("portrait")?.catch(() => {});
 const preloader = Preloader.loadBackground();
 Routing.registerForegroundTask(preloader);
 

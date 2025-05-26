@@ -33,7 +33,7 @@ export class Controller<T extends RouteMap> {
       try {
         const Task = this.createLoader(hash);
         this.onRouteLoaded(hash, await Task.run());
-      } catch (error) {
+      } catch {
         // silence
       }
     });

@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import { memo, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { Button3D } from "Components/Button3D";
 import { useDeferredReset } from "Hooks/useDeferredReset";

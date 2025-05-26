@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { Burger } from "Components/Burger";
 import { getButtonDelay, useMenu } from "State/Menu";
@@ -14,7 +14,8 @@ export const MenuButton = memo(
 
     useEffect(() => {
       if (!screenActive && active) {
-        return setActive(false);
+        setActive(false);
+        return;
       }
       if (screenActive && !active) {
         TaskQueue.deferTask(() => {

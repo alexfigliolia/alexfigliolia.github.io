@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { PageControllerModel } from "Models/PageControllerModel";
 import type { IPageController } from "Models/types";
@@ -29,7 +29,8 @@ export const Link = memo(function Link({ id, to }: Props) {
 
   useEffect(() => {
     if (menuOpen) {
-      return activeHovering();
+      activeHovering();
+      return;
     }
     setCanHover(false);
   }, [menuOpen, activeHovering]);

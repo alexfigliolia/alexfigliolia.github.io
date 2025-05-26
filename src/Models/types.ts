@@ -27,7 +27,7 @@ export interface IMenu {
   linksVisible: boolean;
 }
 
-export type IPageControllerAndMenu = {
+export interface IPageControllerAndMenu {
   Menu: MenuModel;
   PageController: PageControllerModel;
-};
+}

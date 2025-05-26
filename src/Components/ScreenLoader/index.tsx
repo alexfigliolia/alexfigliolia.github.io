@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import { Loader } from "Components/Loader";
 import type { PropLess } from "Tools/Types";
 import "./styles.scss";

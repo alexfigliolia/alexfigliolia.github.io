@@ -1,11 +1,9 @@
 import type { MouseEvent } from "react";
-import React, { memo, useCallback, useEffect, useRef } from "react";
+import { memo, useCallback, useEffect, useRef } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { isPrivacyOpen, Privacy, usePrivacy } from "State/Privacy";
 import type { PropLess } from "Tools/Types";
 import "./styles.scss";
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 
 export const PolicyModal = memo(
   function PolicyModal(_: PropLess) {
@@ -13,7 +11,7 @@ export const PolicyModal = memo(
     const content = useRef<HTMLElement>(null);
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
-      if (e?.keyCode === 27 || e?.key === "Escape" || e?.code === "Escape") {
+      if (e?.key === "Escape" || e?.code === "Escape") {
         Privacy.toggle();
       }
     }, []);

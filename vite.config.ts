@@ -44,5 +44,8 @@ export default defineConfig({
   ],
   optimizeDeps: {
     include: ["@figliolia/ripples"],
+    esbuildOptions: {
+      jsx: "automatic",
+    },
   },
 });
