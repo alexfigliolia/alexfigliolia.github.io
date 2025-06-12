@@ -1,22 +1,13 @@
 import { memo } from "react";
+import { SplitHeading } from "Components/SplitHeading";
 import type { PropLess } from "Tools/Types";
 import "./styles.scss";
-
-const privacy = "PRIVACY".split("");
 
 export const PrivacyText = memo(
   function PrivacyText(_: PropLess) {
     return (
       <div className="privacy-text">
-        <h1 id="privacyText" aria-label="Privacy">
-          {privacy.map((letter, i) => {
-            return (
-              <div className="text-letter" key={`${letter}-${i}`} aria-hidden>
-                {letter}
-              </div>
-            );
-          })}
-        </h1>
+        <SplitHeading id="privacyText" text="Privacy" />
       </div>
     );
   },
