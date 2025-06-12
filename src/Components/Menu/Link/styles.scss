@@ -3,14 +3,14 @@
 .link {
 	outline: none;
 	border: none;
-	margin: 10px 0;
+	margin: 5px 0;
 
 	@include variables.center;
 
 	color: #fff;
 	font-weight: 900;
 	position: relative;
-	font-size: min(20vw, 150px);
+	font-size: min(19vw, 120px);
 	letter-spacing: -1.5vw;
 	transition: letter-spacing 0.2s;
 	background-color: transparent;
@@ -48,7 +48,8 @@
 }
 
 .menu > .link#linkHome > .link-letter,
-.menu > .link#linkWork > .link-letter  {
+.menu > .link#linkWork > .link-letter,
+.menu > .link#linkLabs > .link-letter  {
 	&:nth-of-type(1) {
 		transition: opacity 0.5s 950ms, transform 1.25s 150ms cubic-bezier(0.36, 0, 0.66, -0.56);
 	}
@@ -97,7 +98,8 @@
 }
 
 .menu.open > .link#linkHome > .link-letter,
-.menu.open > .link#linkWork > .link-letter  {
+.menu.open > .link#linkWork > .link-letter,
+.menu.open > .link#linkLabs > .link-letter  {
 	&:nth-of-type(1) {
 		transition: opacity 1s 700ms, transform 1.75s 600ms cubic-bezier(0.34, 1.56, 0.64, 1); 
 	}
@@ -152,7 +154,8 @@
 }
 
 .menu.open > .link.active#linkHome,
-.menu.open > .link.active#linkWork {
+.menu.open > .link.active#linkWork,
+.menu.open > .link.active#linkLabs {
 	&::after {
 		transform: scaleX(1);
 		transition: transform 0.5s 2350ms;

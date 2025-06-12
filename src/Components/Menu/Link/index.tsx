@@ -45,10 +45,15 @@ export const Link = memo(function Link({ id, to }: Props) {
   const classes = useClassNames("link", { active, hoverable });
 
   return (
-    <button id={id} onClick={nav} className={classes}>
+    <button
+      id={id}
+      role="link"
+      onClick={nav}
+      className={classes}
+      aria-label={to}>
       {letters.map((letter, i) => {
         return (
-          <span key={`${letter}-${i}`} className="link-letter">
+          <span key={`${letter}-${i}`} className="link-letter" aria-hidden>
             {letter}
           </span>
         );

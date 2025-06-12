@@ -13,13 +13,9 @@
 	flex-direction: column;
 	text-align: center;
 	pointer-events: none;
-	visibility: hidden;
 	user-select: none;
-	transition: visibility 0s 4s;
 
 	&.open {
 		pointer-events: all;
-		visibility: visible;
-		transition: visibility 0s 0s;
 	}
 }

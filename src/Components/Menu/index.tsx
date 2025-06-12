@@ -10,9 +10,10 @@ export const Menu = memo(
     const open = useMenu(isMenuOpen);
     const classes = useClassNames("menu", { open });
     return (
-      <nav className={classes}>
+      <nav className={classes} aria-hidden={!open} inert={!open}>
         <Link id="linkHome" to="Home" />
         <Link id="linkWork" to="Work" />
+        <Link id="linkLabs" to="Labs" />
         <Link id="linkContact" to="Contact" />
       </nav>
     );
