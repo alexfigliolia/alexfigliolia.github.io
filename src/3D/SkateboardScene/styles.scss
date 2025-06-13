@@ -1,0 +1,70 @@
+@use "Styles/variables";
+
+.skateboard-scene {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  @media (min-width: 957px) {
+    flex-direction: row;
+  }
+  & .preview {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #3a414a;
+    height: 70vh;
+    @media (min-width: 957px) {
+      aspect-ratio: none;
+      min-height: 100vh;
+    }
+    &>.logo {
+      top: 1em;
+      left: 1em;
+      color: #fff;
+      position: absolute;
+      &>svg {
+        height: 3em;
+        width: auto;
+      }
+    }
+    &>.canvas-container {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+  }
+  & .options-menu {
+    color: #fff;
+    width: 100%;
+    height: 30vh;
+    background-color: #232425;
+    padding: 2em 1em;
+    overflow-y: scroll;
+    @include variables.bgTexture;
+    @media (min-width: 670px) {
+      padding: 1.5em;
+    }
+    @media (min-width: 957px) {
+      width: 450px;
+      min-height: 100vh;
+      max-height: 100vh;
+    }
+    &>h1 {
+      justify-content: flex-start;
+      margin-bottom: 0.5em;
+      letter-spacing: -0.075em;
+      text-shadow: 0em 0.05em 0.1em rgba(#000, 1);
+    }
+    &>.controls {
+      margin-bottom: 1em;
+      padding-bottom: 4em;
+    }
+    &>a {
+      margin-top: 1.5em;
+    }
+  }
+
+}

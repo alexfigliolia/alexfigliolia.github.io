@@ -5,7 +5,10 @@
   },
   "compilerOptions": {
     "target": "ESNext",
-    "lib": ["DOM", "ESNext"],
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
     "module": "CommonJS",
     "moduleResolution": "Node",
     "esModuleInterop": true,
@@ -22,18 +25,48 @@
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
-      "Components/*": ["./Components/*"],
-      "Hooks/*": ["./Hooks/*"],
-      "Icons/*": ["./Icons/*"],
-      "Images/*": ["./Images/*"],
-      "Models/*": ["./Models/*"],
-      "Pages/*": ["./Pages/*"],
-      "Root/*": ["./Root/*"],
-      "Router/*": ["./Router/*"],
-      "Routing/*": ["./Routing/*"],
-      "State/*": ["./State/*"],
-      "Styles/*": ["./Styles/*"],
-      "Tools/*": ["./Tools/*"]
+      "3D/*": [
+        "./3D/*"
+      ],
+      "Components/*": [
+        "./Components/*"
+      ],
+      "Hooks/*": [
+        "./Hooks/*"
+      ],
+      "Icons/*": [
+        "./Icons/*"
+      ],
+      "Images/*": [
+        "./Images/*"
+      ],
+      "Models/*": [
+        "./Models/*"
+      ],
+      "Pages/*": [
+        "./Pages/*"
+      ],
+      "Root/*": [
+        "./Root/*"
+      ],
+      "Router/*": [
+        "./Router/*"
+      ],
+      "Routing/*": [
+        "./Routing/*"
+      ],
+      "State/*": [
+        "./State/*"
+      ],
+      "Styles/*": [
+        "./Styles/*"
+      ],
+      "Tools/*": [
+        "./Tools/*"
+      ],
+      "Videos/*": [
+        "./Videos/*"
+      ]
     }
   },
   "include": [
@@ -46,5 +79,10 @@
     "**/*.ts*",
     "**/*.js*"
   ],
-  "exclude": ["__Stealth__", "coverage", "dist", "node_modules"]
+  "exclude": [
+    "__Stealth__",
+    "coverage",
+    "dist",
+    "node_modules"
+  ]
 }

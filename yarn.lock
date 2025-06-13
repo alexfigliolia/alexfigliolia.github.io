@@ -880,6 +880,13 @@
   dependencies:
     "@figliolia/galena" "^2.3.5"
 
+"@figliolia/react-hooks@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@figliolia/react-hooks/-/react-hooks-1.3.0.tgz#bc56ed65d7536cec45cb098e3820c9213eda0b8d"
+  integrity sha512-yoefmdfwnBANB+8dkd9jdOb+PpVahqd/PWrPlTrF/7XiRokTpQSUdHBvgu9hTok+S86STLXmPkjCMtM1a854MQ==
+  dependencies:
+    "@figliolia/size-observer" "^1.0.3"
+
 "@figliolia/react-lazy@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@figliolia/react-lazy/-/react-lazy-1.2.0.tgz#144127dc13e19a3d191c78fc88e755f0175a96e5"
@@ -893,6 +900,11 @@
   integrity sha512-uRArIVVugWIdc/zWNb1gicviptA/2UUcFet5SzHS2A4zxWpTUuCCin4R/scJ3B5ZJFA+V3gBq2oTUAefszjx6g==
   dependencies:
     "@figliolia/event-emitter" "^1.1.6"
+
+"@figliolia/size-observer@^1.0.3":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@figliolia/size-observer/-/size-observer-1.1.0.tgz#c7960cf898398c40e34d9dc4616ee1b48b894904"
+  integrity sha512-xukhs3MhOB6KYTnOMgDNwdrm4fV6fk9P6HpHAVv0K5xX3xGBXrBaRNoAvEBc8LZcTVOIIAiL3+gGvUgzfe0esw==
 
 "@figliolia/task-queue@^1.0.8":
   version "1.0.8"
@@ -1577,35 +1589,20 @@
   resolved "https://registry.yarnpkg.com/@types/offscreencanvas/-/offscreencanvas-2019.7.3.tgz#90267db13f64d6e9ccb5ae3eac92786a7c77a516"
   integrity sha512-ieXiYmgSRXUDeOntE1InxjWyvEelZGP63M+cGuquuRLuIKKT1osnkXjxev9B7d1nXSug5vpunx+gNlbVxMlC9A==
 
-"@types/prop-types@*":
-  version "15.7.12"
-  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.12.tgz#12bb1e2be27293c1406acb6af1c3f3a1481d98c6"
-  integrity sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==
-
-"@types/react-dom@^18.3.0":
-  version "18.3.0"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.3.0.tgz#0cbc818755d87066ab6ca74fbedb2547d74a82b0"
-  integrity sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==
-  dependencies:
-    "@types/react" "*"
+"@types/react-dom@^19.1.6":
+  version "19.1.6"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-19.1.6.tgz#4af629da0e9f9c0f506fc4d1caa610399c595d64"
+  integrity sha512-4hOiT/dwO8Ko0gV1m/TJZYk3y0KBnY9vzDh7W+DH17b2HFSOGgdj33dhihPeuy3l0q23+4e+hoXHV6hCC4dCXw==
 
 "@types/react-reconciler@^0.28.9":
   version "0.28.9"
   resolved "https://registry.yarnpkg.com/@types/react-reconciler/-/react-reconciler-0.28.9.tgz#d24b4864c384e770c83275b3fe73fba00269c83b"
   integrity sha512-HHM3nxyUZ3zAylX8ZEyrDNd2XZOnQ0D5XfunJF5FLQnZbHHYq4UWvW1QfelQNXv1ICNkwYhfxjwfnqivYB6bFg==
 
-"@types/react@*":
-  version "18.3.5"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.5.tgz#5f524c2ad2089c0ff372bbdabc77ca2c4dbadf8f"
-  integrity sha512-WeqMfGJLGuLCqHGYRGHxnKrXcTitc6L/nBUWfWPcTarG3t9PsquqUMuVeXZeca+mglY4Vo5GZjCi0A3Or2lnxA==
-  dependencies:
-    "@types/prop-types" "*"
-    csstype "^3.0.2"
-
-"@types/react@^19.1.2":
-  version "19.1.2"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.1.2.tgz#11df86f66f188f212c90ecb537327ec68bfd593f"
-  integrity sha512-oxLPMytKchWGbnQM9O7D67uPa9paTNxO7jVoNMXgkkErULBPhPARCfkKL9ytcIJJRGjbsVwW4ugJzyFFvm/Tiw==
+"@types/react@^19.1.8":
+  version "19.1.8"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.1.8.tgz#ff8395f2afb764597265ced15f8dddb0720ae1c3"
+  integrity sha512-AwAfQ2Wa5bCx9WP8nZL2uMZWod7J7/JSplxbTmBQ5ms6QpqNYm672H0Vu9ZVKVngQ+ii4R/byguVEUZQyeg44g==
   dependencies:
     csstype "^3.0.2"
 
@@ -3881,6 +3878,11 @@ graphemer@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
   integrity sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==
+
+gsap@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.13.0.tgz#597d4e019a2bb487785387d91296adebf92db9dd"
+  integrity sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==
 
 has-bigints@^1.0.2:
   version "1.1.0"
@@ -6194,7 +6196,7 @@ three-mesh-bvh@^0.8.3:
   resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.8.3.tgz#c5e72472e7f062ff79084157a25c122d73184163"
   integrity sha512-4G5lBaF+g2auKX3P0yqx+MJC6oVt6sB5k+CchS6Ob0qvH0YIhuUk1eYr7ktsIpY+albCqE80/FVQGV190PmiAg==
 
-three-stdlib@^2.35.6:
+three-stdlib@^2.35.6, three-stdlib@^2.36.0:
   version "2.36.0"
   resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.36.0.tgz#1d806b8db9156a6c87ed10f61f56f8a3ab634b42"
   integrity sha512-kv0Byb++AXztEGsULgMAs8U2jgUdz6HPpAB/wDJnLiLlaWQX2APHhiTJIN7rqW+Of0eRgcp7jn05U1BsCP3xBA==

@@ -12,6 +12,11 @@ export const Routes = {
       loader: () => import("Pages/Work"),
     }),
   ),
+  labs: Routing.wrapLoader(
+    CreateLazyComponent({
+      loader: () => import("Pages/Labs"),
+    }),
+  ),
   contact: Routing.wrapLoader(
     CreateLazyComponent({
       loader: () => import("Pages/Contact"),

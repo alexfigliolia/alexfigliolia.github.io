@@ -13,7 +13,7 @@ import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 
 export default tseslint.config(
-  globalIgnores(["build/**/*", "tsconfig.tsbuildinfo"]),
+  globalIgnores(["build/**/*", "tsconfig.tsbuildinfo", "**/*.gltf"]),
   eslint.configs.recommended,
   tseslint.configs.stylisticTypeChecked,
   tseslint.configs.strictTypeChecked,

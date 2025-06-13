@@ -1,0 +1,84 @@
+@use "Styles/variables";
+
+.labs-text {
+	@include variables.center;
+
+	flex-direction: column;
+
+	@media #{variables.$mq-957} {
+		margin-top: -6%;
+	}
+
+	&>h1 {
+		@include variables.center;
+
+		font-weight: 900;
+		color: #fff;
+		margin: -5vw 0;
+		letter-spacing: -2vw;
+		font-size: 22.5vw;
+		perspective: 1000px;
+		text-transform: uppercase;
+		transform: rotateX(-30deg) rotateY(30deg) rotateZ(10deg);
+		text-shadow: 0 5px 10px rgba(#000, 0.5), 0 0 30px rgba(#000, 0.4);
+
+		@media #{variables.$mq-670} {
+			margin: -3.5vw 0;
+			letter-spacing: -2vw;
+			font-size: 22vw;
+			text-shadow: 0 7.5px 15px rgba(#000, 0.5), 0 0 40px rgba(#000, 0.4);
+		}
+
+		@media #{variables.$mq-890} {
+			margin: -3vw 0;
+			letter-spacing: -3vw;
+			font-size: 22.5vw;
+			text-shadow: 0 7.5px 15px rgba(#000, 0.5), 0 0 40px rgba(#000, 0.4);
+		}
+
+		@media #{variables.$mq-957} {
+			margin: -3vw 0;
+			letter-spacing: -2vw;
+			font-size: 17.5vw;
+			text-shadow: 0 10px 20px rgba(#000, 0.5), 0 0 50px rgba(#000, 0.4);
+		}
+
+		@media #{variables.$mq-1150} {
+			margin: -2.8vw 0;
+			letter-spacing: -1.5vw;
+			font-size: min(16vw, 230px);
+			text-shadow: 0 12.5px 25px rgba(#000, 0.5), 0 0 60px rgba(#000, 0.4);
+		}
+
+		@media #{variables.$mq-1350} {
+			text-shadow: 0 15px 30px rgba(#000, 0.5), 0 0 70px rgba(#000, 0.4);
+		}
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		&>.text-letter {
+			opacity: 0;
+			will-change: opacity, transform;
+			transform: scale(0) rotateX(180deg) translateY(-150%);
+		}
+	}
+}
+
+.labs.active .labs-text > #labsText > .text-letter {
+	@for $i from 1 through 7 {
+		&:nth-of-type(#{$i}) {
+			transition: opacity 1s #{200ms - 50ms * $i}, transform 1.75s #{200ms - 50ms * $i} cubic-bezier(0.34, 1.56, 0.64, 1); 
+		}
+	}
+}
+
+.labs.active .labs-text > h1 > .text-letter {
+	opacity: 1;
+	transform: scale(1) rotateX(0deg) translateY(0%);
+}

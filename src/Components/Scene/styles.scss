@@ -1,0 +1,17 @@
+@use "Styles/variables";
+
+.scene {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 1s 0s;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

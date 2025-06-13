@@ -27,7 +27,7 @@ function IRouter<T extends RouteMap>({ defaultRoute, routes }: Props<T>) {
 
 export const Router = memo(IRouter);
 
-interface Props<T> {
+interface Props<T extends RouteMap> {
   readonly routes: T;
   readonly defaultRoute: Extract<keyof T, string>;
 }

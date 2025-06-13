@@ -1,0 +1,26 @@
+.options {
+  &>div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    &>h2 {
+      margin-right: 0.25em;
+    }
+    &>p {
+      margin: 0;
+      margin-left: 0.25em;
+      color: #e8e8e8;
+      &>span {
+        user-select: none;
+        color: #a3a0a0;
+      }
+    }
+  }
+  &>ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75em;
+    list-style-type: none;
+    margin-bottom: 0.1em;
+  }
+}

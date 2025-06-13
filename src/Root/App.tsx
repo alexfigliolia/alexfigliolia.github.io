@@ -1,8 +1,9 @@
 import { memo, useEffect } from "react";
 import { useSetup } from "@figliolia/galena-window";
 import { Router } from "Components/Router";
-import { Screen } from "Components/Screen";
+import { ScreenFlip } from "Components/ScreenFlip";
 import { ScreenLoader } from "Components/ScreenLoader";
+import { useResizeBody } from "Hooks/useResizeBody";
 import { Routes, Routing } from "Routing";
 import { PageController } from "State/PageController";
 import { Screen as ScreenState } from "State/Screen";
@@ -18,6 +19,8 @@ Routing.registerForegroundTask(preloader);
 export const App = memo(
   function App(_: PropLess) {
     useSetup(ScreenState);
+    useResizeBody();
+
     useEffect(() => {
       void preloader.then(() => {
         PageController.show();
@@ -28,7 +31,7 @@ export const App = memo(
     }, []);
 
     return (
-      <Screen
+      <ScreenFlip
         back={<ScreenLoader />}
         front={<Router defaultRoute="home" routes={Routes} />}
       />
