@@ -1,0 +1,11 @@
+@use "Styles/variables";
+
+.ripples-scene {
+  background: url("Images/background-small.webp") no-repeat center;
+	background-size: cover;
+
+	@media #{variables.$mq-670} {
+		background: url("Images/background-large.webp") no-repeat center;
+		background-size: cover;
+	}
+}

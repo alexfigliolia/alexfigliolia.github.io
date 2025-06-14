@@ -1,26 +1,14 @@
 import type { ReactNode } from "react";
-import { memo, useEffect, useRef } from "react";
+import { memo } from "react";
 import { useClassNames } from "@figliolia/classnames";
-import { Ripples } from "@figliolia/ripples";
 import { FullScreen } from "Components/FullScreen";
+import { useRipples } from "Hooks/useRipples";
 import { isPageActive, usePageController } from "State/PageController";
 import "./styles.scss";
 
 export const Page = memo(function Page({ name, children }: Props) {
-  const container = useRef<HTMLDivElement>(null);
+  const container = useRipples();
   const active = usePageController(isPageActive);
-
-  useEffect(() => {
-    if (!container.current) {
-      return;
-    }
-    const ripples = new Ripples(container.current, {
-      resolution: "device",
-    });
-    return () => {
-      ripples.destroy();
-    };
-  }, []);
 
   const classes = useClassNames("page", name, { active });
 
