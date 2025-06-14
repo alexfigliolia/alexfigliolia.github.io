@@ -48,5 +48,5 @@ export default defineConfig({
       jsx: "automatic",
     },
   },
-  assetsInclude: ["**/*.gltf", "**/*.bin", "**/*.hdr", "**/*.glsl"],
+  assetsInclude: ["**/*.gltf", "**/*.bin", "**/*.hdr", "**/*.glsl", "**/*.exr"],
 });

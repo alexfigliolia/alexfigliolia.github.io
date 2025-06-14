@@ -1,7 +1,8 @@
-import { CarScene } from "3D/CarScene/Lazy";
-import { NetflixScene } from "3D/Netflix/Lazy";
+import { LazyCarScene } from "3D/CarScene/Lazy";
+import { LazyMagazineScene } from "3D/MagazineScene/Lazy";
+import { LazyNetflixScene } from "3D/Netflix/Lazy";
 import { RipplesScene } from "3D/RipplesScene";
-import { SkateboardScene } from "3D/SkateboardScene/Lazy";
+import { LazySkateboardScene } from "3D/SkateboardScene/Lazy";
 import CarImage from "Images/car-scene.webp";
 import MagazineImage from "Images/magazine-slider.webp";
 import NetflixImage from "Images/netflix-content-transition.webp";
@@ -20,7 +21,7 @@ export const API = [
       "A guided three.js exercise in animation, lighting, and visual effects using a C8 Corvette",
     image: CarImage,
     video: CarVid,
-    scene: <CarScene />,
+    scene: <LazyCarScene />,
   },
   {
     title: "Skateboard Configurator",
@@ -28,7 +29,7 @@ export const API = [
       "A guided three.js tutorial building a CMS driven product configurator",
     image: SkateboardImage,
     video: SkateboardVideo,
-    scene: <SkateboardScene />,
+    scene: <LazySkateboardScene />,
   },
   {
     title: "Netflix Design Concept",
@@ -36,7 +37,7 @@ export const API = [
       "A webGL experiment replacing all media on the netflix home page with WebGL shaders",
     image: NetflixImage,
     video: NetflixVideo,
-    scene: <NetflixScene />,
+    scene: <LazyNetflixScene />,
   },
   {
     title: "WebGL Ripples",
@@ -51,6 +52,6 @@ export const API = [
     description: "A fun image slider originally designed by Wassim Samad",
     image: MagazineImage,
     video: MagazineVideo,
-    scene: <CarScene />,
+    scene: <LazyMagazineScene />,
   },
 ] as const;
