@@ -1,13 +1,16 @@
 import { CarScene } from "3D/CarScene/Lazy";
 import { NetflixScene } from "3D/Netflix/Lazy";
+import { RipplesScene } from "3D/RipplesScene";
 import { SkateboardScene } from "3D/SkateboardScene/Lazy";
-import CarImage from "Images/car-scene.png";
-import MagazineImage from "Images/magazine-slider.png";
-import NetflixImage from "Images/netflix-content-transition.png";
-import SkateboardImage from "Images/skateboard-configurator.png";
+import CarImage from "Images/car-scene.webp";
+import MagazineImage from "Images/magazine-slider.webp";
+import NetflixImage from "Images/netflix-content-transition.webp";
+import RipplesImage from "Images/ripples.webp";
+import SkateboardImage from "Images/skateboard-configurator.webp";
 import CarVid from "Videos/car-scene.mp4";
 import MagazineVideo from "Videos/magazine-slider.mp4";
 import NetflixVideo from "Videos/netflix-content-transition.mp4";
+import RipplesVideo from "Videos/ripples.mp4";
 import SkateboardVideo from "Videos/skateboard-configurator.mp4";
 
 export const API = [
@@ -39,9 +42,9 @@ export const API = [
     title: "WebGL Ripples",
     description:
       "A dependency-free webGL shader library that brings water ripples to ordinary background images",
-    image: NetflixImage,
-    video: NetflixVideo,
-    scene: <CarScene />,
+    image: RipplesImage,
+    video: RipplesVideo,
+    scene: <RipplesScene />,
   },
   {
     title: "Magazine Slider",
