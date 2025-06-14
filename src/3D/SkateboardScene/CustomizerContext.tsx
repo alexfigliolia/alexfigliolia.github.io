@@ -1,5 +1,3 @@
-"use client";
-
 import { createContext, useContext, useMemo, useState } from "react";
 import { OptionalChildren } from "@figliolia/react-lazy";
 import { Callback } from "Tools/Types";

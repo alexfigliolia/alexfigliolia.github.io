@@ -8,3 +8,5 @@ export const useScreen = createUseState(Screen);
 export const selectDimensions = (state: IScreen) => {
   return [state.width, state.height];
 };
+
+export const selectHeight = (state: IScreen) => state.height;

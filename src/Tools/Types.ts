@@ -11,3 +11,8 @@ export type LazyComponent<T extends Record<string, any> = PropLess> =
   ReturnType<typeof CreateLazyComponent<T>>;
 
 export type Callback<T extends any[] = never[], V = void> = (...args: T) => V;
+
+export interface Point {
+  x: number;
+  y: number;
+}

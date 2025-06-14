@@ -1,0 +1,62 @@
+@use "Styles/Variables";
+
+.content-list {
+  width: 100%;
+  position: relative;
+  text-align: left;
+  &>h2 {
+    font-size: 1.5em;
+    margin: 0;
+    color: #fff;
+  }
+  &>.content-list__content {
+    --padding-bottom: 2em;
+    width: 100%;
+    position: relative;
+    &>.content-list__items {
+      width: 100%;
+      max-width: 100%;
+      overflow: scroll;
+      white-space: nowrap;
+      scroll-snap-type: x mandatory;
+      padding-top: calc(var(--padding-bottom) / 2);
+      padding-bottom: var(--padding-bottom);
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1em;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      &>div {
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        opacity: 0;
+      }
+    }
+    &>.content-list__scroller {
+      padding: 0;
+      width: 3em;
+      height: 3em;
+      border-radius: 50%;
+      border: none;
+      background-color: rgba(#000, 0.4);
+      backdrop-filter: blur(15px);
+      @include Variables.center;
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      translate: 0 calc(-50% - (var(--padding-bottom) / 2));
+      &>svg {
+        width: 2em;
+        height: 2em;
+        fill: #eae6e6;
+      }
+      &.previous {
+        left: calc(var(--layout-padding) * -0.75);
+      }
+      &.next {
+        right: calc(var(--layout-padding) * -0.75);
+      }
+    }
+  }
+}

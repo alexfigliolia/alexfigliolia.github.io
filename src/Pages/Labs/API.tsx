@@ -1,4 +1,5 @@
 import { CarScene } from "3D/CarScene/Lazy";
+import { NetflixScene } from "3D/Netflix/Lazy";
 import { SkateboardScene } from "3D/SkateboardScene/Lazy";
 import CarImage from "Images/car-scene.png";
 import MagazineImage from "Images/magazine-slider.png";
@@ -32,7 +33,7 @@ export const API = [
       "A webGL experiment replacing all media on the netflix home page with WebGL shaders",
     image: NetflixImage,
     video: NetflixVideo,
-    scene: <CarScene />,
+    scene: <NetflixScene />,
   },
   {
     title: "WebGL Ripples",

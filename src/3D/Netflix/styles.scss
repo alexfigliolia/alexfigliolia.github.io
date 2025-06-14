@@ -1,0 +1,15 @@
+.netflix-scene {
+   --layout-padding: 1.5em;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: scroll;
+  padding: var(--layout-padding);
+  background: linear-gradient(to bottom, #222222, #181818);
+  @media (min-width: 670px) {
+    --layout-padding: 2em;
+  }
+  &>.padding {
+    width: 100%;
+    height: 200px;
+  }
+}

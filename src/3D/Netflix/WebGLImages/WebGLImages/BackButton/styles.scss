@@ -1,0 +1,24 @@
+.back-button {
+  padding: 0.5em 1.5em;
+  backdrop-filter: blur(25px);
+  background-color: rgba(#fff, 0.75);
+  color: #000;
+  font-weight: 700;
+  border-radius: 2em;
+  border: none;
+  position: fixed;
+  bottom: 10vh;
+  left: 50%;
+  z-index: 12;
+  translate: -50%;
+  opacity: 0;
+  font-size: 1.5em;
+  visibility: hidden;
+  transition: opacity 1s 0s, visibility 0s 1s;
+  box-shadow: 0em 0.1em 0.25em rgba(#000, 0.5);
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s 1s, visibility 0s 0s;
+  }
+}
