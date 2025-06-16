@@ -10,7 +10,7 @@ export const Title = memo(
           if (letter === " ") {
             return (
               <div className="title-space" key={`${letter}-${i}`}>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
               </div>
             );
           }

@@ -11,7 +11,7 @@
 	font-weight: 900;
 	position: relative;
 	font-size: min(19vw, 120px);
-	letter-spacing: -1.5vw;
+	letter-spacing: -0.1em;
 	transition: letter-spacing 0.2s;
 	background-color: transparent;
 	transform: rotateX(-30deg) rotateY(30deg) rotateZ(10deg);
@@ -19,7 +19,6 @@
 
 	@media #{variables.$mq-800} {
 		margin: 0;
-		letter-spacing: -12.5px;
 	}
 
 	&::after {
