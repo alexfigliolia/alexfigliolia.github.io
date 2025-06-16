@@ -1,0 +1,2 @@
+import{r as s,j as e}from"./threeFiber-wgP-k_4X.js";import{T as t,a,i as r,u as o}from"./index-zVe65wBv.js";import{B as i}from"./index-N54jBtA3.js";const c=s.memo((function({text:c,onClick:n,className:m}){const f=a(r),[x,j]=s.useState(!1);((e,a)=>{s.useEffect((()=>{e&&t.deferTask((()=>{a(!0)}),3100)}),[e,a])})(f,j);const d=o(m,{active:f,reset:x});return e.jsx("div",{className:d,children:e.jsx(i,{text:c,onClick:n})})}));export{c as C};
+//# sourceMappingURL=index-LPbhgF_E.js.map
