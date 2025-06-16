@@ -1,2 +1,0 @@
-import{r as s,T as e,a,i as t,u as o,j as c}from"./index-BW91fhZy.js";import{B as i}from"./index-N81V8hou.js";const n=s.memo((function({text:n,onClick:r,className:m}){const x=a(t),[f,d]=s.useState(!1);((a,t)=>{s.useEffect((()=>{a&&e.deferTask((()=>{t(!0)}),3100)}),[a,t])})(x,d);const j=o(m,{active:x,reset:f});return c.jsx("div",{className:j,children:c.jsx(i,{text:n,onClick:r})})}));export{n as C};
-//# sourceMappingURL=index-XZjpwa6T.js.map
