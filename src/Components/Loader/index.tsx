@@ -5,7 +5,7 @@ import "./styles.scss";
 export const Loader = memo(
   function Loader(_: PropLess) {
     return (
-      <div className="loader">
+      <div className="loader" aria-hidden>
         <div>
           <span />
           <span />
