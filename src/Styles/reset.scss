@@ -5,8 +5,7 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-
- html {
+html {
   font-family: -apple-system, BlinkMacSystemFont, "“Segoe UI”", Roboto, Helvetica, Arial, sans-serif;
   text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
@@ -452,4 +451,8 @@ th {
 
 ul {
   padding: 0;
+}
+
+* {
+  box-sizing: border-box;
 }

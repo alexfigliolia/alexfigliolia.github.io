@@ -5,8 +5,16 @@ import { Option, Options } from "./Options";
 import "./styles.scss";
 
 export const Controls = (_: PropLess) => {
-  const { setBolt, setDeck, setTruck, setWheel, wheel, deck, truck, bolt } =
-    useCustomizer();
+  const {
+    deck,
+    bolt,
+    wheel,
+    truck,
+    updateBolts,
+    updateDeck,
+    updateTrucks,
+    updateWheels,
+  } = useCustomizer();
 
   return (
     <div className="controls">
@@ -15,9 +23,7 @@ export const Controls = (_: PropLess) => {
           <Option
             key={option}
             imageField={option}
-            onClick={() => {
-              setDeck(option);
-            }}
+            onClick={updateDeck}
             imageStyles={{
               width: "500%",
               height: "500%",
@@ -34,9 +40,7 @@ export const Controls = (_: PropLess) => {
           <Option
             key={option}
             imageField={option}
-            onClick={() => {
-              setWheel(option);
-            }}
+            onClick={updateWheels}
             imageStyles={{
               width: "125%",
               height: "125%",
@@ -53,9 +57,7 @@ export const Controls = (_: PropLess) => {
           <Option
             key={option}
             colorField={option}
-            onClick={() => {
-              setTruck(option);
-            }}
+            onClick={updateTrucks}
             selected={option === truck}>
             {option.replace(/-/g, " ")}
           </Option>
@@ -66,9 +68,7 @@ export const Controls = (_: PropLess) => {
           <Option
             key={option}
             colorField={option}
-            onClick={() => {
-              setBolt(option);
-            }}
+            onClick={updateBolts}
             selected={option === bolt}>
             {option.replace(/-/g, " ")}
           </Option>

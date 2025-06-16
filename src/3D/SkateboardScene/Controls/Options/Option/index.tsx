@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, ReactNode, useCallback } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { Callback } from "Tools/Types";
 import "./styles.scss";
@@ -12,9 +12,14 @@ export const Option = ({
   imageStyles,
 }: Props) => {
   const classes = useClassNames("option", { selected });
+
+  const onSelect = useCallback(() => {
+    onClick(colorField ?? imageField ?? "");
+  }, [onClick, colorField, imageField]);
+
   return (
     <li>
-      <button className={classes} onClick={onClick}>
+      <button className={classes} onClick={onSelect}>
         {imageField ? (
           <img src={imageField} alt="" style={imageStyles} />
         ) : (
@@ -29,7 +34,7 @@ export const Option = ({
 interface CommonProps {
   selected: boolean;
   children: ReactNode;
-  onClick: Callback;
+  onClick: Callback<[string]>;
   imageStyles?: CSSProperties;
 }
 

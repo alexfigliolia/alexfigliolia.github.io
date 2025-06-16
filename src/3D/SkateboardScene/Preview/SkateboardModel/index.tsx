@@ -63,7 +63,7 @@ export const SkateboardModel = forwardRef(function SkateboardModel(
   const positions = useMemo(
     () =>
       ({
-        side: { rotation: [0, 0, Math.PI / 2], position: [0, 0.295, 0] },
+        side: { rotation: [0, 0, Math.PI / 2], position: [0.25, 0.295, 0] },
         upright: { rotation: [0, 0, 0], position: [0, 0, 0] },
       }) as const,
     [],

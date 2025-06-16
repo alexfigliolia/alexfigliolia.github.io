@@ -10,13 +10,13 @@
   }
   & .preview {
     width: 100%;
-    height: 100%;
+    height: 50svh;
+    height: 50vh;
     position: relative;
     background-color: #3a414a;
-    height: 70vh;
     @media (min-width: 957px) {
-      aspect-ratio: none;
-      min-height: 100vh;
+      height: 100svh;
+      height: 100vh;
     }
     &>.logo {
       top: 1em;
@@ -39,7 +39,10 @@
   & .options-menu {
     color: #fff;
     width: 100%;
-    height: 30vh;
+    min-height: 50svh;
+    min-height: 50vh;
+    max-height: 50svh;
+    max-height: 50vh;
     background-color: #232425;
     padding: 2em 1em;
     overflow-y: scroll;
@@ -49,6 +52,8 @@
     }
     @media (min-width: 957px) {
       width: 450px;
+      min-height: 100svh;
+      max-height: 100svh;
       min-height: 100vh;
       max-height: 100vh;
     }
@@ -56,7 +61,11 @@
       justify-content: flex-start;
       margin-bottom: 0.5em;
       letter-spacing: -0.075em;
+      margin-top: 0;
       text-shadow: 0em 0.05em 0.1em rgba(#000, 1);
+      @media (min-width: 957px) {
+        margin-top: 1em;
+      }
     }
     &>.controls {
       margin-bottom: 1em;

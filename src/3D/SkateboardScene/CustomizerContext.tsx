@@ -1,28 +1,44 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import {
+  createContext,
+  createRef,
+  Dispatch,
+  RefObject,
+  SetStateAction,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 import { OptionalChildren } from "@figliolia/react-lazy";
+import { CameraControls } from "@react-three/drei";
 import { Callback } from "Tools/Types";
 import { SkateboardOptions } from "./SkateboardOptions";
+import { useCameraControls } from "./useCameraControls";
 
 const CustomizerContext = createContext<ICustomizerContext>({
   wheel: SkateboardOptions.WHEELS[0],
-  setWheel: () => {},
+  updateWheels: () => {},
   deck: SkateboardOptions.DECKS[0],
-  setDeck: () => {},
+  updateDeck: () => {},
   truck: SkateboardOptions.METALS[0],
-  setTruck: () => {},
+  updateTrucks: () => {},
   bolt: SkateboardOptions.METALS[0],
-  setBolt: () => {},
+  updateBolts: () => {},
+  lookAtDeck: () => {},
+  camera: createRef(),
 });
 
 interface ICustomizerContext {
   wheel: string;
-  setWheel: Callback<[string]>;
+  updateWheels: Callback<[string]>;
   deck: string;
-  setDeck: Callback<[string]>;
+  updateDeck: Callback<[string]>;
   truck: string;
-  setTruck: Callback<[string]>;
+  updateTrucks: Callback<[string]>;
   bolt: string;
-  setBolt: Callback<[string]>;
+  lookAtDeck: Callback;
+  updateBolts: Callback<[string]>;
+  camera: RefObject<CameraControls | null>;
 }
 
 export const CustomizerContextProvider = ({ children }: OptionalChildren) => {
@@ -30,10 +46,60 @@ export const CustomizerContextProvider = ({ children }: OptionalChildren) => {
   const [bolt, setBolt] = useState(SkateboardOptions.METALS[0]);
   const [deck, setDeck] = useState(SkateboardOptions.DECKS[0]);
   const [truck, setTruck] = useState(SkateboardOptions.METALS[0]);
+  const { camera, lookAtBolts, lookAtTruck, lookAtWheel, lookAtDeck } =
+    useCameraControls();
+
+  const createLookAt = useCallback(
+    (stateSetter: Dispatch<SetStateAction<string>>, lookAt: Callback) =>
+      (update: string) => {
+        stateSetter(update);
+        lookAt();
+      },
+    [],
+  );
+
+  const updateWheels = useMemo(
+    () => createLookAt(setWheel, lookAtWheel),
+    [createLookAt, lookAtWheel],
+  );
+  const updateTrucks = useMemo(
+    () => createLookAt(setTruck, lookAtTruck),
+    [createLookAt, lookAtTruck],
+  );
+  const updateDeck = useMemo(
+    () => createLookAt(setDeck, lookAtDeck),
+    [createLookAt, lookAtDeck],
+  );
+  const updateBolts = useMemo(
+    () => createLookAt(setBolt, lookAtBolts),
+    [createLookAt, lookAtBolts],
+  );
 
   const value = useMemo(
-    () => ({ wheel, setWheel, bolt, setBolt, deck, setDeck, truck, setTruck }),
-    [wheel, bolt, deck, truck],
+    () => ({
+      camera,
+      wheel,
+      bolt,
+      deck,
+      truck,
+      lookAtDeck,
+      updateWheels,
+      updateTrucks,
+      updateDeck,
+      updateBolts,
+    }),
+    [
+      wheel,
+      bolt,
+      deck,
+      truck,
+      camera,
+      lookAtDeck,
+      updateWheels,
+      updateTrucks,
+      updateDeck,
+      updateBolts,
+    ],
   );
   return (
     <CustomizerContext.Provider value={value}>
