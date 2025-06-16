@@ -1,8 +1,11 @@
-import { ReactNode, useCallback, useRef, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
+import { useTimeout } from "@figliolia/react-hooks";
 import { CreateLazyComponent } from "@figliolia/react-lazy";
+import { CircleLoader } from "Components/CircleLoader";
 import { SplitHeading } from "Components/SplitHeading";
-import { Labs } from "State/Labs";
+import { Labs, ready, useLabs } from "State/Labs";
+import { usePreloader } from "./usePreloader";
 import "./styles.scss";
 
 export const Experiment = ({
@@ -13,53 +16,37 @@ export const Experiment = ({
   scene,
   preload: preloadScene,
 }: Props) => {
-  const preloadedScene = useRef(false);
-  const preloadingVideo = useRef(false);
-  const videoNode = useRef<HTMLVideoElement>(null);
-  const [preloadedVideo, setPreloadedVideo] = useState(false);
-
-  const preloadLabsScene = useCallback(() => {
-    if (!preloadedScene.current) {
-      preloadedScene.current = true;
-      void preloadScene?.();
-    }
-  }, [preloadScene]);
-
-  const preloadLabsVideo = useCallback(() => {
-    if (preloadingVideo.current || !videoNode.current) {
-      return;
-    }
-    void preloadScene?.();
-    if (preloadedVideo) {
-      void videoNode.current?.play?.();
-      return;
-    }
-    preloadingVideo.current = true;
-    videoNode.current.oncanplaythrough = () => {
-      setPreloadedVideo(true);
-      preloadingVideo.current = false;
-      void videoNode.current?.play?.();
-    };
-    videoNode.current.onerror = () => {
-      preloadingVideo.current = false;
-    };
-    videoNode.current.src = video;
-  }, [preloadedVideo, video, preloadScene]);
-
-  const onMouseEnter = useCallback(() => {
-    preloadLabsScene();
-    preloadLabsVideo();
-  }, [preloadLabsScene, preloadLabsVideo]);
+  const timeout = useTimeout();
+  const sceneComplete = useLabs(ready);
+  const [loadingScene, setLoadingScene] = useState(false);
+  const { videoNode, preloadedVideo, mouseOverPreloader } = usePreloader(
+    video,
+    preloadScene,
+  );
 
   const onMouseOut = useCallback(() => {
     videoNode?.current?.pause?.();
-  }, []);
+  }, [videoNode]);
 
   const onClick = useCallback(() => {
-    Labs.activateScene(scene);
-  }, [scene]);
+    setLoadingScene(true);
+    timeout.execute(() => {
+      Labs.activateScene(scene);
+    }, 500);
+  }, [scene, timeout]);
 
-  const classes = useClassNames("experiment", { ready: preloadedVideo });
+  useEffect(() => {
+    if (loadingScene && sceneComplete) {
+      timeout.execute(() => {
+        setLoadingScene(false);
+      }, 1000);
+    }
+  }, [loadingScene, sceneComplete, timeout]);
+
+  const classes = useClassNames("experiment", {
+    ready: preloadedVideo,
+    loading: loadingScene,
+  });
 
   return (
     <article
@@ -69,8 +56,11 @@ export const Experiment = ({
       className={classes}
       onTouchEnd={onMouseOut}
       onMouseLeave={onMouseOut}
-      onMouseEnter={onMouseEnter}
-      onTouchStart={onMouseEnter}>
+      onMouseEnter={mouseOverPreloader}
+      onTouchStart={mouseOverPreloader}>
+      <div className="e-loader" aria-hidden={!loadingScene}>
+        <CircleLoader />
+      </div>
       <div className="media">
         <video ref={videoNode} loop playsInline autoPlay muted src={video} />
         <img src={image} />

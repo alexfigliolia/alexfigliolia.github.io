@@ -887,12 +887,12 @@
   dependencies:
     "@figliolia/galena" "^2.3.5"
 
-"@figliolia/react-hooks@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@figliolia/react-hooks/-/react-hooks-1.3.0.tgz#bc56ed65d7536cec45cb098e3820c9213eda0b8d"
-  integrity sha512-yoefmdfwnBANB+8dkd9jdOb+PpVahqd/PWrPlTrF/7XiRokTpQSUdHBvgu9hTok+S86STLXmPkjCMtM1a854MQ==
+"@figliolia/react-hooks@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@figliolia/react-hooks/-/react-hooks-1.4.0.tgz#27cdf2e3223b65b6f7c438ad24cbc13963fdaf7a"
+  integrity sha512-/+eG5jInXmuXq04j/lWBu5QQ00d4n44cvEnE8+k0onsFHR52WUPlaF6BVU4Msb6iLi5opn9joJbmqT0FUXdS1w==
   dependencies:
-    "@figliolia/size-observer" "^1.0.3"
+    "@figliolia/size-observer" "^2.1.0"
 
 "@figliolia/react-lazy@^1.2.0":
   version "1.2.0"
@@ -908,10 +908,10 @@
   dependencies:
     "@figliolia/event-emitter" "^1.1.6"
 
-"@figliolia/size-observer@^1.0.3":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@figliolia/size-observer/-/size-observer-1.1.0.tgz#c7960cf898398c40e34d9dc4616ee1b48b894904"
-  integrity sha512-xukhs3MhOB6KYTnOMgDNwdrm4fV6fk9P6HpHAVv0K5xX3xGBXrBaRNoAvEBc8LZcTVOIIAiL3+gGvUgzfe0esw==
+"@figliolia/size-observer@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@figliolia/size-observer/-/size-observer-2.1.0.tgz#3f34ba60f9fca129991cab7875e6b130daaa3e98"
+  integrity sha512-59VTKtXoP/SSNHehctcaOLkuSDENojm4cErnChYBuApmhj8Wi0I3Y02/V5duJVfa30Agzzar5KnT/RSgYG+ERQ==
 
 "@figliolia/task-queue@^1.0.8":
   version "1.0.8"

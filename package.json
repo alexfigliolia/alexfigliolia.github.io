@@ -20,7 +20,7 @@
     "@figliolia/page-switch": "^1.0.8",
     "@figliolia/promises": "^1.0.1",
     "@figliolia/react-galena": "^3.2.4",
-    "@figliolia/react-hooks": "^1.3.0",
+    "@figliolia/react-hooks": "^1.4.0",
     "@figliolia/react-lazy": "^1.2.0",
     "@figliolia/ripples": "^1.0.8",
     "@figliolia/task-queue": "^1.0.8",

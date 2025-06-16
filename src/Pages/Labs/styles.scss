@@ -28,7 +28,8 @@
       @media (min-width: 957px) {
         width: calc(33.3333% - 1em);
       }
-      &>div {
+      &>.media,
+      &>.meta  {
         opacity: 0;
         transition: opacity 1s 1s;
       }
@@ -38,7 +39,8 @@
     & .experiments > .experiment {
       opacity: 1;
       transition: opacity 1s 0.5s;
-      &>div {
+      &>.media,
+      &>.meta {
         opacity: 1;
       }
     }

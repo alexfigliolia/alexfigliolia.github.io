@@ -1,3 +1,5 @@
+@use "Styles/variables";
+
 .experiment {
   width: 100%;
   color: #fff;
@@ -9,6 +11,26 @@
   position: relative;
   cursor: pointer;
   box-shadow: 0em 0.1em 0.25em rgba(#000, 0.25);
+  &>.e-loader {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 1s, visibility 0s 1s;
+    background: rgba(#000, 0.5);
+    @include variables.center;
+    flex-direction: column;
+    &>.circle-loader {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s 0s, scale 0.5s 0s, visibility 0s 0.5s;
+    }
+  }
   &>.media {
     height: 200px;
     width: 100%;
@@ -23,7 +45,7 @@
       top: 0;
       left: 0;
       opacity: 0;
-      transition: opacity 0.5s;
+      transition: opacity 0.5s, scale 1s, translate 1s;
       position: absolute;
     }
   }
@@ -48,9 +70,24 @@
       text-shadow: 0em 0.05em 0.15em rgba(#000, 0.95);
     }
   }
-  &.ready {
+  &.ready >.media > video {
+    opacity: 1;
+  }
+  &.loading {
     &>.media > video {
+      scale: 2;
+      translate: 0 25%;
+    }
+    &>.e-loader {
       opacity: 1;
+      visibility: visible;
+      transition: opacity 1s, visibility 0s 0s;
+      &>.circle-loader {
+        opacity: 1;
+        scale: 1.5;
+        visibility: visible;
+        transition: opacity 0.5s 0s, scale 0.5s 0s, visibility 0s 0s;
+      }
     }
   }
 }
