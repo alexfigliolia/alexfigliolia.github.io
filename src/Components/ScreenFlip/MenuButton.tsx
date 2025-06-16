@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
+import { CancelFN } from "@figliolia/task-queue";
 import { Burger } from "Components/Burger";
 import { getButtonDelay, useMenu } from "State/Menu";
 import { isPageActive, usePageController } from "State/PageController";
@@ -17,11 +18,15 @@ export const MenuButton = memo(
         setActive(false);
         return;
       }
+      let cancelFN: CancelFN;
       if (screenActive && !active) {
-        TaskQueue.deferTask(() => {
+        cancelFN = TaskQueue.deferTask(() => {
           setActive(true);
         }, delay);
       }
+      return () => {
+        cancelFN?.();
+      };
     }, [active, delay, screenActive]);
 
     const classes = useClassNames("menu-button", { active });
