@@ -18,7 +18,7 @@
 
 	box-shadow: none;
 	transform-style: preserve-3d;
-	text-shadow: 0 2.5px 5px rgba(#000, 0.8), 0 0 7.5px rgba(#000, 0.5);
+	text-shadow: 0 0.05px 0.1em rgba(#000, 0.8), 0 0 0.2em rgba(#000, 0.5);
 	transition: transform 0.5s 0s, box-shadow 0.5s 0s, color 0.3s 0.1s, text-shadow 0.3s 0.1s;
 
 	&::after,

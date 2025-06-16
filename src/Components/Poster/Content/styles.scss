@@ -22,17 +22,15 @@
 			pointer-events: none;
 			transition: transform 0.5s 0s, opacity 0.5s 0s, visibility 0s 0s;
 			font-size: min(5.5vw, 30px);
-			text-shadow: 0 1.5px 2.5px rgba(#000, 0.75), 0 2.5px 7.5px rgba(#000, 0.75), 0 1px 2.5px rgba(#000, 0.75);
+			text-shadow: 0 0.025em 0.05em rgba(#000, 0.75), 0 0.05em 0.075em rgba(#000, 0.75), 0 0.01em 0.025em rgba(#000, 0.75);
 
 			@media #{variables.$mq-800} {
 				width: 46%;
 				font-size: min(3vw, 22.5px);
-				text-shadow: 0 0 5px rgba(#000, 0.5), 0 2.5px 7.5px rgba(#000, 0.5), 0 2.5px 2.5px rgba(#000, 0.5);
 			}
 
 			@media #{variables.$mq-1150} {
 				font-size: min(2.5vw, 25px);
-				text-shadow: 0 0 5px rgba(#000, 0.5), 0 2.5px 7.5px rgba(#000, 0.5), 0 2.5px 2.5px rgba(#000, 0.5);
 			}
 
 			&:last-of-type {
@@ -157,7 +155,7 @@
 	&>.poster-links > .outline-button {
 		color: #fff;
 		pointer-events: none;
-		text-shadow: 0 1.5px 2.5px rgba(#000, 0.8), 0 0 4px rgba(#000, 0.5);
+		text-shadow: 0 0.1em 0.2em rgba(#000, 0.8), 0 0 0.2em rgba(#000, 0.5);
 		transition: transform 0.5s 0s, box-shadow 0.5s 0s, color 0.3s 0.1s, text-shadow 0.7s 2.7s, color 0.7s 2.7s;
 
 		&::after,
