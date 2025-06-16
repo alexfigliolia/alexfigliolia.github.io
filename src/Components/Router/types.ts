@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import type { LazyComponent } from "@figliolia/react-lazy/dist/types/types";
+import type { LazyComponent } from "@figliolia/react-lazy";
 import type { PropLess } from "Tools/Types";
 
 export type WrappedLoader = [

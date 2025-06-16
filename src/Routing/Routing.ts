@@ -1,5 +1,5 @@
 import type { CreateLazyComponent } from "@figliolia/react-lazy";
-import type { LazyComponent } from "@figliolia/react-lazy/dist/types/types";
+import type { LazyComponent } from "@figliolia/react-lazy";
 import { Preloader } from "Tools/Preloader";
 import type { PropLess } from "Tools/Types";
 import type { ImagesPreloaded } from "./types";

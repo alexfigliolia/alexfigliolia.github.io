@@ -1,8 +1,8 @@
 import { ReactNode, useCallback, useRef, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
+import { CreateLazyComponent } from "@figliolia/react-lazy";
 import { SplitHeading } from "Components/SplitHeading";
 import { Labs } from "State/Labs";
-import { LazyComponent } from "Tools/Types";
 import "./styles.scss";
 
 export const Experiment = ({
@@ -89,5 +89,5 @@ interface Props {
   image: string;
   video: string;
   scene: ReactNode;
-  preload?: () => Promise<LazyComponent<any>>;
+  preload?: ReturnType<typeof CreateLazyComponent<any>>["preload"];
 }

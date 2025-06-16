@@ -1,6 +1,6 @@
 import type { TimedPromiseResolution } from "@figliolia/promises";
 import { TimedPromise } from "@figliolia/promises";
-import type { LazyComponent } from "@figliolia/react-lazy/dist/types/types";
+import type { LazyComponent } from "@figliolia/react-lazy";
 import { PageController } from "State/PageController";
 import type { PropLess } from "Tools/Types";
 import type { ISetPage, RouteMap } from "./types";
