@@ -41,3 +41,77 @@ $mq-h-1400: "(min-height: 1400px)";
   background-repeat: repeat;
   background-position: center;
 }
+
+@mixin textRotation {
+  font-weight: 900;
+	color: #fff;
+	letter-spacing: -0.1em;
+  text-transform: uppercase;
+	perspective: 1000px;
+  transform: rotateX(-30deg) rotateY(30deg) rotateZ(10deg);
+  text-shadow: 0 0.05em 0.1em rgba(#000, 0.5), 0 0 0.25em rgba(#000, 0.4);
+}
+
+@mixin threeDButtonHoverText {
+  color: #000;
+	text-shadow: none;
+	transition: transform 0.5s 0s, box-shadow 0.5s 0s, color 0.3s 0s, text-shadow 0.3s 0s;
+}
+
+@mixin splitLetterHiddenState {
+  opacity: 0;
+  will-change: opacity, transform;
+  transform: scale(0) rotateX(180deg) translateY(-150%);
+}
+
+@mixin splitLetterVisibleState {
+  opacity: 1;
+	transform: scale(1) rotateX(0deg) translateY(0%);
+}
+
+@mixin splitTextStagger($range, $opacityDelay: 500ms, $transformDelay: 500ms, $stagger: 50ms, $easing: cubic-bezier(0.34, 1.56, 0.64, 1)) {
+  @for $i from 1 through $range {
+		&:nth-of-type(#{$i}) {
+			transition: opacity 1s #{$opacityDelay - $stagger * $i}, transform 1.75s #{$transformDelay - $stagger * $i} $easing; 
+		}
+	}
+}
+
+@mixin splitTextStaggerReversal($range, $opacityBase: 950ms, $transformBase: 150ms, $stagger: 50ms, $easing: cubic-bezier(0.36, 0, 0.66, -0.56)) {
+  @for $i from 1 through $range {
+		&:nth-of-type(#{$i}) {
+			transition: opacity 0.5s #{$opacityBase - $stagger * $i}, transform 1.25s #{$transformBase - $stagger * $i} $easing; 
+		}
+	}
+}
+
+@mixin headingFontSizes {
+  margin: 0;
+  font-size: 22.5vw;
+
+  @media #{$mq-670} {
+    font-size: 22vw;
+  }
+
+  @media #{$mq-890} {
+    font-size: 22.5vw;
+  }
+
+  @media #{$mq-957} {
+    font-size: 17.5vw;
+  }
+
+  @media #{$mq-1150} {
+    font-size: min(16vw, 230px);
+  }
+}
+
+@mixin splitTextStyles {
+  @include center;
+  @include headingFontSizes;
+  @include textRotation;
+
+  &>.text-letter {
+    @include splitLetterHiddenState;
+  }
+}

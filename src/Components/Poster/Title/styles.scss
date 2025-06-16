@@ -18,6 +18,5 @@
 }
 		
 .page.work.active .poster.active > article > .poster-title > div {
-	opacity: 1;
-	transform: scale(1) rotateX(0deg) translateY(0%);
+	@include variables.splitLetterVisibleState;
 }

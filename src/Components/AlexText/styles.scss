@@ -12,15 +12,9 @@
 	&>h1 {
 		@include variables.center;
 
-		font-weight: 900;
-		color: #fff;
-		margin: -0.2em 0;
-		letter-spacing: -0.1em;
 		font-size: 25vw;
-		perspective: 1000px;
-		text-transform: uppercase;
-		transform: rotateX(-30deg) rotateY(30deg) rotateZ(10deg);
-		text-shadow: 0 0.05em 0.1em rgba(#000, 0.5), 0 0 0.25em rgba(#000, 0.4);
+		@include variables.textRotation;
+		margin: -0.2em 0;
 
 		@media #{variables.$mq-670} {
 			font-size: 20vw;
@@ -43,30 +37,19 @@
 		}
 
 		&>.text-letter {
-			opacity: 0;
-			will-change: opacity, transform;
-			transform: scale(0) rotateX(180deg) translateY(-150%);
+			@include variables.splitLetterHiddenState;
 		}
 	}
 }
 
 .home.active .alex-text > #alex > .text-letter {
-	@for $i from 1 through 4 {
-		&:nth-of-type(#{$i}) {
-			transition: opacity 1s #{550ms - 50ms * $i}, transform 1.75s #{550ms - 50ms * $i} cubic-bezier(0.34, 1.56, 0.64, 1); 
-		}
-	}
+	@include variables.splitTextStagger(4, 550ms);
 }
 
 .home.active .alex-text > #figliolia > .text-letter {
-	@for $i from 1 through 9 {
-		&:nth-of-type(#{$i}) {
-			transition: opacity 1s #{550ms - 50ms * $i}, transform 1.75s #{550ms - 50ms * $i} cubic-bezier(0.34, 1.56, 0.64, 1); 
-		}
-	}
+	@include variables.splitTextStagger(9, 550ms);
 }
 
 .home.active .alex-text > h1 > .text-letter {
-	opacity: 1;
-	transform: scale(1) rotateX(0deg) translateY(0%);
+	@include variables.splitLetterVisibleState;
 }

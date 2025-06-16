@@ -21,6 +21,7 @@ export const Content = memo(function Content({
   const [reset, setReset] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const cancelFN = useRef<null | (() => void)>(null);
+
   const visit = useCallback(() => {
     window.open(url, "_blank");
   }, [url]);

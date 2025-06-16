@@ -38,7 +38,7 @@
 				top: 0;
 				left: 0;
 				opacity: 0;
-				visibility: hidden;
+				// visibility: hidden;
 				transform: translateY(100%);
 				transition: opacity 0.5s 0s, transform 0.5s 0s, visibility 0s 0.5s;
 
@@ -47,7 +47,7 @@
 					display: initial;
 					position: static;
 					opacity: 1;
-					visibility: visible;
+					// visibility: visible;
 					transform: translateY(0%);
 					transition: opacity 0.5s 0s, transform 0.5s 0s, visibility 0s 0s;
 				}
@@ -63,13 +63,13 @@
 		&.expanded {
 			& > p:first-of-type {
 				opacity: 0;
-				visibility: hidden;
+				// visibility: hidden;
 				transform: translateY(100%);
 				transition: opacity 0.5s 0s, transform 0.5s 0s, visibility 0s 0.5s;
 
 				@media #{variables.$mq-800} {
 					opacity: 1;
-					visibility: visible;
+					// visibility: visible;
 					transform: translateY(0%);
 				}
 			}
@@ -77,12 +77,12 @@
 			& > p:last-of-type {
 				opacity: 1;
 				transform: translateY(0%);
-				visibility: visible;
+				// visibility: visible;
 				transition: opacity 0.5s 0s, transform 0.5s 0s, visibility 0s 0s;
 
 				@media #{variables.$mq-800} {
 					opacity: 1;
-					visibility: visible;
+					// visibility: visible;
 					transform: translateY(0%);
 				}
 			}
