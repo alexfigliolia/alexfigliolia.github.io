@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Scenes } from "Tools/Scenes";
 import { PropLess } from "Tools/Types";
-import Scene from "../Resources/corvette/scene.gltf";
+import Scene from "../Resources/Corvette.glb";
 
 const ROTATION_BLACK_LIST = [
   "polySurface778",

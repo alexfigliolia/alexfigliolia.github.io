@@ -25,6 +25,17 @@ export default defineConfig({
     minify: "terser",
     target: "es2015",
     outDir: "build",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          gsap: ["gsap"],
+          three: ["three"],
+          threeFiber: ["@react-three/fiber"],
+          threeDrei: ["@react-three/drei"],
+          threeStdLib: ["three-stdlib"],
+        },
+      },
+    },
   },
   plugins: [
     react(),
@@ -48,5 +59,5 @@ export default defineConfig({
       jsx: "automatic",
     },
   },
-  assetsInclude: ["**/*.gltf", "**/*.bin", "**/*.hdr", "**/*.glsl", "**/*.exr"],
+  assetsInclude: ["**/*.glb", "**/*.hdr", "**/*.glsl", "**/*.exr"],
 });

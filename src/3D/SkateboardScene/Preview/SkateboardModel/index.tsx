@@ -10,7 +10,7 @@ import {
 import { type Mesh, Object3D, Texture } from "three";
 import { GLTF } from "three-stdlib";
 import { useGLTF } from "@react-three/drei";
-import Skateboard from "../../Resources/skateboard.gltf";
+import Skateboard from "../../Resources/Skateboard.glb";
 import { useBolts } from "./useBolts";
 import { useDeck } from "./useDeck";
 import { useGripTape } from "./useGripTape";
