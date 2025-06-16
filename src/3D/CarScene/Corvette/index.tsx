@@ -37,10 +37,10 @@ export const Corvette = (_: PropLess) => {
     setWheelMeshes(wheels);
   }, [scene]);
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock, camera }) => {
     const movement = clock.getElapsedTime() * 2;
     for (const mesh of wheelMeshes) {
-      mesh.rotation.x = movement;
+      mesh.rotation.x = camera.position.x >= 0 ? movement : -movement;
     }
   });
 
