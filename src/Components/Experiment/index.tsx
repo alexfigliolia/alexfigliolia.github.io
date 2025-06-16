@@ -2,6 +2,7 @@ import { ReactNode, useCallback, useRef, useState } from "react";
 import { useClassNames } from "@figliolia/classnames";
 import { SplitHeading } from "Components/SplitHeading";
 import { Labs } from "State/Labs";
+import { LazyComponent } from "Tools/Types";
 import "./styles.scss";
 
 export const Experiment = ({
@@ -10,30 +11,45 @@ export const Experiment = ({
   image,
   video,
   scene,
+  preload: preloadScene,
 }: Props) => {
-  const preloading = useRef(false);
+  const preloadedScene = useRef(false);
+  const preloadingVideo = useRef(false);
   const videoNode = useRef<HTMLVideoElement>(null);
-  const [preloaded, setPreloaded] = useState(false);
+  const [preloadedVideo, setPreloadedVideo] = useState(false);
 
-  const preload = useCallback(() => {
-    if (preloading.current || !videoNode.current) {
+  const preloadLabsScene = useCallback(() => {
+    if (!preloadedScene.current) {
+      preloadedScene.current = true;
+      void preloadScene?.();
+    }
+  }, [preloadScene]);
+
+  const preloadLabsVideo = useCallback(() => {
+    if (preloadingVideo.current || !videoNode.current) {
       return;
     }
-    if (preloaded) {
+    void preloadScene?.();
+    if (preloadedVideo) {
       void videoNode.current?.play?.();
       return;
     }
-    preloading.current = true;
+    preloadingVideo.current = true;
     videoNode.current.oncanplaythrough = () => {
-      setPreloaded(true);
-      preloading.current = false;
+      setPreloadedVideo(true);
+      preloadingVideo.current = false;
       void videoNode.current?.play?.();
     };
     videoNode.current.onerror = () => {
-      preloading.current = false;
+      preloadingVideo.current = false;
     };
     videoNode.current.src = video;
-  }, [preloaded, video]);
+  }, [preloadedVideo, video, preloadScene]);
+
+  const onMouseEnter = useCallback(() => {
+    preloadLabsScene();
+    preloadLabsVideo();
+  }, [preloadLabsScene, preloadLabsVideo]);
 
   const onMouseOut = useCallback(() => {
     videoNode?.current?.pause?.();
@@ -43,7 +59,7 @@ export const Experiment = ({
     Labs.activateScene(scene);
   }, [scene]);
 
-  const classes = useClassNames("experiment", { ready: preloaded });
+  const classes = useClassNames("experiment", { ready: preloadedVideo });
 
   return (
     <article
@@ -51,10 +67,10 @@ export const Experiment = ({
       tabIndex={0}
       onClick={onClick}
       className={classes}
-      onMouseEnter={preload}
-      onTouchStart={preload}
       onTouchEnd={onMouseOut}
-      onMouseLeave={onMouseOut}>
+      onMouseLeave={onMouseOut}
+      onMouseEnter={onMouseEnter}
+      onTouchStart={onMouseEnter}>
       <div className="media">
         <video ref={videoNode} loop playsInline autoPlay muted src={video} />
         <img src={image} />
@@ -73,4 +89,5 @@ interface Props {
   image: string;
   video: string;
   scene: ReactNode;
+  preload?: () => Promise<LazyComponent<any>>;
 }

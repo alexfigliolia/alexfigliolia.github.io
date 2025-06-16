@@ -22,6 +22,7 @@ export const API = [
     image: CarImage,
     video: CarVid,
     scene: <LazyCarScene />,
+    preload: LazyCarScene.preload,
   },
   {
     title: "Skateboard Configurator",
@@ -30,6 +31,7 @@ export const API = [
     image: SkateboardImage,
     video: SkateboardVideo,
     scene: <LazySkateboardScene />,
+    preload: LazySkateboardScene.preload,
   },
   {
     title: "Netflix Design Concept",
@@ -38,6 +40,7 @@ export const API = [
     image: NetflixImage,
     video: NetflixVideo,
     scene: <LazyNetflixScene />,
+    preload: LazyNetflixScene.preload,
   },
   {
     title: "WebGL Ripples",
@@ -53,5 +56,6 @@ export const API = [
     image: MagazineImage,
     video: MagazineVideo,
     scene: <LazyMagazineScene />,
+    preload: LazyMagazineScene.preload,
   },
 ] as const;

@@ -13,8 +13,8 @@ import "./styles.scss";
 
 export default memo(
   function LabsPage(_: PropLess) {
-    const active = useLabs(ready);
     useMenuButtonDelay();
+    const active = useLabs(ready);
 
     useUnmount(() => {
       Labs.destroy();
