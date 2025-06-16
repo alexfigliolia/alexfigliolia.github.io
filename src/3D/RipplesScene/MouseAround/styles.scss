@@ -1,0 +1,55 @@
+@use "Styles/variables";
+
+.mouse-around {
+	@include variables.center;
+
+	flex-direction: column;
+
+	// @media #{variables.$mq-957} {
+	// 	margin-top: -6%;
+	// }
+
+	&>h1 {
+		@include variables.center;
+
+		font-size: 25vw;
+		@include variables.textRotation;
+		margin: -0.2em 0;
+
+		@media #{variables.$mq-670} {
+			font-size: 20vw;
+		}
+
+		@media #{variables.$mq-890} {
+			font-size: 17.5vw;
+		}
+
+		@media #{variables.$mq-1150} {
+			font-size: min(16vw, 230px);
+		}
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		&>.text-letter {
+			@include variables.splitLetterHiddenState;
+		}
+	}
+}
+
+.mouse-around.loaded > #mouse > .text-letter {
+	@include variables.splitTextStagger(5, 550ms);
+}
+
+.mouse-around.loaded > #around > .text-letter {
+	@include variables.splitTextStagger(6, 550ms);
+}
+
+.mouse-around.loaded > h1 > .text-letter {
+	@include variables.splitLetterVisibleState;
+}

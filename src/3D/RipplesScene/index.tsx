@@ -3,6 +3,7 @@ import { FullScreen } from "Components/FullScreen";
 import { useRipples } from "Hooks/useRipples";
 import { Labs } from "State/Labs";
 import { PropLess } from "Tools/Types";
+import { MouseAround } from "./MouseAround";
 import "./styles.scss";
 
 export const RipplesScene = (_: PropLess) => {
@@ -12,5 +13,9 @@ export const RipplesScene = (_: PropLess) => {
     Labs.onLoad();
   }, []);
 
-  return <FullScreen className="ripples-scene" ref={ref} />;
+  return (
+    <FullScreen className="ripples-scene" ref={ref}>
+      <MouseAround />
+    </FullScreen>
+  );
 };
