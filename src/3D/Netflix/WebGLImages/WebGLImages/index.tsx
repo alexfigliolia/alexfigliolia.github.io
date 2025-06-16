@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { LoadDetector } from "3D/LoadDetector";
+import { useLabsLoader } from "Hooks/useLabsLoader";
 import { OptionalChildren } from "Tools/Types";
 import { WebGLImagesContextProvider } from "../Context";
 import { BackButton } from "./BackButton";
@@ -11,6 +11,7 @@ import { WebGLTransitionRenderer } from "./WebGLTransitionRenderer";
 import "./styles.scss";
 
 export const WebGLImages = ({ children }: OptionalChildren) => {
+  useLabsLoader();
   return (
     <WebGLImagesContextProvider root="#netflixGLTarget">
       {children}
@@ -20,7 +21,6 @@ export const WebGLImages = ({ children }: OptionalChildren) => {
           linear
           style={{ pointerEvents: "none" }}
           gl={{ antialias: true, alpha: true }}>
-          <LoadDetector />
           <Suspense>
             <Camera />
             <WebGLImageRenderer />
