@@ -31,3 +31,5 @@ export const useGripTape = () => {
     return material;
   }, [gripTapeDiffuse, gripTapeRoughness]);
 };
+
+useTexture.preload([GripTapDiffuse, GripTapeRoughness]);

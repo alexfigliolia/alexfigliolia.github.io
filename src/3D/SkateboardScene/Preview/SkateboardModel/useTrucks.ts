@@ -21,3 +21,5 @@ export const useTrucks = (color = "#555") => {
     [color, metalNormal],
   );
 };
+
+useTexture.preload(MetalNormal);

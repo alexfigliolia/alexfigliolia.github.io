@@ -33,3 +33,5 @@ export const Floor = (_: PropLess) => {
     </mesh>
   );
 };
+
+useTexture.preload(ConcreteNormal);

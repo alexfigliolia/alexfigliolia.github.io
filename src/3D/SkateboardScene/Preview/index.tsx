@@ -1,7 +1,12 @@
 import gsap from "gsap";
 import { Fragment, Suspense, useCallback, useEffect, useRef } from "react";
 import { Mesh } from "three";
-import { CameraControls, Environment, Preload } from "@react-three/drei";
+import {
+  CameraControls,
+  Environment,
+  Preload,
+  useTexture,
+} from "@react-three/drei";
 import { useLabsLoader } from "Hooks/useLabsLoader";
 import { PropLess } from "Tools/Types";
 import { useCustomizer } from "../CustomizerContext";
@@ -94,3 +99,5 @@ export function PreviewCanvas(_: PropLess) {
     </Fragment>
   );
 }
+
+useTexture.preload(SkateboardOptions.bitmapTextures);

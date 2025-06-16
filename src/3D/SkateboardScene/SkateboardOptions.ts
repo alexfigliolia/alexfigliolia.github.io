@@ -60,4 +60,8 @@ export class SkateboardOptions {
     WheelRed,
     WheelYellow,
   ];
+
+  public static get bitmapTextures() {
+    return [...this.DECKS, ...this.WHEELS];
+  }
 }
