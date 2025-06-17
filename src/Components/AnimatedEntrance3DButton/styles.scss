@@ -1,6 +1,6 @@
 @use "Styles/variables";
 
-.cta-button > .outline-button {
+.animated-entrance-3d-button > .outline-button {
   pointer-events: none;
   color: transparent;
   text-shadow: none;
@@ -42,7 +42,7 @@
   }
 }
 
-.cta-button.active > .outline-button {
+.animated-entrance-3d-button.active > .outline-button {
 	color: #fff;
 	text-shadow: 0 0.1em 0.2em rgba(#000, 0.75), 0 0 0.15em rgba(#000, 0.5);
 
@@ -65,7 +65,7 @@
 	}
 }
 
-.cta-button.active.reset > .outline-button {
+.animated-entrance-3d-button.active.reset > .outline-button {
 	pointer-events: auto;
 	transition: transform 0.5s 0s, box-shadow 0.5s 0s, color 0.3s 0.1s, text-shadow 0.3s 0.1s;
 

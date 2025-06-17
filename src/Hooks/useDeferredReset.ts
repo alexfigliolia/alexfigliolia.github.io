@@ -4,12 +4,13 @@ import { TaskQueue } from "Tools/TaskQueue";
 export const useDeferredReset = (
   active: boolean,
   setReset: (reset: boolean) => void,
+  delay = 3100,
 ) => {
   useEffect(() => {
     if (active) {
       TaskQueue.deferTask(() => {
         setReset(true);
-      }, 3100);
+      }, delay);
     }
-  }, [active, setReset]);
+  }, [active, setReset, delay]);
 };

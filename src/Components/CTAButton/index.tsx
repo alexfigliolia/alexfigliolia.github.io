@@ -1,26 +1,26 @@
 import { memo, useState } from "react";
-import { useClassNames } from "@figliolia/classnames";
-import { Button3D } from "Components/Button3D";
+import { AnimatedEntrance3DButton } from "Components/AnimatedEntrance3DButton";
 import { useDeferredReset } from "Hooks/useDeferredReset";
 import { isPageActive, usePageController } from "State/PageController";
-import "./styles.scss";
 
 export const CTAButton = memo(function CTAButton({
   text,
   onClick,
   className,
 }: Props) {
-  const active = usePageController(isPageActive);
   const [reset, setReset] = useState(false);
+  const active = usePageController(isPageActive);
 
   useDeferredReset(active, setReset);
 
-  const classes = useClassNames("cta-button", className, { active, reset });
-
   return (
-    <div className={classes}>
-      <Button3D text={text} onClick={onClick} />
-    </div>
+    <AnimatedEntrance3DButton
+      text={text}
+      reset={reset}
+      active={active}
+      onClick={onClick}
+      className={className}
+    />
   );
 });
 
