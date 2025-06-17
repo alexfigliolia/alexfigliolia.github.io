@@ -1,2 +1,0 @@
-import{r as s,j as e}from"./threeFiber-wgP-k_4X.js";import{T as t,a,i as o,u as r}from"./index-vnxVQw40.js";import{B as i}from"./index-zGxtN3Ba.js";const c=s.memo((function({text:c,onClick:n,className:m}){const f=a(o),[x,j]=s.useState(!1);((e,a)=>{s.useEffect((()=>{e&&t.deferTask((()=>{a(!0)}),3100)}),[e,a])})(f,j);const u=r("cta-button",m,{active:f,reset:x});return e.jsx("div",{className:u,children:e.jsx(i,{text:c,onClick:n})})}));export{c as C};
-//# sourceMappingURL=index-Njn_kRAY.js.map
