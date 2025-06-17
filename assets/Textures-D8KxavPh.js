@@ -1,2 +1,0 @@
-var e=Object.defineProperty,a=(a,r,t)=>(((a,r,t)=>{r in a?e(a,r,{enumerable:!0,configurable:!0,writable:!0,value:t}):a[r]=t})(a,"symbol"!=typeof r?r+"":r,t),t);import{ay as r,b3 as t}from"./three-71H3Suoo.js";const s=class{static chainable(e){return(...a)=>(e(...a),this)}};a(s,"wrap",s.chainable((e=>{e.wrapS=r,e.wrapT=r}))),a(s,"repeat",s.chainable(((e,a)=>{e.repeat.set(a,a),e.offset.set(0,0)}))),a(s,"colorless",s.chainable((e=>{e.colorSpace=t}))),a(s,"rerender",s.chainable((e=>{e.needsUpdate=!0})));let l=s;export{l as T};
-//# sourceMappingURL=Textures-D8KxavPh.js.map
