@@ -20,48 +20,54 @@ import WheelYellow from "./Resources/skateboard/wheel-yellow.webp";
 import YellowAndBlack from "./Resources/skateboard/yellow-and-black.webp";
 
 export class SkateboardOptions {
-  public static readonly METALS = [
-    "#333",
-    "#6F6E6A",
-    "#34495E",
-    "#DEB887",
-    "#eee",
-    "#E84118",
-    "#068BD3",
-    "#A6E22E",
-    "#F1C40F",
-    "#8E44AD",
-    "#BA3763",
-    "#F1396E",
-  ];
+  public static readonly METALS: Record<string, string> = {
+    Black: "#333",
+    Gray: "#6F6E6A",
+    Navy: "#34495E",
+    Cream: "#DEB887",
+    White: "#eee",
+    Red: "#E84118",
+    Blue: "#068BD3",
+    Green: "#A6E22E",
+    Yellow: "#F1C40F",
+    Purple: "#8E44AD",
+    Magenta: "#BA3763",
+    Pink: "#F1396E",
+  };
 
-  public static readonly DECKS = [
-    OniMask,
-    PinkSwirl,
-    RedAndBlack,
-    AgainstTheTide,
-    ThankYou,
-    YellowAndBlack,
-    RedAndWhite,
-    BlackAndYellow,
-    GreenAndNavy,
-    GrayAndBlack,
-    GridStreaks,
-  ];
+  public static readonly METAL_OPTIONS = Object.keys(this.METALS);
 
-  public static readonly WHEELS = [
-    WheelBlack,
-    WheelBlue,
-    WheelCream,
-    WheelGreen,
-    WheelNavy,
-    WheelPink,
-    WheelPurple,
-    WheelRed,
-    WheelYellow,
-  ];
+  public static readonly DECKS: Record<string, string> = {
+    "Oni Mask": OniMask,
+    "Pink Swirl": PinkSwirl,
+    "Red And Black": RedAndBlack,
+    "Against The Tide": AgainstTheTide,
+    "Thank You": ThankYou,
+    "Yellow And Black": YellowAndBlack,
+    "Red And White": RedAndWhite,
+    "Black And Yellow": BlackAndYellow,
+    "Green And Navy": GreenAndNavy,
+    "Gray And Black": GrayAndBlack,
+    "Grid Streaks": GridStreaks,
+  };
+
+  public static readonly DECK_OPTIONS = Object.keys(this.DECKS);
+
+  public static readonly WHEELS: Record<string, string> = {
+    Black: WheelBlack,
+    Blue: WheelBlue,
+    Cream: WheelCream,
+    Green: WheelGreen,
+    Navy: WheelNavy,
+    Pink: WheelPink,
+    Purple: WheelPurple,
+    Red: WheelRed,
+    Yellow: WheelYellow,
+  };
+
+  public static readonly WHEEL_OPTIONS = Object.keys(this.WHEELS);
 
   public static get bitmapTextures() {
-    return [...this.DECKS, ...this.WHEELS];
+    return [...Object.values(this.DECKS), ...Object.values(this.WHEELS)];
   }
 }

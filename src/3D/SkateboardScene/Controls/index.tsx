@@ -18,11 +18,14 @@ export const Controls = (_: PropLess) => {
 
   return (
     <div className="controls">
-      <Options title="Deck" selectedName={deck}>
-        {SkateboardOptions.DECKS.map(option => (
+      <Options
+        title="Deck"
+        selectedName={deck ?? SkateboardOptions.DECK_OPTIONS[0]}>
+        {SkateboardOptions.DECK_OPTIONS.map(option => (
           <Option
             key={option}
-            imageField={option}
+            name={option}
+            imageField={SkateboardOptions.DECKS[option]}
             onClick={updateDeck}
             imageStyles={{
               width: "500%",
@@ -31,15 +34,18 @@ export const Controls = (_: PropLess) => {
               objectFit: "cover",
             }}
             selected={option === deck}>
-            {option.replace(/-/g, " ")}
+            {option}
           </Option>
         ))}
       </Options>
-      <Options title="Wheels" selectedName={wheel}>
-        {SkateboardOptions.WHEELS.map(option => (
+      <Options
+        title="Wheels"
+        selectedName={wheel ?? SkateboardOptions.WHEEL_OPTIONS[0]}>
+        {SkateboardOptions.WHEEL_OPTIONS.map(option => (
           <Option
             key={option}
-            imageField={option}
+            name={option}
+            imageField={SkateboardOptions.WHEELS[option]}
             onClick={updateWheels}
             imageStyles={{
               width: "125%",
@@ -48,29 +54,35 @@ export const Controls = (_: PropLess) => {
               objectFit: "cover",
             }}
             selected={option === wheel}>
-            {option.replace(/-/g, " ")}
+            {option}
           </Option>
         ))}
       </Options>
-      <Options title="Trucks" selectedName={truck}>
-        {SkateboardOptions.METALS.map(option => (
+      <Options
+        title="Trucks"
+        selectedName={truck ?? SkateboardOptions.METAL_OPTIONS[0]}>
+        {SkateboardOptions.METAL_OPTIONS.map(option => (
           <Option
             key={option}
-            colorField={option}
+            name={option}
+            colorField={SkateboardOptions.METALS[option]}
             onClick={updateTrucks}
             selected={option === truck}>
-            {option.replace(/-/g, " ")}
+            {option}
           </Option>
         ))}
       </Options>
-      <Options title="Bolts" selectedName={bolt}>
-        {SkateboardOptions.METALS.map(option => (
+      <Options
+        title="Bolts"
+        selectedName={bolt ?? SkateboardOptions.METAL_OPTIONS[0]}>
+        {SkateboardOptions.METAL_OPTIONS.map(option => (
           <Option
             key={option}
-            colorField={option}
+            name={option}
+            colorField={SkateboardOptions.METALS[option]}
             onClick={updateBolts}
             selected={option === bolt}>
-            {option.replace(/-/g, " ")}
+            {option}
           </Option>
         ))}
       </Options>

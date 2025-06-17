@@ -4,6 +4,7 @@ import { Callback } from "Tools/Types";
 import "./styles.scss";
 
 export const Option = ({
+  name,
   selected,
   children,
   onClick,
@@ -14,8 +15,8 @@ export const Option = ({
   const classes = useClassNames("option", { selected });
 
   const onSelect = useCallback(() => {
-    onClick(colorField ?? imageField ?? "");
-  }, [onClick, colorField, imageField]);
+    onClick(name);
+  }, [onClick, name]);
 
   return (
     <li>
@@ -32,6 +33,7 @@ export const Option = ({
 };
 
 interface CommonProps {
+  name: string;
   selected: boolean;
   children: ReactNode;
   onClick: Callback<[string]>;
@@ -47,6 +49,5 @@ type Props = CommonProps &
     | {
         colorField: string;
         imageField?: never;
-        imgixParams?: never;
       }
   );

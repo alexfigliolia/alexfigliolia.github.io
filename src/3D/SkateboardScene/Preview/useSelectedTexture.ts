@@ -1,14 +1,18 @@
 import { useMemo } from "react";
 import { useSRGBTexture } from "./SkateboardModel/useSRGBTexture";
 
-export const useSelectedTexture = (options: string[], selection?: string) => {
-  const textures = useSRGBTexture(options);
+export const useSelectedTexture = (
+  options: Record<string, string>,
+  selection?: string,
+) => {
+  const textureURLs = useMemo(() => Object.values(options), [options]);
+  const textures = useSRGBTexture(textureURLs);
 
   const indices = useMemo(() => {
     const hash: Record<string, number> = {};
-    const { length } = options;
-    for (let i = 0; i < length; i++) {
-      hash[options[i]] = i;
+    let pointer = -1;
+    for (const key in options) {
+      hash[key] = ++pointer;
     }
     return hash;
   }, [options]);
