@@ -10,3 +10,6 @@ export const selectDimensions = (state: IScreen) => {
 };
 
 export const selectHeight = (state: IScreen) => state.height;
+
+export const minDimension = (state: IScreen) =>
+  Math.min(state.width, state.height);

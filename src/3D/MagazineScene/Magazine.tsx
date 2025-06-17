@@ -1,10 +1,12 @@
 import { use, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { minDimension, useScreen } from "State/Screen";
 import { MagazineContext } from "./Context";
 import { Page } from "./Page";
 import { IMagazineProps } from "./types";
 
 export const Magazine = ({ images }: IMagazineProps) => {
   const { current } = use(MagazineContext);
+  const dimension = useScreen(minDimension);
   const [deferredPage, setDeferredPage] = useState(current);
   const length = useMemo(() => images.length, [images.length]);
   const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -36,8 +38,14 @@ export const Magazine = ({ images }: IMagazineProps) => {
     };
   }, [current, goToPage]);
 
+  const scale = useMemo(() => (dimension < 670 ? 0.7 : 1), [dimension]);
+
   return (
-    <group rotation-y={-Math.PI / 2} receiveShadow>
+    <group
+      receiveShadow
+      castShadow
+      rotation-y={-Math.PI / 2}
+      scale={[scale, scale, scale]}>
       {images.map((image, index) => (
         <Page
           key={index}

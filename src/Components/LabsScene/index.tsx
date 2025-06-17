@@ -5,7 +5,7 @@ import { OptionalChildren } from "Tools/Types";
 
 export const LabsScene = ({ children }: OptionalChildren) => {
   return (
-    <Canvas gl={{ antialias: true, alpha: true }}>
+    <Canvas shadows gl={{ antialias: true, alpha: true }}>
       <Labs3DElements>{children}</Labs3DElements>
     </Canvas>
   );

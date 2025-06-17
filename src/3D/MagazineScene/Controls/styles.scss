@@ -21,6 +21,10 @@
     transform: skewX(-5deg);
     position: relative;
     overflow: hidden;
+    font-size: 0.9em;
+    @media(min-width: 670px) {
+      font-size: 1.05em;
+    }
     &::after {
       content: attr(data-text);
       top: 0;

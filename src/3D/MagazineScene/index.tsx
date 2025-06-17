@@ -2,6 +2,7 @@ import { Float, OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { FullScreen } from "Components/FullScreen";
 import { LabsScene } from "Components/LabsScene";
 import ATLSmall from "Images/atl-small.jpg";
+import BackgroundSmall from "Images/background-small.webp";
 import CartaSmall from "Images/carta-small.jpg";
 import GnocciSmall from "Images/gnocchi-small.jpg";
 import OpenSourceSmall from "Images/openSource-small.webp";
@@ -24,7 +25,7 @@ const IMAGES = compileImages([
   RepublicSmall,
   GnocciSmall,
   WordCloudsSmall,
-  WordCloudsSmall,
+  BackgroundSmall,
 ]);
 
 export const MagazineScene = (_: PropLess) => {
@@ -42,11 +43,11 @@ export const MagazineScene = (_: PropLess) => {
             minPolarAngle={Math.PI / 6}
             maxPolarAngle={Math.PI - Math.PI / 6}
           />
-          <ambientLight castShadow intensity={2.5} />
+          <ambientLight intensity={2.5} />
           <PerspectiveCamera
             makeDefault
-            fov={30}
-            zoom={2}
+            fov={20}
+            zoom={1.5}
             position={[0, -8, 8]}
           />
           <spotLight
@@ -54,9 +55,9 @@ export const MagazineScene = (_: PropLess) => {
             color={[1, 1, 1]}
             intensity={1.5}
             angle={0.6}
-            decay={0}
+            decay={0.1}
             penumbra={0.1}
-            position={[5, 5, 0]}
+            position={[0, -5, 20]}
             shadow-bias={-0.0001}
           />
         </LabsScene>
