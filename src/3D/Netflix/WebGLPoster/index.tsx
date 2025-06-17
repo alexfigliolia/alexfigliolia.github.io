@@ -87,11 +87,20 @@ export const WebGLPoster = (props: IPoster) => {
     [pointerEmitter],
   );
 
-  const onClick = useCallback(() => {
-    if (imageID) {
-      controller.activateImage(imageID);
-    }
-  }, [imageID, controller]);
+  const clickPointerEvent = useMemo(
+    () => pointerEmitter("activation"),
+    [pointerEmitter],
+  );
+
+  const onClick = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      if (imageID) {
+        controller.activateImage(imageID);
+        clickPointerEvent(e);
+      }
+    },
+    [imageID, controller, clickPointerEvent],
+  );
 
   return (
     <Poster

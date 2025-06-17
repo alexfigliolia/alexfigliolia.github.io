@@ -8,23 +8,37 @@ export class GeometryController extends Geometry<
   WaveImageMesh,
   IWaveShaderMaterial
 > {
+  private active = false;
+  public resize() {
+    if (!this.active) {
+      return;
+    }
+    this.withMesh(mesh => {
+      const { x, y } = this.getTargetScale();
+      mesh.scale.set(x, y, mesh.scale.z);
+      mesh.position.set(0, 0, 1);
+    });
+  }
+
+  public fadeNoise() {
+    this.withMaterial(material => {
+      gsap.to(material.uniforms.uHoverState, {
+        value: 0,
+        duration: 1,
+        delay: 0.5,
+      });
+    });
+  }
+
   public activate(positionX = 0) {
     this.withMesh(mesh => {
-      const { x, y } = mesh.scale;
-      let xSize: number;
-      let ySize: number;
-      if (window.innerWidth < window.innerHeight) {
-        xSize = window.innerWidth;
-        ySize = (xSize * y) / x;
-      } else {
-        ySize = window.innerHeight;
-        xSize = (ySize * x) / y;
-      }
+      this.active = true;
+      const { x, y } = this.getTargetScale();
       gsap
         .timeline()
         .to(mesh.scale, {
-          y: ySize,
-          x: xSize,
+          y,
+          x,
           duration: 1,
           ease: "power2.inOut",
         })
@@ -65,6 +79,7 @@ export class GeometryController extends Geometry<
     onTransitionComplete,
   }: IOriginalPosition) {
     this.withMesh(mesh => {
+      this.active = false;
       gsap
         .timeline({
           // @ts-ignore
@@ -110,6 +125,23 @@ export class GeometryController extends Geometry<
     return degToRad(
       (50 * positionX) / (window.innerWidth / (2 * (forward ? -1 : 1))),
     );
+  }
+
+  private getTargetScale() {
+    const dimensions = this.withMesh(mesh => {
+      const { x, y } = mesh.scale;
+      let xSize: number;
+      let ySize: number;
+      if (window.innerWidth < window.innerHeight) {
+        xSize = window.innerWidth;
+        ySize = (xSize * y) / x;
+      } else {
+        ySize = window.innerHeight;
+        xSize = (ySize * x) / y;
+      }
+      return { x: xSize, y: ySize };
+    });
+    return dimensions ?? { x: 0, y: 0 };
   }
 }
 

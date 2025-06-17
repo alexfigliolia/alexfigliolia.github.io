@@ -1,7 +1,10 @@
 import { use, useEffect, useRef } from "react";
+import { Vector2 } from "three";
 import { useController } from "@figliolia/react-hooks";
 import { GLWaveImage } from "3D/Netflix/GLWaveImage";
 import { WebGLImagesContext } from "3D/Netflix/WebGLImages/Context";
+import { selectDimensions, useScreen } from "State/Screen";
+import { Point } from "Tools/Types";
 import type { Props as WebGLImageProps } from "../index";
 import { GeometryController } from "./Geometry";
 
@@ -12,11 +15,26 @@ export const WebGLTransitionElement = ({
   height,
   activating,
   deactivating,
+  mouseCoordinates,
   ...rest
 }: Props) => {
   const controller = use(WebGLImagesContext);
   const geometry = useController(new GeometryController());
   const cachedImage = useRef(controller.getImageData(ID));
+  const [screenWidth, screenHeight] = useScreen(selectDimensions);
+
+  useEffect(() => {
+    geometry.resize();
+  }, [screenWidth, screenHeight, geometry]);
+
+  useEffect(() => {
+    geometry.withMaterial(material => {
+      const { x, y } = mouseCoordinates;
+      material.uniforms.uHoverState.value = 1;
+      material.uniforms.uMouseCoordinates.value = new Vector2(x, y);
+    });
+    geometry.fadeNoise();
+  }, [mouseCoordinates, geometry]);
 
   useEffect(() => {
     const { x, y } = cachedImage.current?.mesh?.position ?? { x: 0, y: 0 };
@@ -55,4 +73,5 @@ export const WebGLTransitionElement = ({
 interface Props extends Omit<WebGLImageProps, "active"> {
   activating: boolean;
   deactivating: boolean;
+  mouseCoordinates: Point;
 }

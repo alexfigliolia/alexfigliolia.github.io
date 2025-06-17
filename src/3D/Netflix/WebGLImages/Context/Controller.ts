@@ -159,12 +159,6 @@ export class WebGLImagesController {
     if (this.activeImage) {
       this.deactivatingImage = this.activeImage;
     }
-    if (image) {
-      this.emitEvent(image, {
-        type: "activation",
-        position: { x: 0, y: 0 },
-      });
-    }
     this.activeImage = image;
     this.debounceImageEmission();
   }

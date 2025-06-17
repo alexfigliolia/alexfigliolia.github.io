@@ -1,6 +1,11 @@
-import { ForwardedRef, forwardRef, HTMLProps, useMemo } from "react";
+import {
+  ForwardedRef,
+  forwardRef,
+  HTMLProps,
+  MouseEventHandler,
+  useMemo,
+} from "react";
 import { classnames } from "@figliolia/classnames";
-import { Callback } from "Tools/Types";
 import "./styles.scss";
 
 export const Poster = forwardRef(function Poster(
@@ -21,8 +26,9 @@ export const Poster = forwardRef(function Poster(
   );
 });
 
-export interface IPoster extends Omit<HTMLProps<HTMLDivElement>, "id" | "ref"> {
+export interface IPoster
+  extends Omit<HTMLProps<HTMLDivElement>, "id" | "ref" | "onClick"> {
   className?: string;
   posterURL: string;
-  onClick?: Callback;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
