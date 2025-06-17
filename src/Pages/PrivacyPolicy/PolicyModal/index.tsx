@@ -37,7 +37,7 @@ export const PolicyModal = memo(
     const classes = useClassNames("policy-modal", { open });
 
     return (
-      <dialog onClick={hide} className={classes}>
+      <dialog aria-modal aria-hidden={!open} onClick={hide} className={classes}>
         <article ref={content}>
           <div>
             <h2>Privacy Policy</h2>
