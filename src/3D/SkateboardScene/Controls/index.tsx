@@ -1,3 +1,4 @@
+import { CSSProperties, useMemo } from "react";
 import { PropLess } from "Tools/Types";
 import { useCustomizer } from "../CustomizerContext";
 import { SkateboardOptions } from "../SkateboardOptions";
@@ -16,51 +17,55 @@ export const Controls = (_: PropLess) => {
     updateWheels,
   } = useCustomizer();
 
+  const deckDimensions: CSSProperties = useMemo(
+    () => ({
+      width: "500%",
+      height: "500%",
+      translate: "20% -0%",
+      objectFit: "cover",
+    }),
+    [],
+  );
+
+  const wheelDimensions: CSSProperties = useMemo(
+    () => ({
+      width: "125%",
+      height: "125%",
+      translate: "6% 8%",
+      objectFit: "cover",
+    }),
+    [],
+  );
+
   return (
     <div className="controls">
-      <Options
-        title="Deck"
-        selectedName={deck ?? SkateboardOptions.DECK_OPTIONS[0]}>
+      <Options title="Deck" selectedName={deck}>
         {SkateboardOptions.DECK_OPTIONS.map(option => (
           <Option
             key={option}
             name={option}
             imageField={SkateboardOptions.DECKS[option]}
             onClick={updateDeck}
-            imageStyles={{
-              width: "500%",
-              height: "500%",
-              translate: "20% -0%",
-              objectFit: "cover",
-            }}
+            imageStyles={deckDimensions}
             selected={option === deck}>
             {option}
           </Option>
         ))}
       </Options>
-      <Options
-        title="Wheels"
-        selectedName={wheel ?? SkateboardOptions.WHEEL_OPTIONS[0]}>
+      <Options title="Wheels" selectedName={wheel}>
         {SkateboardOptions.WHEEL_OPTIONS.map(option => (
           <Option
             key={option}
             name={option}
             imageField={SkateboardOptions.WHEELS[option]}
             onClick={updateWheels}
-            imageStyles={{
-              width: "125%",
-              height: "125%",
-              translate: "6% 8%",
-              objectFit: "cover",
-            }}
+            imageStyles={wheelDimensions}
             selected={option === wheel}>
             {option}
           </Option>
         ))}
       </Options>
-      <Options
-        title="Trucks"
-        selectedName={truck ?? SkateboardOptions.METAL_OPTIONS[0]}>
+      <Options title="Trucks" selectedName={truck}>
         {SkateboardOptions.METAL_OPTIONS.map(option => (
           <Option
             key={option}
@@ -72,9 +77,7 @@ export const Controls = (_: PropLess) => {
           </Option>
         ))}
       </Options>
-      <Options
-        title="Bolts"
-        selectedName={bolt ?? SkateboardOptions.METAL_OPTIONS[0]}>
+      <Options title="Bolts" selectedName={bolt}>
         {SkateboardOptions.METAL_OPTIONS.map(option => (
           <Option
             key={option}

@@ -16,13 +16,13 @@ import { SkateboardOptions } from "./SkateboardOptions";
 import { useCameraControls } from "./useCameraControls";
 
 const CustomizerContext = createContext<ICustomizerContext>({
-  wheel: SkateboardOptions.WHEELS[0],
+  wheel: SkateboardOptions.WHEEL_OPTIONS[0],
   updateWheels: () => {},
-  deck: SkateboardOptions.DECKS[0],
+  deck: SkateboardOptions.DECK_OPTIONS[0],
   updateDeck: () => {},
-  truck: SkateboardOptions.METALS[0],
+  truck: SkateboardOptions.METAL_OPTIONS[0],
   updateTrucks: () => {},
-  bolt: SkateboardOptions.METALS[0],
+  bolt: SkateboardOptions.METAL_OPTIONS[0],
   updateBolts: () => {},
   lookAtDeck: () => {},
   camera: createRef(),
@@ -42,10 +42,10 @@ interface ICustomizerContext {
 }
 
 export const CustomizerContextProvider = ({ children }: OptionalChildren) => {
-  const [wheel, setWheel] = useState(SkateboardOptions.WHEELS[0]);
-  const [bolt, setBolt] = useState(SkateboardOptions.METALS[0]);
-  const [deck, setDeck] = useState(SkateboardOptions.DECKS[0]);
-  const [truck, setTruck] = useState(SkateboardOptions.METALS[0]);
+  const [wheel, setWheel] = useState(SkateboardOptions.WHEEL_OPTIONS[0]);
+  const [bolt, setBolt] = useState(SkateboardOptions.METAL_OPTIONS[0]);
+  const [deck, setDeck] = useState(SkateboardOptions.DECK_OPTIONS[0]);
+  const [truck, setTruck] = useState(SkateboardOptions.METAL_OPTIONS[0]);
   const { camera, lookAtBolts, lookAtTruck, lookAtWheel, lookAtDeck } =
     useCameraControls();
 

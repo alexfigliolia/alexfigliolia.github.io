@@ -37,7 +37,6 @@ interface CommonProps {
   selected: boolean;
   children: ReactNode;
   onClick: Callback<[string]>;
-  imageStyles?: CSSProperties;
 }
 
 type Props = CommonProps &
@@ -45,9 +44,11 @@ type Props = CommonProps &
     | {
         colorField?: never;
         imageField: string;
+        imageStyles?: CSSProperties;
       }
     | {
         colorField: string;
         imageField?: never;
+        imageStyles?: never;
       }
   );
