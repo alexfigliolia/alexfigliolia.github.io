@@ -60,6 +60,7 @@ export const Experiment = ({
       onTouchStart={mouseOverPreloader}>
       <div className="e-loader" aria-hidden={!loadingScene}>
         <CircleLoader />
+        <SplitHeading text="loading" />
       </div>
       <div className="media">
         <video ref={videoNode} loop playsInline autoPlay muted src={video} />

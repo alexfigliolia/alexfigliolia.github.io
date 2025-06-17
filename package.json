@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "start": "vite",
     "test": "tsx ci/commands/Test.ts",
-    "create-package": "tsx devtools/create-package/CLI.ts"
+    "create-package": "tsx devtools/create-package/CLI.ts",
+    "optimize-model": "tsx devtools/optimize-model/CLI.ts"
   },
   "dependencies": {
     "@figliolia/classnames": "^1.0.1",
@@ -37,6 +38,7 @@
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.26.0",
     "@figliolia/child-process": "^1.0.4",
+    "@gltf-transform/cli": "^4.2.0",
     "@react-three/eslint-plugin": "^0.1.2",
     "@types/jest": "^29.5.10",
     "@types/lodash.debounce": "^4.0.9",

@@ -30,6 +30,13 @@
       visibility: hidden;
       transition: opacity 0.5s 0s, scale 0.5s 0s, visibility 0s 0.5s;
     }
+    &>.split-text {
+      @include variables.textRotation;
+      &>.text-letter {
+        @include variables.splitLetterHiddenState;
+        @include variables.splitTextStaggerReversal(7, 0ms);
+      }
+    }
   }
   &>.media {
     height: 200px;
@@ -87,6 +94,12 @@
         scale: 1.5;
         visibility: visible;
         transition: opacity 0.5s 0s, scale 0.5s 0s, visibility 0s 0s;
+      }
+      &>.split-text {
+        &>.text-letter {
+          @include variables.splitLetterVisibleState;
+          @include variables.splitTextStagger(7, 350ms);
+        }
       }
     }
   }

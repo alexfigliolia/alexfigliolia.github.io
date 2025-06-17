@@ -32,6 +32,7 @@ export const Scene = (_: PropLess) => {
         minDistance={5}
         maxDistance={50}
       />
+      <axesHelper />
       <PerspectiveCamera makeDefault fov={50} position={[3, 2, 5]} />
       <color args={[0, 0, 0]} attach="background" />
       <spotLight
