@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .circle-loader {
     --path: #fff;
     --dot: #fff;
@@ -29,7 +31,7 @@
             stroke-width: 10px;
             stroke-linejoin: round;
             stroke-linecap: round;
-            stroke-dasharray: (200 / 4 * 3) (200 / 4) (200 / 4 * 3) (200 / 4);
+            stroke-dasharray: math.div(200, 4) * 3 math.div(200, 4) math.div(200, 4) * 3 math.div(200, 4);
             stroke-dashoffset: 75;
             animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
         }

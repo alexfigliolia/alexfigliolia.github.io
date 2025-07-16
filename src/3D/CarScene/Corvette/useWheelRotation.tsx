@@ -33,7 +33,6 @@ export const useWheelRotation = (scene: Group, scale = 110) => {
         wheels.push(mesh);
       }
     });
-    console.log(wheels);
     wheelMeshes.current = wheels;
   }, [scene]);
 
