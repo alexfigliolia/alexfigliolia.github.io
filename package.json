@@ -18,7 +18,7 @@
     "@figliolia/frame-pooler": "^1.1.3",
     "@figliolia/galena": "^2.3.5",
     "@figliolia/galena-window": "^1.0.1",
-    "@figliolia/page-switch": "^1.0.8",
+    "@figliolia/page-switch": "^1.1.0",
     "@figliolia/promises": "^1.0.1",
     "@figliolia/react-galena": "^3.2.4",
     "@figliolia/react-hooks": "^1.4.0",
